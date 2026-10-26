@@ -23,3 +23,7 @@ Read [docs/website-direction.md](docs/website-direction.md) for the planned Cosm
 Run `npm run check`, `npm test`, and `npm run test:browser` after relevant changes. Check desktop/mobile presentation, keyboard focus, semantic labels, image loading/cropping, navigation, and hydration. No live enquiries or orders during tests; the contact-provider response is simulated.
 
 Use `npm run capture:portfolio` only to deliberately refresh approved visual references after review. Never refresh screenshot baselines simply to conceal a regression. Do not claim that static capture, simulated form delivery, or noindex metadata provides backend functionality, live delivery, or access control.
+
+## GitHub Pages review preview
+
+Read [docs/github-preview.md](docs/github-preview.md) before changing the export. The Pages artifact is a separate read-only build, not the regular Node application. Preserve the repository URL prefix, original capture integrity, disabled enquiry/booking actions, and preview label. Run `npm run preview:build` and `npm run test:preview` after relevant changes. Add new authored routes to the exporter deliberately; never assume a Node-only route is automatically published.

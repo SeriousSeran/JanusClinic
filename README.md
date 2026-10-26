@@ -16,6 +16,12 @@ To deliberately refresh approved cover screenshots while the site is running, us
 
 The [current website brief](docs/website-direction.md) records the planned Cosmetic / Salon / Wellness gateway and Sri Lankan model imagery. The supplied salon menu has been transcribed into [structured draft data](content/salon/catalog.draft.json), with [a readable review copy](docs/salon-catalog-review.md). The owner confirmed current LKR prices, retained only the LKR 6,800 root-touching option, and placed massage/body care under Salon for now. There are 123 active services; flagged names and contact details still need review.
 
+## Online design preview
+
+A read-only GitHub Pages preview is built by `.github/workflows/preview.yml` on pushes to `main`. It includes the original pages, portfolio and learning PDF, with forms and booking actions disabled. See [preview instructions](docs/github-preview.md) for what is included, how to verify it, and the distinction from the regular local app.
+
+Run `npm run preview:build` and `npm run test:preview` to check the static export locally.
+
 ## Run
 
 Requires Node.js 22 or newer. The website itself has no npm runtime dependencies and needs no build:

@@ -1,0 +1,13 @@
+body { padding-bottom: 64px; }
+.preview-bar { position: fixed; z-index: 10000; bottom: 0; left: 0; right: 0; display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 6px 20px; padding: 10px 16px; border-top: 1px solid #e8e0d5; color: #1a1a1a; background: #faf7f4; font: 12px/1.5 "DM Sans", sans-serif; box-shadow: 0 -2px 12px #1a1a1a0a; }
+.preview-bar strong { font-weight: 500; }
+.preview-bar a { text-decoration: underline; text-underline-offset: 3px; }
+.preview-bar [role="status"] { color: #6b6560; }
+.preview-form-note { color: #6b6560; font-size: 13px; }
+.preview-map { padding: 48px 24px; background: #f0ebe3; color: #6b6560; text-align: center; }
+.preview-answer { padding-bottom: 20px; color: #6b6560; font: 13px/1.75 "DM Sans", sans-serif; }
+.preview-answer[hidden] { display: none; }
+@media (max-width: 600px) { body { padding-bottom: 92px; } .preview-bar { gap: 4px 12px; } }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; } }
+
+main button[aria-expanded="true"] .lucide-plus path:last-child { display: none; }
