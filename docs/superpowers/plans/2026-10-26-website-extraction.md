@@ -17,20 +17,20 @@
 - Deep links, trailing slashes, and Next client navigation must reach local pages.
 - Next image queries must resolve only to local downloaded images.
 - Encoded path traversal and unsupported methods must not expose files or modify data.
-- Mobile navigation and form validation must work after hydration.
+- Mobile navigation and existing form behavior must work after hydration.
 - Missing capture files and incomplete refreshes must be detected.
 
 ### Task 1: Capture and local server
 **Files:** package.json, server.mjs, scripts/extract.py, public/**, capture-manifest.json, tests/server.test.mjs, .gitignore
 **Interfaces:** createSiteServer({root}) returns an unbound Node HTTP server; manifest.pages and manifest.assets identify paths and SHA256 digests.
-- [ ] Write real HTTP tests for page serving, image queries, 404s, traversal, HEAD, method restrictions, and client navigation fallback; run before implementation and observe failure.
-- [ ] Implement bounded same-origin extraction and save all pages, browser bundles, stylesheet font dependencies, original images, sitemap, and robots.txt. Use staged downloads and fail before publishing an incomplete capture.
-- [ ] Implement the server, npm commands, and integrity checks. Run node tests and archive checks; expect all to pass.
+- [x] Write real HTTP tests for page serving, image queries, 404s, traversal, HEAD, method restrictions, and client navigation fallback; run before implementation and observe failure.
+- [x] Implement bounded same-origin extraction and save all pages, browser bundles, stylesheet font dependencies, original images, sitemap, and robots.txt. Use staged downloads and fail before publishing an incomplete capture.
+- [x] Implement the server, npm commands, and integrity checks. Run node tests and archive checks; expect all to pass.
 
 ### Task 2: Browser verification and reusable environment
 **Files:** tests/browser.spec.mjs, playwright.config.mjs, README.md, package-lock.json
 **Interfaces:** npm start serves the captured website; npm run check validates manifest and links; npm run test:browser uses Chromium without sending enquiries.
-- [ ] Add desktop/mobile checks of page content, navigation, image loading, mobile menu, and form validation; enforce no real POSTs during tests.
-- [ ] Install pinned browser-test dependencies; run server tests, capture checks and browser checks. Inspect source/local screenshots and diagnose differences.
-- [ ] Document startup, refresh, external integrations and extraction limits. Save tested install_script/start_skill configuration and the actual repository state.
-- [ ] Obtain an independent review of the implementation, resolve material findings, and verify final state.
+- [x] Add desktop/mobile checks of page content, navigation, image loading, mobile menu, and existing form behavior; enforce no real POSTs during tests.
+- [x] Install pinned browser-test dependencies; run server tests, capture checks and browser checks. Inspect source/local screenshots and diagnose differences.
+- [x] Document startup, refresh, external integrations and extraction limits. Save tested install_script/start_skill configuration and the actual repository state.
+- [x] Obtain an independent review of the implementation, resolve material findings, and verify final state.

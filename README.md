@@ -42,7 +42,7 @@ This is rendered public HTML plus compiled browser code, **not the original edit
 
 Bookings and product orders retain their original WhatsApp destinations. Telephone, email and social links retain their original destinations. The Contact page embeds Google Maps and submits directly to the original Web3Forms endpoint; those features require visitor Internet access and working provider configuration. Live delivery has not been tested. The published page includes the provider's public form identifier; it is not a backend credential added by this project.
 
-The original contact form disables native browser validation; this extraction preserves that behavior. A successful local UI check with a simulated response does not establish live delivery or server-side validation. The original placeholder Google Analytics ID is also retained.
+The original contact form disables native browser validation; this extraction preserves that behavior. A successful local UI check with a simulated response does not establish live delivery or server-side validation. The original placeholder Google Analytics ID is also retained. The published browser bundles additionally request `/_vercel/insights/script.js`; that Vercel analytics endpoint is part of the original hosting backend and returns 404 locally. Visitor-facing content and interactions do not depend on it, and no replacement analytics collector is implemented.
 
 ## Refresh the capture
 

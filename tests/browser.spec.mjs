@@ -30,7 +30,11 @@ test('desktop content, local images, fonts and client navigation work', async ({
   await page.goto('/');
   await expect(page.getByRole('heading', { level: 1 })).toContainText('Where skin finds');
   await page.evaluate(() => document.fonts.ready);
-  await expect.poll(() => page.locator('main img').first().evaluate(img => img.complete && img.naturalWidth > 0)).toBe(true);
+  for (const image of await page.locator('main img').filter({ visible: true }).all()) {
+    await image.scrollIntoViewIfNeeded();
+    await expect.poll(() => image.evaluate(img => img.complete && img.naturalWidth > 0)).toBe(true);
+  }
+  await page.evaluate(() => window.scrollTo(0, 0));
   expect(await page.evaluate(() => document.fonts.check('400 16px "DM Sans"'))).toBe(true);
   expect(await page.evaluate(() => document.fonts.check('400 16px "Cormorant Garamond"'))).toBe(true);
   await page.screenshot({ path: testInfo.outputPath('desktop-home.png'), fullPage: true });
