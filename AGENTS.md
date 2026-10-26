@@ -6,6 +6,10 @@ Before changing a page's appearance or adding a page, read [docs/design-identity
 
 Unless the user requests a design change, preserve the original logo and photography, Cormorant Garamond / DM Sans pairing, ivory and stone surfaces, charcoal text, muted gold details, generous spacing, and restrained square-edged components. Do not introduce an unrelated visual theme. Keep clinical claims, credentials, prices and testimonials factual.
 
+## Follow the current brief
+
+Read [docs/website-direction.md](docs/website-direction.md) for the planned Cosmetic / Salon / Wellness gateway, the requested Sri Lankan model imagery, and unresolved content decisions. The original portfolio is a design baseline; its existing foreign-model imagery is not a requirement to retain those models. The supplied salon catalog is a draft in `content/salon/catalog.draft.json`; do not publish its prices or ambiguous labels before owner confirmation. Do not invent the three planned wellness tiers.
+
 ## Respect source boundaries
 
 - `public/` contains the original rendered capture and compiled Next.js browser code, not editable React source. Visible HTML edits can disagree with embedded hydration data. Use maintained source for substantial changes; do not patch minified bundles.

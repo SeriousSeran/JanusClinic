@@ -12,6 +12,10 @@ To deliberately refresh approved cover screenshots while the site is running, us
 
 [Download the learning guide](reference/portfolio/learning-guide.pdf) for the engineering, design, privacy, testing, and deployment roadmap. It explains the current capture, a beginner-friendly Lovable pilot, shared components and content, and a patient-facing launch checklist. The editable source is [docs/learning-guide.html](docs/learning-guide.html); regenerate the PDF with `npm run docs:pdf` while the local server is running. Lovable documentation was checked on 26 October 2026; feature rollout and limits may change.
 
+## Planned direction and salon catalog
+
+The [current website brief](docs/website-direction.md) records the planned Cosmetic / Salon / Wellness gateway and Sri Lankan model imagery. The supplied salon menu has been transcribed into [structured draft data](content/salon/catalog.draft.json), with [a readable review copy](docs/salon-catalog-review.md). Its 124 entries are not yet approved for publication; current prices, flagged names, contact details, and body-care placement still need confirmation.
+
 ## Run
 
 Requires Node.js 22 or newer. The website itself has no npm runtime dependencies and needs no build:
