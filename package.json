@@ -1,0 +1,17 @@
+{
+  "name": "janus-clinic-website",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Faithful local extraction of the Janus Estheti Clinique public website",
+  "engines": { "node": ">=22" },
+  "scripts": {
+    "start": "node server.mjs",
+    "dev": "node --watch server.mjs",
+    "extract": "python3 scripts/extract.py",
+    "check": "python3 scripts/check.py",
+    "test": "node --test tests/server.test.mjs",
+    "test:browser": "playwright test"
+  },
+  "devDependencies": { "@playwright/test": "1.56.1" }
+}

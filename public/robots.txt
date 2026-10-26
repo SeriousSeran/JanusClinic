@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://janusestheticlinique.com
+
+# Sitemaps
+Sitemap: https://janusestheticlinique.com/sitemap.xml
