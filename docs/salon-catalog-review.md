@@ -1,15 +1,19 @@
 # Salon catalog transcription
 
-Draft for owner review. **Not published to the website.** Prices and spelling have not been confirmed as current. Currency is provisionally LKR; the image has no effective date.
+Owner confirmed on **26 October 2026** that prices are current and in **LKR**. The active catalog contains **123 services in 11 categories** after removing the LKR 5,000 root-touching duplicate. This data is saved for the planned website; it has not been published as a salon page.
 
 Source: [supplied catalog photograph](../reference/catalogs/salon-catalog.jpg). Structured data: [catalog.draft.json](../content/salon/catalog.draft.json).
 
-## Review before publication
+## Confirmed decisions
 
-- Are these the current approved prices, are they LKR, and are taxes/fees included?
-- What distinguishes the two Root Touching (Inova) rows priced 6,800 and 5,000?
+- Prices are current and in LKR.
+- Keep only Root Touching (Inova) at **LKR 6,800**. Source row hair-020 is excluded; the original photo remains unchanged as evidence.
+- Massage and body-care services belong under **Salon for now**, with the option to change that later.
+
+## Remaining review points
+
+- Confirm whether any taxes/fees or additional pricing conditions need to be displayed.
 - Confirm flagged treatment/brand wording and the wrapped dandruff-treatment label.
-- Should body-care services and massage sit under Salon or Wellness?
 - Which address wording and booking phone number(s) are current?
 
 ## Printed pricing conditions
@@ -24,11 +28,11 @@ The photo prints “No. 30/3, Gothami Road, Borella, Colombo 08” and a readabl
 
 ## Category placement
 
-The photo lists body care under Beauty Service. Its assignment to the future Salon or Wellness section remains undecided. No wellness tiers or packages are inferred from this catalog.
+All catalog categories are assigned or proposed for Salon. The owner explicitly confirmed massage and body care under Salon for now. Category IDs remain separate from website areas so reassignment is straightforward. No wellness tiers or packages are inferred from this catalog.
 
 ## Hair service
 
-| Source ID | Service | Printed price (LKR) | Duration / review note |
+| Source ID | Service | Confirmed price (LKR) | Duration / review note |
 | --- | --- | ---: | --- |
 | hair-001 | Blow dry with hair setting – Short | 3,000 | — |
 | hair-002 | Blow dry with hair setting – Medium | 3,800 | — |
@@ -46,21 +50,20 @@ The photo lists body care under Beauty Service. Its assignment to the future Sal
 
 ## Hair colour
 
-| Source ID | Service | Printed price (LKR) | Duration / review note |
+| Source ID | Service | Confirmed price (LKR) | Duration / review note |
 | --- | --- | ---: | --- |
 | hair-014 | Full hair global colour – Short | 12,000 | — |
 | hair-015 | Full hair global colour – Medium | 19,000 | — |
 | hair-016 | Full hair global colour – Long | 22,000 | — |
 | hair-017 | Highlights in one foil | 900 | Per one foil |
 | hair-018 | Ombre hair colour | 20,000 | — |
-| hair-019 | Root touching (Inova) | 6,800 | REVIEW: Same printed name as hair-020, but different price. Confirm the variant or product distinction. |
-| hair-020 | Root touching (Inova) | 5,000 | REVIEW: Same printed name as hair-019, but different price. Confirm the variant or product distinction. |
+| hair-019 | Root touching (Inova) | 6,800 | — |
 | hair-021 | Balayage hair colour | 28,000 | — |
 | hair-022 | Pre-lightening in one foil | 1,200 | Per one foil |
 
 ## Hair treatment services
 
-| Source ID | Service | Printed price (LKR) | Duration / review note |
+| Source ID | Service | Confirmed price (LKR) | Duration / review note |
 | --- | --- | ---: | --- |
 | hair-023 | Hair straightening – Short | 15,000 | — |
 | hair-024 | Hair straightening – Medium | 19,000 | — |
@@ -81,7 +84,7 @@ The photo lists body care under Beauty Service. Its assignment to the future Sal
 
 ## Hair spa
 
-| Source ID | Service | Printed price (LKR) | Duration / review note |
+| Source ID | Service | Confirmed price (LKR) | Duration / review note |
 | --- | --- | ---: | --- |
 | hair-039 | Protein treatment hair – Short | 6,600 | — |
 | hair-040 | Protein treatment hair – Medium | 7,500 | — |
@@ -92,7 +95,7 @@ The photo lists body care under Beauty Service. Its assignment to the future Sal
 
 ## Cleanup / facial / threading
 
-| Source ID | Service | Printed price (LKR) | Duration / review note |
+| Source ID | Service | Confirmed price (LKR) | Duration / review note |
 | --- | --- | ---: | --- |
 | beauty-001 | Eyebrow threading | 350 | — |
 | beauty-002 | Upper lip threading | 250 | — |
@@ -121,7 +124,7 @@ The photo lists body care under Beauty Service. Its assignment to the future Sal
 
 ## Body care
 
-| Source ID | Service | Printed price (LKR) | Duration / review note |
+| Source ID | Service | Confirmed price (LKR) | Duration / review note |
 | --- | --- | ---: | --- |
 | beauty-025 | Full body scrub | 8,000 | — |
 | beauty-026 | Full body massage | 10,000 | 60 min |
@@ -133,7 +136,7 @@ The photo lists body care under Beauty Service. Its assignment to the future Sal
 
 ## Dressing
 
-| Source ID | Service | Printed price (LKR) | Duration / review note |
+| Source ID | Service | Confirmed price (LKR) | Duration / review note |
 | --- | --- | ---: | --- |
 | beauty-032 | Full dressing – Derma | 6,800 | REVIEW: Confirm brand spelling: Full Dressing Derma versus Make-up (Drema) in beauty-035. |
 | beauty-033 | Full dressing – MAC | 10,800 | — |
@@ -145,7 +148,7 @@ The photo lists body care under Beauty Service. Its assignment to the future Sal
 
 ## Kids hair and beauty
 
-| Source ID | Service | Printed price (LKR) | Duration / review note |
+| Source ID | Service | Confirmed price (LKR) | Duration / review note |
 | --- | --- | ---: | --- |
 | beauty-039 | Haircut (under 10 years) | 1,200 | — |
 | beauty-040 | Blow dry | 1,000 | — |
@@ -158,7 +161,7 @@ The photo lists body care under Beauty Service. Its assignment to the future Sal
 
 ## Waxing
 
-| Source ID | Service | Printed price (LKR) | Duration / review note |
+| Source ID | Service | Confirmed price (LKR) | Duration / review note |
 | --- | --- | ---: | --- |
 | beauty-047 | Full body | 9,800 | — |
 | beauty-048 | Brazilian | 3,250 | — |
@@ -180,7 +183,7 @@ The photo lists body care under Beauty Service. Its assignment to the future Sal
 
 ## Manicure and pedicure
 
-| Source ID | Service | Printed price (LKR) | Duration / review note |
+| Source ID | Service | Confirmed price (LKR) | Duration / review note |
 | --- | --- | ---: | --- |
 | beauty-064 | Classic manicure | 2,000 | — |
 | beauty-065 | Classic pedicure | 2,400 | — |
@@ -192,7 +195,7 @@ The photo lists body care under Beauty Service. Its assignment to the future Sal
 
 ## Tanning removal pack
 
-| Source ID | Service | Printed price (LKR) | Duration / review note |
+| Source ID | Service | Confirmed price (LKR) | Duration / review note |
 | --- | --- | ---: | --- |
 | beauty-071 | Underarms | 1,200 | — |
 | beauty-072 | Face and neck | 3,700 | — |

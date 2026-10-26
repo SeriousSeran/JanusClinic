@@ -16,13 +16,13 @@ This records the user's stated direction as of 26 October 2026. It supplements t
 - Photograph: `reference/catalogs/salon-catalog.jpg`.
 - Structured draft: `content/salon/catalog.draft.json`.
 - Human review copy: `docs/salon-catalog-review.md`.
-- 124 entries: 44 hair entries and 80 beauty entries, grouped into 11 categories. Numbering restarts between Hair and Beauty, so stable IDs include the source section.
-- All entries remain draft/unverified. The photograph has no effective date; price currency/currentness, ambiguous names, duplicate root-touching prices, and contact details need confirmation.
-- Body-care and massage placement under Salon or Wellness is undecided. The printed categories are preserved separately from the proposed website sections.
+- The photograph has 124 entries; the active catalog has **123 services** (43 hair and 80 beauty) in 11 categories after the owner excluded the duplicate root-touching entry. Source IDs are preserved rather than renumbered.
+- Owner confirmed prices are current and in **LKR** on 26 October 2026. Keep only **Root Touching (Inova), LKR 6,800**; exclude the LKR 5,000 row. Some treatment/brand labels and contact details still need confirmation. The photograph itself is undated.
+- **Massage and body care are under Salon for now**, as confirmed by the owner; this may change later. Printed categories remain separate from website-area mapping.
 
 ## Still needed before implementation/publication
 
-- Current approved prices, taxes/fees or other relevant pricing conditions, and resolution of flagged catalog entries.
+- Resolution of flagged catalog wording and any tax/fee or extra pricing conditions that should be shown. Current LKR prices are already confirmed.
 - Which cosmetic treatments to retain or change, using the existing site as the starting inventory.
 - Booking behavior and recipients for each section: WhatsApp, call, enquiry form, or actual scheduling.
 - Current clinic address and contact numbers; the catalog and existing website use different address wording and the catalog adds a phone number.

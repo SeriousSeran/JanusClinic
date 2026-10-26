@@ -14,7 +14,7 @@ To deliberately refresh approved cover screenshots while the site is running, us
 
 ## Planned direction and salon catalog
 
-The [current website brief](docs/website-direction.md) records the planned Cosmetic / Salon / Wellness gateway and Sri Lankan model imagery. The supplied salon menu has been transcribed into [structured draft data](content/salon/catalog.draft.json), with [a readable review copy](docs/salon-catalog-review.md). Its 124 entries are not yet approved for publication; current prices, flagged names, contact details, and body-care placement still need confirmation.
+The [current website brief](docs/website-direction.md) records the planned Cosmetic / Salon / Wellness gateway and Sri Lankan model imagery. The supplied salon menu has been transcribed into [structured draft data](content/salon/catalog.draft.json), with [a readable review copy](docs/salon-catalog-review.md). The owner confirmed current LKR prices, retained only the LKR 6,800 root-touching option, and placed massage/body care under Salon for now. There are 123 active services; flagged names and contact details still need review.
 
 ## Run
 

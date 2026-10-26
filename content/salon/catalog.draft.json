@@ -1,10 +1,10 @@
 {
   "title": "Janus salon catalog – draft transcription",
-  "status": "draft_unverified_not_for_publication",
+  "status": "draft_with_owner_confirmed_prices",
   "received_date": "2026-10-26",
   "catalog_effective_date": null,
   "currency": "LKR",
-  "currency_status": "inferred_from_clinic_location_and_project_context; confirm with owner",
+  "currency_status": "owner_confirmed",
   "source": {
     "file": "reference/catalogs/salon-catalog.jpg",
     "original_filename": "1000046253.jpg",
@@ -74,8 +74,9 @@
       "id": "body-care",
       "label": "Body care",
       "source_section": "beauty",
-      "proposed_website_area": null,
-      "placement_status": "needs_decision"
+      "proposed_website_area": "salon",
+      "placement_status": "owner_confirmed_for_now",
+      "placement_note": "Owner placed massage and body care under Salon for now; this may change later."
     },
     {
       "id": "dressing",
@@ -123,7 +124,7 @@
       "price_lkr": 3000,
       "price_basis": "printed_catalog_price",
       "duration_minutes": null,
-      "status": "draft_unverified"
+      "status": "draft_price_confirmed"
     },
     {
       "id": "hair-002",
@@ -134,7 +135,7 @@
       "price_lkr": 3800,
       "price_basis": "printed_catalog_price",
       "duration_minutes": null,
-      "status": "draft_unverified"
+      "status": "draft_price_confirmed"
     },
     {
       "id": "hair-003",
@@ -145,7 +146,7 @@
       "price_lkr": 5000,
       "price_basis": "printed_catalog_price",
       "duration_minutes": null,
-      "status": "draft_unverified"
+      "status": "draft_price_confirmed"
     },
     {
       "id": "hair-004",
@@ -156,7 +157,7 @@
       "price_lkr": 3000,
       "price_basis": "printed_catalog_price",
       "duration_minutes": null,
-      "status": "draft_unverified"
+      "status": "draft_price_confirmed"
     },
     {
       "id": "hair-005",
@@ -167,7 +168,7 @@
       "price_lkr": 3800,
       "price_basis": "printed_catalog_price",
       "duration_minutes": null,
-      "status": "draft_unverified"
+      "status": "draft_price_confirmed"
     },
     {
       "id": "hair-006",
@@ -178,7 +179,7 @@
       "price_lkr": 4500,
       "price_basis": "printed_catalog_price",
       "duration_minutes": null,
-      "status": "draft_unverified"
+      "status": "draft_price_confirmed"
     },
     {
       "id": "hair-007",
@@ -189,7 +190,7 @@
       "price_lkr": 3200,
       "price_basis": "printed_catalog_price",
       "duration_minutes": null,
-      "status": "draft_unverified"
+      "status": "draft_price_confirmed"
     },
     {
       "id": "hair-008",
@@ -200,7 +201,7 @@
       "price_lkr": 3600,
       "price_basis": "printed_catalog_price",
       "duration_minutes": null,
-      "status": "draft_unverified"
+      "status": "draft_price_confirmed"
     },
     {
       "id": "hair-009",
@@ -211,7 +212,7 @@
       "price_lkr": 4600,
       "price_basis": "printed_catalog_price",
       "duration_minutes": null,
-      "status": "draft_unverified"
+      "status": "draft_price_confirmed"
     },
     {
       "id": "hair-010",
@@ -222,7 +223,7 @@
       "price_lkr": 1800,
       "price_basis": "printed_catalog_price",
       "duration_minutes": null,
-      "status": "draft_unverified"
+      "status": "draft_price_confirmed"
     },
     {
       "id": "hair-011",
@@ -233,7 +234,7 @@
       "price_lkr": 5000,
       "price_basis": "printed_catalog_price",
       "duration_minutes": null,
-      "status": "draft_unverified"
+      "status": "draft_price_confirmed"
     },
     {
       "id": "hair-012",
@@ -244,7 +245,7 @@
       "price_lkr": 3000,
       "price_basis": "printed_catalog_price",
       "duration_minutes": null,
-      "status": "draft_unverified"
+      "status": "draft_price_confirmed"
     },
     {
       "id": "hair-013",
@@ -255,7 +256,7 @@
       "price_lkr": 1900,
       "price_basis": "printed_catalog_price",
       "duration_minutes": null,
-      "status": "draft_unverified"
+      "status": "draft_price_confirmed"
     },
     {
       "id": "hair-014",
@@ -266,7 +267,7 @@
       "price_lkr": 12000,
       "price_basis": "printed_catalog_price",
       "duration_minutes": null,
-      "status": "draft_unverified",
+      "status": "draft_price_confirmed",
       "pricing_note": "Prices vary depending on hair colour and style."
     },
     {
@@ -278,7 +279,7 @@
       "price_lkr": 19000,
       "price_basis": "printed_catalog_price",
       "duration_minutes": null,
-      "status": "draft_unverified",
+      "status": "draft_price_confirmed",
       "pricing_note": "Prices vary depending on hair colour and style."
     },
     {
@@ -290,7 +291,7 @@
       "price_lkr": 22000,
       "price_basis": "printed_catalog_price",
       "duration_minutes": null,
-      "status": "draft_unverified",
+      "status": "draft_price_confirmed",
       "pricing_note": "Prices vary depending on hair colour and style."
     },
     {
@@ -302,7 +303,7 @@
       "price_lkr": 900,
       "price_basis": "printed_catalog_price",
       "duration_minutes": null,
-      "status": "draft_unverified",
+      "status": "draft_price_confirmed",
       "unit": "one foil",
       "pricing_note": "Prices vary depending on hair colour and style."
     },
@@ -315,7 +316,7 @@
       "price_lkr": 20000,
       "price_basis": "printed_catalog_price",
       "duration_minutes": null,
-      "status": "draft_unverified",
+      "status": "draft_price_confirmed",
       "pricing_note": "Prices vary depending on hair colour and style."
     },
     {
@@ -327,21 +328,7 @@
       "price_lkr": 6800,
       "price_basis": "printed_catalog_price",
       "duration_minutes": null,
-      "status": "draft_unverified",
-      "review_note": "Same printed name as hair-020, but different price. Confirm the variant or product distinction.",
-      "pricing_note": "Prices vary depending on hair colour and style."
-    },
-    {
-      "id": "hair-020",
-      "source_number": 20,
-      "source_section": "hair",
-      "category_id": "hair-colour",
-      "name": "Root touching (Inova)",
-      "price_lkr": 5000,
-      "price_basis": "printed_catalog_price",
-      "duration_minutes": null,
-      "status": "draft_unverified",
-      "review_note": "Same printed name as hair-019, but different price. Confirm the variant or product distinction.",
+      "status": "draft_price_confirmed",
       "pricing_note": "Prices vary depending on hair colour and style."
     },
     {
@@ -353,7 +340,7 @@
       "price_lkr": 28000,
       "price_basis": "printed_catalog_price",
       "duration_minutes": null,
-      "status": "draft_unverified",
+      "status": "draft_price_confirmed",
       "pricing_note": "Prices vary depending on hair colour and style."
     },
     {
@@ -365,7 +352,7 @@
       "price_lkr": 1200,
       "price_basis": "printed_catalog_price",
       "duration_minutes": null,
-      "status": "draft_unverified",
+      "status": "draft_price_confirmed",
       "unit": "one foil",
       "pricing_note": "Prices vary depending on hair colour and style."
     },
@@ -378,7 +365,7 @@
       "price_lkr": 15000,
       "price_basis": "printed_catalog_price",
       "duration_minutes": null,
-      "status": "draft_unverified",
+      "status": "draft_price_confirmed",
       "pricing_note": "Prices depend on hair thickness and volume."
     },
     {
@@ -390,7 +377,7 @@
       "price_lkr": 19000,
       "price_basis": "printed_catalog_price",
       "duration_minutes": null,
-      "status": "draft_unverified",
+      "status": "draft_price_confirmed",
       "pricing_note": "Prices depend on hair thickness and volume."
     },
     {
@@ -402,7 +389,7 @@
       "price_lkr": 28000,
       "price_basis": "printed_catalog_price",
       "duration_minutes": null,
-      "status": "draft_unverified",
+      "status": "draft_price_confirmed",
       "pricing_note": "Prices depend on hair thickness and volume."
     },
     {
@@ -414,7 +401,7 @@
       "price_lkr": 7000,
       "price_basis": "printed_catalog_price",
       "duration_minutes": null,
-      "status": "draft_unverified",
+      "status": "draft_price_confirmed",
       "pricing_note": "Prices depend on hair thickness and volume."
     },
     {
@@ -426,7 +413,7 @@
       "price_lkr": 9000,
       "price_basis": "printed_catalog_price",
       "duration_minutes": null,
-      "status": "draft_unverified",
+      "status": "draft_price_confirmed",
       "pricing_note": "Prices depend on hair thickness and volume."
     },
     {
@@ -438,7 +425,7 @@
       "price_lkr": 11000,
       "price_basis": "printed_catalog_price",
       "duration_minutes": null,
-      "status": "draft_unverified",
+      "status": "draft_price_confirmed",
       "pricing_note": "Prices depend on hair thickness and volume."
     },
     {
@@ -450,7 +437,7 @@
       "price_lkr": 5800,
       "price_basis": "printed_catalog_price",
       "duration_minutes": null,
-      "status": "draft_unverified",
+      "status": "draft_price_confirmed",
       "pricing_note": "Prices depend on hair thickness and volume."
     },
     {
@@ -462,7 +449,7 @@
       "price_lkr": 7800,
       "price_basis": "printed_catalog_price",
       "duration_minutes": null,
-      "status": "draft_unverified",
+      "status": "draft_price_confirmed",
       "pricing_note": "Prices depend on hair thickness and volume."
     },
     {
@@ -474,7 +461,7 @@
       "price_lkr": 8800,
       "price_basis": "printed_catalog_price",
       "duration_minutes": null,
-      "status": "draft_unverified",
+      "status": "draft_price_confirmed",
       "pricing_note": "Prices depend on hair thickness and volume."
     },
     {
@@ -486,7 +473,7 @@
       "price_lkr": 4600,
       "price_basis": "printed_catalog_price",
       "duration_minutes": null,
-      "status": "draft_unverified",
+      "status": "draft_price_confirmed",
       "pricing_note": "Prices depend on hair thickness and volume."
     },
     {
@@ -498,7 +485,7 @@
       "price_lkr": 19000,
       "price_basis": "printed_catalog_price",
       "duration_minutes": null,
-      "status": "draft_unverified",
+      "status": "draft_price_confirmed",
       "pricing_note": "Prices depend on hair thickness and volume."
     },
     {
@@ -510,7 +497,7 @@
       "price_lkr": 25000,
       "price_basis": "printed_catalog_price",
       "duration_minutes": null,
-      "status": "draft_unverified",
+      "status": "draft_price_confirmed",
       "pricing_note": "Prices depend on hair thickness and volume."
     },
     {
@@ -522,7 +509,7 @@
       "price_lkr": 33000,
       "price_basis": "printed_catalog_price",
       "duration_minutes": null,
-      "status": "draft_unverified",
+      "status": "draft_price_confirmed",
       "pricing_note": "Prices depend on hair thickness and volume."
     },
     {
@@ -534,7 +521,7 @@
       "price_lkr": 26000,
       "price_basis": "printed_catalog_price",
       "duration_minutes": null,
-      "status": "draft_unverified",
+      "status": "draft_price_confirmed",
       "pricing_note": "Prices depend on hair thickness and volume."
     },
     {
@@ -546,7 +533,7 @@
       "price_lkr": 36000,
       "price_basis": "printed_catalog_price",
       "duration_minutes": null,
-      "status": "draft_unverified",
+      "status": "draft_price_confirmed",
       "pricing_note": "Prices depend on hair thickness and volume."
     },
     {
@@ -558,7 +545,7 @@
       "price_lkr": 46000,
       "price_basis": "printed_catalog_price",
       "duration_minutes": null,
-      "status": "draft_unverified",
+      "status": "draft_price_confirmed",
       "pricing_note": "Prices depend on hair thickness and volume."
     },
     {
@@ -570,7 +557,7 @@
       "price_lkr": 6600,
       "price_basis": "printed_catalog_price",
       "duration_minutes": null,
-      "status": "draft_unverified"
+      "status": "draft_price_confirmed"
     },
     {
       "id": "hair-040",
@@ -581,7 +568,7 @@
       "price_lkr": 7500,
       "price_basis": "printed_catalog_price",
       "duration_minutes": null,
-      "status": "draft_unverified"
+      "status": "draft_price_confirmed"
     },
     {
       "id": "hair-041",
@@ -592,7 +579,7 @@
       "price_lkr": 8200,
       "price_basis": "printed_catalog_price",
       "duration_minutes": null,
-      "status": "draft_unverified"
+      "status": "draft_price_confirmed"
     },
     {
       "id": "hair-042",
@@ -603,7 +590,7 @@
       "price_lkr": 3800,
       "price_basis": "printed_catalog_price",
       "duration_minutes": 60,
-      "status": "draft_unverified"
+      "status": "draft_price_confirmed"
     },
     {
       "id": "hair-043",
@@ -614,7 +601,7 @@
       "price_lkr": 1800,
       "price_basis": "printed_catalog_price",
       "duration_minutes": 20,
-      "status": "draft_unverified"
+      "status": "draft_price_confirmed"
     },
     {
       "id": "hair-044",
@@ -625,7 +612,7 @@
       "price_lkr": 6000,
       "price_basis": "printed_catalog_price",
       "duration_minutes": null,
-      "status": "draft_unverified",
+      "status": "draft_price_confirmed",
       "review_note": "Label wraps across an unnumbered line and row 44. Confirm the combined dandruff / fenugreek and lime herbal treatment wording."
     },
     {
@@ -637,7 +624,7 @@
       "price_lkr": 350,
       "price_basis": "printed_catalog_price",
       "duration_minutes": null,
-      "status": "draft_unverified"
+      "status": "draft_price_confirmed"
     },
     {
       "id": "beauty-002",
@@ -648,7 +635,7 @@
       "price_lkr": 250,
       "price_basis": "printed_catalog_price",
       "duration_minutes": null,
-      "status": "draft_unverified"
+      "status": "draft_price_confirmed"
     },
     {
       "id": "beauty-003",
@@ -659,7 +646,7 @@
       "price_lkr": 500,
       "price_basis": "printed_catalog_price",
       "duration_minutes": null,
-      "status": "draft_unverified"
+      "status": "draft_price_confirmed"
     },
     {
       "id": "beauty-004",
@@ -670,7 +657,7 @@
       "price_lkr": 700,
       "price_basis": "printed_catalog_price",
       "duration_minutes": null,
-      "status": "draft_unverified"
+      "status": "draft_price_confirmed"
     },
     {
       "id": "beauty-005",
@@ -681,7 +668,7 @@
       "price_lkr": 400,
       "price_basis": "printed_catalog_price",
       "duration_minutes": null,
-      "status": "draft_unverified"
+      "status": "draft_price_confirmed"
     },
     {
       "id": "beauty-006",
@@ -692,7 +679,7 @@
       "price_lkr": 200,
       "price_basis": "printed_catalog_price",
       "duration_minutes": null,
-      "status": "draft_unverified"
+      "status": "draft_price_confirmed"
     },
     {
       "id": "beauty-007",
@@ -703,7 +690,7 @@
       "price_lkr": 1800,
       "price_basis": "printed_catalog_price",
       "duration_minutes": null,
-      "status": "draft_unverified"
+      "status": "draft_price_confirmed"
     },
     {
       "id": "beauty-008",
@@ -714,7 +701,7 @@
       "price_lkr": 3000,
       "price_basis": "printed_catalog_price",
       "duration_minutes": null,
-      "status": "draft_unverified"
+      "status": "draft_price_confirmed"
     },
     {
       "id": "beauty-009",
@@ -725,7 +712,7 @@
       "price_lkr": 3800,
       "price_basis": "printed_catalog_price",
       "duration_minutes": null,
-      "status": "draft_unverified"
+      "status": "draft_price_confirmed"
     },
     {
       "id": "beauty-010",
@@ -736,7 +723,7 @@
       "price_lkr": 6800,
       "price_basis": "printed_catalog_price",
       "duration_minutes": null,
-      "status": "draft_unverified"
+      "status": "draft_price_confirmed"
     },
     {
       "id": "beauty-011",
@@ -747,7 +734,7 @@
       "price_lkr": 5500,
       "price_basis": "printed_catalog_price",
       "duration_minutes": null,
-      "status": "draft_unverified"
+      "status": "draft_price_confirmed"
     },
     {
       "id": "beauty-012",
@@ -758,7 +745,7 @@
       "price_lkr": 10500,
       "price_basis": "printed_catalog_price",
       "duration_minutes": null,
-      "status": "draft_unverified"
+      "status": "draft_price_confirmed"
     },
     {
       "id": "beauty-013",
@@ -769,7 +756,7 @@
       "price_lkr": 12500,
       "price_basis": "printed_catalog_price",
       "duration_minutes": null,
-      "status": "draft_unverified"
+      "status": "draft_price_confirmed"
     },
     {
       "id": "beauty-014",
@@ -780,7 +767,7 @@
       "price_lkr": 10000,
       "price_basis": "printed_catalog_price",
       "duration_minutes": null,
-      "status": "draft_unverified",
+      "status": "draft_price_confirmed",
       "review_note": "Photo appears to say Arma Magic; confirm whether the intended brand is Aroma Magic."
     },
     {
@@ -792,7 +779,7 @@
       "price_lkr": 15500,
       "price_basis": "printed_catalog_price",
       "duration_minutes": null,
-      "status": "draft_unverified"
+      "status": "draft_price_confirmed"
     },
     {
       "id": "beauty-016",
@@ -803,7 +790,7 @@
       "price_lkr": 13500,
       "price_basis": "printed_catalog_price",
       "duration_minutes": null,
-      "status": "draft_unverified"
+      "status": "draft_price_confirmed"
     },
     {
       "id": "beauty-017",
@@ -814,7 +801,7 @@
       "price_lkr": 18500,
       "price_basis": "printed_catalog_price",
       "duration_minutes": null,
-      "status": "draft_unverified"
+      "status": "draft_price_confirmed"
     },
     {
       "id": "beauty-018",
@@ -825,7 +812,7 @@
       "price_lkr": 22500,
       "price_basis": "printed_catalog_price",
       "duration_minutes": null,
-      "status": "draft_unverified"
+      "status": "draft_price_confirmed"
     },
     {
       "id": "beauty-019",
@@ -836,7 +823,7 @@
       "price_lkr": 24500,
       "price_basis": "printed_catalog_price",
       "duration_minutes": null,
-      "status": "draft_unverified"
+      "status": "draft_price_confirmed"
     },
     {
       "id": "beauty-020",
@@ -847,7 +834,7 @@
       "price_lkr": 1500,
       "price_basis": "printed_catalog_price",
       "duration_minutes": null,
-      "status": "draft_unverified",
+      "status": "draft_price_confirmed",
       "review_note": "Photo says Galvanize; confirm the correct published treatment name."
     },
     {
@@ -859,7 +846,7 @@
       "price_lkr": 1800,
       "price_basis": "printed_catalog_price",
       "duration_minutes": null,
-      "status": "draft_unverified"
+      "status": "draft_price_confirmed"
     },
     {
       "id": "beauty-022",
@@ -870,7 +857,7 @@
       "price_lkr": 1800,
       "price_basis": "printed_catalog_price",
       "duration_minutes": null,
-      "status": "draft_unverified"
+      "status": "draft_price_confirmed"
     },
     {
       "id": "beauty-023",
@@ -881,7 +868,7 @@
       "price_lkr": 1800,
       "price_basis": "printed_catalog_price",
       "duration_minutes": null,
-      "status": "draft_unverified",
+      "status": "draft_price_confirmed",
       "review_note": "Photo says Sport Care; confirm whether the intended word is Spot and the exact serum name."
     },
     {
@@ -893,7 +880,7 @@
       "price_lkr": 1500,
       "price_basis": "printed_catalog_price",
       "duration_minutes": null,
-      "status": "draft_unverified"
+      "status": "draft_price_confirmed"
     },
     {
       "id": "beauty-025",
@@ -904,7 +891,7 @@
       "price_lkr": 8000,
       "price_basis": "printed_catalog_price",
       "duration_minutes": null,
-      "status": "draft_unverified"
+      "status": "draft_price_confirmed"
     },
     {
       "id": "beauty-026",
@@ -915,7 +902,7 @@
       "price_lkr": 10000,
       "price_basis": "printed_catalog_price",
       "duration_minutes": 60,
-      "status": "draft_unverified"
+      "status": "draft_price_confirmed"
     },
     {
       "id": "beauty-027",
@@ -926,7 +913,7 @@
       "price_lkr": 13800,
       "price_basis": "printed_catalog_price",
       "duration_minutes": null,
-      "status": "draft_unverified"
+      "status": "draft_price_confirmed"
     },
     {
       "id": "beauty-028",
@@ -937,7 +924,7 @@
       "price_lkr": 5000,
       "price_basis": "printed_catalog_price",
       "duration_minutes": 60,
-      "status": "draft_unverified"
+      "status": "draft_price_confirmed"
     },
     {
       "id": "beauty-029",
@@ -948,7 +935,7 @@
       "price_lkr": 3800,
       "price_basis": "printed_catalog_price",
       "duration_minutes": null,
-      "status": "draft_unverified"
+      "status": "draft_price_confirmed"
     },
     {
       "id": "beauty-030",
@@ -959,7 +946,7 @@
       "price_lkr": 2000,
       "price_basis": "printed_catalog_price",
       "duration_minutes": null,
-      "status": "draft_unverified"
+      "status": "draft_price_confirmed"
     },
     {
       "id": "beauty-031",
@@ -970,7 +957,7 @@
       "price_lkr": 3600,
       "price_basis": "printed_catalog_price",
       "duration_minutes": null,
-      "status": "draft_unverified"
+      "status": "draft_price_confirmed"
     },
     {
       "id": "beauty-032",
@@ -981,7 +968,7 @@
       "price_lkr": 6800,
       "price_basis": "printed_catalog_price",
       "duration_minutes": null,
-      "status": "draft_unverified",
+      "status": "draft_price_confirmed",
       "review_note": "Confirm brand spelling: Full Dressing Derma versus Make-up (Drema) in beauty-035."
     },
     {
@@ -993,7 +980,7 @@
       "price_lkr": 10800,
       "price_basis": "printed_catalog_price",
       "duration_minutes": null,
-      "status": "draft_unverified"
+      "status": "draft_price_confirmed"
     },
     {
       "id": "beauty-034",
@@ -1004,7 +991,7 @@
       "price_lkr": 2000,
       "price_basis": "printed_catalog_price",
       "duration_minutes": null,
-      "status": "draft_unverified"
+      "status": "draft_price_confirmed"
     },
     {
       "id": "beauty-035",
@@ -1015,7 +1002,7 @@
       "price_lkr": 4200,
       "price_basis": "printed_catalog_price",
       "duration_minutes": null,
-      "status": "draft_unverified",
+      "status": "draft_price_confirmed",
       "review_note": "Photo says Drema; confirm the intended brand spelling."
     },
     {
@@ -1027,7 +1014,7 @@
       "price_lkr": 7200,
       "price_basis": "printed_catalog_price",
       "duration_minutes": null,
-      "status": "draft_unverified"
+      "status": "draft_price_confirmed"
     },
     {
       "id": "beauty-037",
@@ -1038,7 +1025,7 @@
       "price_lkr": 3000,
       "price_basis": "printed_catalog_price",
       "duration_minutes": null,
-      "status": "draft_unverified"
+      "status": "draft_price_confirmed"
     },
     {
       "id": "beauty-038",
@@ -1049,7 +1036,7 @@
       "price_lkr": 800,
       "price_basis": "printed_catalog_price",
       "duration_minutes": null,
-      "status": "draft_unverified"
+      "status": "draft_price_confirmed"
     },
     {
       "id": "beauty-039",
@@ -1060,7 +1047,7 @@
       "price_lkr": 1200,
       "price_basis": "printed_catalog_price",
       "duration_minutes": null,
-      "status": "draft_unverified",
+      "status": "draft_price_confirmed",
       "age_condition": "Under 10 years; the photo states this for the haircut only."
     },
     {
@@ -1072,7 +1059,7 @@
       "price_lkr": 1000,
       "price_basis": "printed_catalog_price",
       "duration_minutes": null,
-      "status": "draft_unverified"
+      "status": "draft_price_confirmed"
     },
     {
       "id": "beauty-041",
@@ -1083,7 +1070,7 @@
       "price_lkr": 1400,
       "price_basis": "printed_catalog_price",
       "duration_minutes": null,
-      "status": "draft_unverified"
+      "status": "draft_price_confirmed"
     },
     {
       "id": "beauty-042",
@@ -1094,7 +1081,7 @@
       "price_lkr": 250,
       "price_basis": "printed_catalog_price",
       "duration_minutes": null,
-      "status": "draft_unverified",
+      "status": "draft_price_confirmed",
       "unit": "one strand"
     },
     {
@@ -1106,7 +1093,7 @@
       "price_lkr": 1000,
       "price_basis": "printed_catalog_price",
       "duration_minutes": null,
-      "status": "draft_unverified"
+      "status": "draft_price_confirmed"
     },
     {
       "id": "beauty-044",
@@ -1117,7 +1104,7 @@
       "price_lkr": 800,
       "price_basis": "printed_catalog_price",
       "duration_minutes": null,
-      "status": "draft_unverified"
+      "status": "draft_price_confirmed"
     },
     {
       "id": "beauty-045",
@@ -1128,7 +1115,7 @@
       "price_lkr": 800,
       "price_basis": "printed_catalog_price",
       "duration_minutes": null,
-      "status": "draft_unverified"
+      "status": "draft_price_confirmed"
     },
     {
       "id": "beauty-046",
@@ -1139,7 +1126,7 @@
       "price_lkr": 900,
       "price_basis": "printed_catalog_price",
       "duration_minutes": null,
-      "status": "draft_unverified"
+      "status": "draft_price_confirmed"
     },
     {
       "id": "beauty-047",
@@ -1150,7 +1137,7 @@
       "price_lkr": 9800,
       "price_basis": "printed_catalog_price",
       "duration_minutes": null,
-      "status": "draft_unverified"
+      "status": "draft_price_confirmed"
     },
     {
       "id": "beauty-048",
@@ -1161,7 +1148,7 @@
       "price_lkr": 3250,
       "price_basis": "printed_catalog_price",
       "duration_minutes": null,
-      "status": "draft_unverified"
+      "status": "draft_price_confirmed"
     },
     {
       "id": "beauty-049",
@@ -1172,7 +1159,7 @@
       "price_lkr": 1700,
       "price_basis": "printed_catalog_price",
       "duration_minutes": null,
-      "status": "draft_unverified"
+      "status": "draft_price_confirmed"
     },
     {
       "id": "beauty-050",
@@ -1183,7 +1170,7 @@
       "price_lkr": 3500,
       "price_basis": "printed_catalog_price",
       "duration_minutes": null,
-      "status": "draft_unverified"
+      "status": "draft_price_confirmed"
     },
     {
       "id": "beauty-051",
@@ -1194,7 +1181,7 @@
       "price_lkr": 2000,
       "price_basis": "printed_catalog_price",
       "duration_minutes": null,
-      "status": "draft_unverified"
+      "status": "draft_price_confirmed"
     },
     {
       "id": "beauty-052",
@@ -1205,7 +1192,7 @@
       "price_lkr": 3000,
       "price_basis": "printed_catalog_price",
       "duration_minutes": null,
-      "status": "draft_unverified"
+      "status": "draft_price_confirmed"
     },
     {
       "id": "beauty-053",
@@ -1216,7 +1203,7 @@
       "price_lkr": 2500,
       "price_basis": "printed_catalog_price",
       "duration_minutes": null,
-      "status": "draft_unverified"
+      "status": "draft_price_confirmed"
     },
     {
       "id": "beauty-054",
@@ -1227,7 +1214,7 @@
       "price_lkr": 2000,
       "price_basis": "printed_catalog_price",
       "duration_minutes": null,
-      "status": "draft_unverified"
+      "status": "draft_price_confirmed"
     },
     {
       "id": "beauty-055",
@@ -1238,7 +1225,7 @@
       "price_lkr": 1500,
       "price_basis": "printed_catalog_price",
       "duration_minutes": null,
-      "status": "draft_unverified"
+      "status": "draft_price_confirmed"
     },
     {
       "id": "beauty-056",
@@ -1249,7 +1236,7 @@
       "price_lkr": 4500,
       "price_basis": "printed_catalog_price",
       "duration_minutes": null,
-      "status": "draft_unverified"
+      "status": "draft_price_confirmed"
     },
     {
       "id": "beauty-057",
@@ -1260,7 +1247,7 @@
       "price_lkr": 3000,
       "price_basis": "printed_catalog_price",
       "duration_minutes": null,
-      "status": "draft_unverified"
+      "status": "draft_price_confirmed"
     },
     {
       "id": "beauty-058",
@@ -1271,7 +1258,7 @@
       "price_lkr": 1000,
       "price_basis": "printed_catalog_price",
       "duration_minutes": null,
-      "status": "draft_unverified"
+      "status": "draft_price_confirmed"
     },
     {
       "id": "beauty-059",
@@ -1282,7 +1269,7 @@
       "price_lkr": 1200,
       "price_basis": "printed_catalog_price",
       "duration_minutes": null,
-      "status": "draft_unverified"
+      "status": "draft_price_confirmed"
     },
     {
       "id": "beauty-060",
@@ -1293,7 +1280,7 @@
       "price_lkr": 900,
       "price_basis": "printed_catalog_price",
       "duration_minutes": null,
-      "status": "draft_unverified"
+      "status": "draft_price_confirmed"
     },
     {
       "id": "beauty-061",
@@ -1304,7 +1291,7 @@
       "price_lkr": 1500,
       "price_basis": "printed_catalog_price",
       "duration_minutes": null,
-      "status": "draft_unverified"
+      "status": "draft_price_confirmed"
     },
     {
       "id": "beauty-062",
@@ -1315,7 +1302,7 @@
       "price_lkr": 1150,
       "price_basis": "printed_catalog_price",
       "duration_minutes": null,
-      "status": "draft_unverified"
+      "status": "draft_price_confirmed"
     },
     {
       "id": "beauty-063",
@@ -1326,7 +1313,7 @@
       "price_lkr": 14800,
       "price_basis": "printed_catalog_price",
       "duration_minutes": null,
-      "status": "draft_unverified"
+      "status": "draft_price_confirmed"
     },
     {
       "id": "beauty-064",
@@ -1337,7 +1324,7 @@
       "price_lkr": 2000,
       "price_basis": "printed_catalog_price",
       "duration_minutes": null,
-      "status": "draft_unverified"
+      "status": "draft_price_confirmed"
     },
     {
       "id": "beauty-065",
@@ -1348,7 +1335,7 @@
       "price_lkr": 2400,
       "price_basis": "printed_catalog_price",
       "duration_minutes": null,
-      "status": "draft_unverified"
+      "status": "draft_price_confirmed"
     },
     {
       "id": "beauty-066",
@@ -1359,7 +1346,7 @@
       "price_lkr": 4800,
       "price_basis": "printed_catalog_price",
       "duration_minutes": null,
-      "status": "draft_unverified"
+      "status": "draft_price_confirmed"
     },
     {
       "id": "beauty-067",
@@ -1370,7 +1357,7 @@
       "price_lkr": 5200,
       "price_basis": "printed_catalog_price",
       "duration_minutes": null,
-      "status": "draft_unverified"
+      "status": "draft_price_confirmed"
     },
     {
       "id": "beauty-068",
@@ -1381,7 +1368,7 @@
       "price_lkr": 6800,
       "price_basis": "printed_catalog_price",
       "duration_minutes": null,
-      "status": "draft_unverified"
+      "status": "draft_price_confirmed"
     },
     {
       "id": "beauty-069",
@@ -1392,7 +1379,7 @@
       "price_lkr": 600,
       "price_basis": "printed_catalog_price",
       "duration_minutes": null,
-      "status": "draft_unverified"
+      "status": "draft_price_confirmed"
     },
     {
       "id": "beauty-070",
@@ -1403,7 +1390,7 @@
       "price_lkr": 1700,
       "price_basis": "printed_catalog_price",
       "duration_minutes": null,
-      "status": "draft_unverified"
+      "status": "draft_price_confirmed"
     },
     {
       "id": "beauty-071",
@@ -1414,7 +1401,7 @@
       "price_lkr": 1200,
       "price_basis": "printed_catalog_price",
       "duration_minutes": null,
-      "status": "draft_unverified"
+      "status": "draft_price_confirmed"
     },
     {
       "id": "beauty-072",
@@ -1425,7 +1412,7 @@
       "price_lkr": 3700,
       "price_basis": "printed_catalog_price",
       "duration_minutes": null,
-      "status": "draft_unverified"
+      "status": "draft_price_confirmed"
     },
     {
       "id": "beauty-073",
@@ -1436,7 +1423,7 @@
       "price_lkr": 1700,
       "price_basis": "printed_catalog_price",
       "duration_minutes": null,
-      "status": "draft_unverified"
+      "status": "draft_price_confirmed"
     },
     {
       "id": "beauty-074",
@@ -1447,7 +1434,7 @@
       "price_lkr": 4000,
       "price_basis": "printed_catalog_price",
       "duration_minutes": null,
-      "status": "draft_unverified"
+      "status": "draft_price_confirmed"
     },
     {
       "id": "beauty-075",
@@ -1458,7 +1445,7 @@
       "price_lkr": 2500,
       "price_basis": "printed_catalog_price",
       "duration_minutes": null,
-      "status": "draft_unverified"
+      "status": "draft_price_confirmed"
     },
     {
       "id": "beauty-076",
@@ -1469,7 +1456,7 @@
       "price_lkr": 3400,
       "price_basis": "printed_catalog_price",
       "duration_minutes": null,
-      "status": "draft_unverified"
+      "status": "draft_price_confirmed"
     },
     {
       "id": "beauty-077",
@@ -1480,7 +1467,7 @@
       "price_lkr": 4500,
       "price_basis": "printed_catalog_price",
       "duration_minutes": null,
-      "status": "draft_unverified"
+      "status": "draft_price_confirmed"
     },
     {
       "id": "beauty-078",
@@ -1491,7 +1478,7 @@
       "price_lkr": 7000,
       "price_basis": "printed_catalog_price",
       "duration_minutes": null,
-      "status": "draft_unverified"
+      "status": "draft_price_confirmed"
     },
     {
       "id": "beauty-079",
@@ -1502,7 +1489,7 @@
       "price_lkr": 15500,
       "price_basis": "printed_catalog_price",
       "duration_minutes": null,
-      "status": "draft_unverified"
+      "status": "draft_price_confirmed"
     },
     {
       "id": "beauty-080",
@@ -1513,14 +1500,31 @@
       "price_lkr": 5000,
       "price_basis": "printed_catalog_price",
       "duration_minutes": null,
-      "status": "draft_unverified"
+      "status": "draft_price_confirmed"
     }
   ],
   "open_questions": [
-    "Are these the current approved prices, are they LKR, and are taxes/fees included?",
-    "What distinguishes the two Root Touching (Inova) rows priced 6,800 and 5,000?",
+    "Confirm whether any taxes/fees or additional pricing conditions need to be displayed.",
     "Confirm flagged treatment/brand wording and the wrapped dandruff-treatment label.",
-    "Should body-care services and massage sit under Salon or Wellness?",
     "Which address wording and booking phone number(s) are current?"
-  ]
+  ],
+  "prices_confirmed_current_on": "2026-10-26",
+  "source_entry_count": 124,
+  "excluded_source_entries": [
+    {
+      "source_id": "hair-020",
+      "source_number": 20,
+      "source_section": "hair",
+      "name": "Root touching (Inova)",
+      "printed_price_lkr": 5000,
+      "reason": "Owner instructed keeping only the LKR 6,800 root-touching entry. This row is not an active offering.",
+      "decision_date": "2026-10-26"
+    }
+  ],
+  "owner_confirmations": {
+    "confirmed_on": "2026-10-26",
+    "prices": "Current prices in LKR.",
+    "root_touching": "Keep only LKR 6,800; exclude the LKR 5,000 duplicate.",
+    "body_care_placement": "Salon for now; may change later."
+  }
 }

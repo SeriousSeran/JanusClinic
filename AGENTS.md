@@ -8,7 +8,7 @@ Unless the user requests a design change, preserve the original logo and photogr
 
 ## Follow the current brief
 
-Read [docs/website-direction.md](docs/website-direction.md) for the planned Cosmetic / Salon / Wellness gateway, the requested Sri Lankan model imagery, and unresolved content decisions. The original portfolio is a design baseline; its existing foreign-model imagery is not a requirement to retain those models. The supplied salon catalog is a draft in `content/salon/catalog.draft.json`; do not publish its prices or ambiguous labels before owner confirmation. Do not invent the three planned wellness tiers.
+Read [docs/website-direction.md](docs/website-direction.md) for the planned Cosmetic / Salon / Wellness gateway, the requested Sri Lankan model imagery, and unresolved content decisions. The original portfolio is a design baseline; its existing foreign-model imagery is not a requirement to retain those models. The supplied salon catalog is in `content/salon/catalog.draft.json`: current LKR prices are owner-confirmed, only the LKR 6,800 root-touching option is active, and massage/body care belong under Salon for now. Use the 123 active entries, not excluded source rows. Resolve flagged labels and contact details before publishing those details. Do not invent the three planned wellness tiers.
 
 ## Respect source boundaries
 
