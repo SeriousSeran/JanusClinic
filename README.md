@@ -2,6 +2,16 @@
 
 A faithful local capture of **https://www.janusestheticlinique.com/**, extracted on 26 October 2026. It contains all **43 public sitemap pages** and **63 local assets** (images, font subsets, stylesheet, browser bundles, sitemap and robots file).
 
+## Design portfolio and contributor guidance
+
+Open the local **`/portfolio`** route for exact color and typography specimens, component patterns, all 43 original desktop page covers, and six mobile references. Read [AGENTS.md](AGENTS.md) and [the identity guide](docs/design-identity.md) before changing the design. Reference files live in `reference/portfolio/`, outside the generated capture, so extraction does not erase them.
+
+To deliberately refresh approved cover screenshots while the site is running, use `npm run capture:portfolio`. The refresh stages the full set and rejects broken visible cover imagery before replacing the previous references. Review visual changes before accepting new baselines.
+
+## Beginner learning guide and Lovable roadmap
+
+[Download the learning guide](reference/portfolio/learning-guide.pdf) for the engineering, design, privacy, testing, and deployment roadmap. It explains the current capture, a beginner-friendly Lovable pilot, shared components and content, and a patient-facing launch checklist. The editable source is [docs/learning-guide.html](docs/learning-guide.html); regenerate the PDF with `npm run docs:pdf` while the local server is running. Lovable documentation was checked on 26 October 2026; feature rollout and limits may change.
+
 ## Run
 
 Requires Node.js 22 or newer. The website itself has no npm runtime dependencies and needs no build:

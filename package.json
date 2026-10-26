@@ -4,14 +4,20 @@
   "private": true,
   "type": "module",
   "description": "Faithful local extraction of the Janus Estheti Clinique public website",
-  "engines": { "node": ">=22" },
+  "engines": {
+    "node": ">=22"
+  },
   "scripts": {
     "start": "node server.mjs",
     "dev": "node --watch server.mjs",
     "extract": "python3 scripts/extract.py",
     "check": "python3 scripts/check.py",
     "test": "node --test tests/server.test.mjs",
-    "test:browser": "playwright test"
+    "test:browser": "playwright test",
+    "capture:portfolio": "node scripts/capture-portfolio.mjs",
+    "docs:pdf": "node scripts/build-learning-guide.mjs"
   },
-  "devDependencies": { "@playwright/test": "1.56.1" }
+  "devDependencies": {
+    "@playwright/test": "1.56.1"
+  }
 }

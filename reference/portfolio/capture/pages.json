@@ -1,0 +1,235 @@
+{
+  "sourceCommit": "2e75112b99bec93d78848e484c89e496b68f5ccc",
+  "capturedAt": "2026-10-26T04:06:10.828Z",
+  "desktopViewport": {
+    "width": 1280,
+    "height": 900
+  },
+  "mobileViewport": {
+    "width": 390,
+    "height": 844
+  },
+  "pages": [
+    {
+      "route": "/",
+      "desktop": "previews/home-desktop.jpg",
+      "title": "Where skin finds its balance.",
+      "mobile": "previews/home-mobile.jpg"
+    },
+    {
+      "route": "/about",
+      "desktop": "previews/about-desktop.jpg",
+      "title": "Dr. Jayaruwan Bandara"
+    },
+    {
+      "route": "/contact",
+      "desktop": "previews/contact-desktop.jpg",
+      "title": "Contact & Booking",
+      "mobile": "previews/contact-mobile.jpg"
+    },
+    {
+      "route": "/journal",
+      "desktop": "previews/journal-desktop.jpg",
+      "title": "Evidence & insight"
+    },
+    {
+      "route": "/journal/acne-colombo-humidity",
+      "desktop": "previews/journal--acne-colombo-humidity-desktop.jpg",
+      "title": "Why acne gets worse in Colombo's humidity, and what to do about it"
+    },
+    {
+      "route": "/journal/botox-sri-lanka",
+      "desktop": "previews/journal--botox-sri-lanka-desktop.jpg",
+      "title": "BOTOX in Sri Lanka: separating fact from fear"
+    },
+    {
+      "route": "/journal/carbon-peeling-vs-laser",
+      "desktop": "previews/journal--carbon-peeling-vs-laser-desktop.jpg",
+      "title": "Carbon peeling vs. laser pigmentation removal: which is right for your skin tone?"
+    },
+    {
+      "route": "/journal/cinteric-range-guide",
+      "desktop": "previews/journal--cinteric-range-guide-desktop.jpg",
+      "title": "The Cinteric skincare range explained: which product is for your skin type?"
+    },
+    {
+      "route": "/journal/cryolipolysis-what-to-expect",
+      "desktop": "previews/journal--cryolipolysis-what-to-expect-desktop.jpg",
+      "title": "Cryolipolysis & fat freezing in Colombo, Sri Lanka — what to expect at Janus"
+    },
+    {
+      "route": "/journal/first-visit-guide",
+      "desktop": "previews/journal--first-visit-guide-desktop.jpg",
+      "title": "Your first visit to Janus Estheti Clinique: what to expect and how to prepare",
+      "mobile": "previews/journal--first-visit-guide-mobile.jpg"
+    },
+    {
+      "route": "/journal/hair-regrowth-treatment",
+      "desktop": "previews/journal--hair-regrowth-treatment-desktop.jpg",
+      "title": "Hair regrowth treatment at Janus: what causes hair loss and when treatment helps"
+    },
+    {
+      "route": "/journal/hifu-vs-surgical-facelift",
+      "desktop": "previews/journal--hifu-vs-surgical-facelift-desktop.jpg",
+      "title": "HIFU vs. surgical face lift: a medical perspective"
+    },
+    {
+      "route": "/privacy",
+      "desktop": "previews/privacy-desktop.jpg",
+      "title": "Privacy Policy"
+    },
+    {
+      "route": "/products",
+      "desktop": "previews/products-desktop.jpg",
+      "title": "Products"
+    },
+    {
+      "route": "/products/antiseptic-soap",
+      "desktop": "previews/products--antiseptic-soap-desktop.jpg",
+      "title": "Soap – Antiseptic Skin Rejuvenating"
+    },
+    {
+      "route": "/products/cinteric-4-step",
+      "desktop": "previews/products--cinteric-4-step-desktop.jpg",
+      "title": "Cinteric 4 Step – Acne Face Cleanser"
+    },
+    {
+      "route": "/products/cinteric-90-sunscreen",
+      "desktop": "previews/products--cinteric-90-sunscreen-desktop.jpg",
+      "title": "Cinteric 90+ – Sunscreen Gel"
+    },
+    {
+      "route": "/products/cinteric-gel",
+      "desktop": "previews/products--cinteric-gel-desktop.jpg",
+      "title": "Cinteric Gel – Anti Acne Gel",
+      "mobile": "previews/products--cinteric-gel-mobile.jpg"
+    },
+    {
+      "route": "/products/cinteric-shampoo-3",
+      "desktop": "previews/products--cinteric-shampoo-3-desktop.jpg",
+      "title": "Cinteric 3% – Anti-Dandruff Shampoo"
+    },
+    {
+      "route": "/products/cinteric-shampoo-5",
+      "desktop": "previews/products--cinteric-shampoo-5-desktop.jpg",
+      "title": "Cinteric 5% – Anti-Dandruff Shampoo"
+    },
+    {
+      "route": "/products/leonor-body-lotion",
+      "desktop": "previews/products--leonor-body-lotion-desktop.jpg",
+      "title": "Leonor – Body Lotion"
+    },
+    {
+      "route": "/promotions",
+      "desktop": "previews/promotions-desktop.jpg",
+      "title": "Promotions"
+    },
+    {
+      "route": "/services",
+      "desktop": "previews/services-desktop.jpg",
+      "title": "What we treat & offer",
+      "mobile": "previews/services-mobile.jpg"
+    },
+    {
+      "route": "/services/beauty",
+      "desktop": "previews/services--beauty-desktop.jpg",
+      "title": "Beauty"
+    },
+    {
+      "route": "/services/beauty/bridal",
+      "desktop": "previews/services--beauty--bridal-desktop.jpg",
+      "title": "Bridal & Party Makeup in Colombo"
+    },
+    {
+      "route": "/services/beauty/facials",
+      "desktop": "previews/services--beauty--facials-desktop.jpg",
+      "title": "Facials & Hydra Facial in Colombo"
+    },
+    {
+      "route": "/services/beauty/hair-services",
+      "desktop": "previews/services--beauty--hair-services-desktop.jpg",
+      "title": "Hair Services in Colombo, Sri Lanka"
+    },
+    {
+      "route": "/services/beauty/nails",
+      "desktop": "previews/services--beauty--nails-desktop.jpg",
+      "title": "Manicure & Pedicure in Colombo"
+    },
+    {
+      "route": "/services/beauty/waxing-threading",
+      "desktop": "previews/services--beauty--waxing-threading-desktop.jpg",
+      "title": "Waxing & Threading in Colombo"
+    },
+    {
+      "route": "/services/medical-cosmetic",
+      "desktop": "previews/services--medical-cosmetic-desktop.jpg",
+      "title": "Medical Cosmetic"
+    },
+    {
+      "route": "/services/medical-cosmetic/acne-treatment",
+      "desktop": "previews/services--medical-cosmetic--acne-treatment-desktop.jpg",
+      "title": "Acne Treatment in Colombo, Sri Lanka"
+    },
+    {
+      "route": "/services/medical-cosmetic/botox",
+      "desktop": "previews/services--medical-cosmetic--botox-desktop.jpg",
+      "title": "BOTOX & Muscle Relaxing Injections in Colombo",
+      "mobile": "previews/services--medical-cosmetic--botox-mobile.jpg"
+    },
+    {
+      "route": "/services/medical-cosmetic/carbon-peeling",
+      "desktop": "previews/services--medical-cosmetic--carbon-peeling-desktop.jpg",
+      "title": "Carbon Peeling & Chemical Peels in Colombo"
+    },
+    {
+      "route": "/services/medical-cosmetic/collagen-treatment",
+      "desktop": "previews/services--medical-cosmetic--collagen-treatment-desktop.jpg",
+      "title": "Collagen & Skin Rejuvenation in Colombo"
+    },
+    {
+      "route": "/services/medical-cosmetic/hair-removal",
+      "desktop": "previews/services--medical-cosmetic--hair-removal-desktop.jpg",
+      "title": "Laser Hair Removal in Colombo, Sri Lanka"
+    },
+    {
+      "route": "/services/medical-cosmetic/hair-treatment",
+      "desktop": "previews/services--medical-cosmetic--hair-treatment-desktop.jpg",
+      "title": "Hair Regrowth Treatment in Colombo"
+    },
+    {
+      "route": "/services/medical-cosmetic/hifu",
+      "desktop": "previews/services--medical-cosmetic--hifu-desktop.jpg",
+      "title": "HIFU Face Lift in Colombo, Sri Lanka"
+    },
+    {
+      "route": "/services/medical-cosmetic/laser-pigmentation",
+      "desktop": "previews/services--medical-cosmetic--laser-pigmentation-desktop.jpg",
+      "title": "Laser Treatments & Pigmentation in Colombo"
+    },
+    {
+      "route": "/services/therapy",
+      "desktop": "previews/services--therapy-desktop.jpg",
+      "title": "Therapy & Slimming"
+    },
+    {
+      "route": "/services/therapy/cryolipolysis",
+      "desktop": "previews/services--therapy--cryolipolysis-desktop.jpg",
+      "title": "Cryolipolysis & Fat Freezing in Colombo, Sri Lanka"
+    },
+    {
+      "route": "/services/therapy/lipolysis",
+      "desktop": "previews/services--therapy--lipolysis-desktop.jpg",
+      "title": "Lipolysis Body Contouring in Colombo"
+    },
+    {
+      "route": "/services/therapy/sauna",
+      "desktop": "previews/services--therapy--sauna-desktop.jpg",
+      "title": "Infrared Sauna & Steam in Colombo"
+    },
+    {
+      "route": "/terms",
+      "desktop": "previews/terms-desktop.jpg",
+      "title": "Terms of Service"
+    }
+  ]
+}

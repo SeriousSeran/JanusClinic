@@ -1,0 +1,254 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>JanusClinic: From Website Copy to Patient-Ready Website</title>
+<link rel="stylesheet" href="/_next/static/chunks/0ncapewydat_k.css">
+<style>
+@page { size: A4; margin: 18mm 18mm 20mm; }
+:root { --font-dm-sans: "DM Sans"; --font-cormorant: "Cormorant Garamond"; }
+body { font: 10.5pt/1.52 "DM Sans", sans-serif; color:#1a1a1a; background:#faf7f4; }
+.sheet { break-after:page; }
+.sheet:last-child { break-after:auto; }
+h1,h2,h3 { font-family:"Cormorant Garamond",serif; font-weight:400; }
+h1 { font-size:39pt; line-height:1.02; margin:18pt 0; letter-spacing:-.02em; }
+h2 { font-size:27pt; line-height:1.1; margin:12pt 0 16pt; }
+h3 { font-size:17pt; line-height:1.2; margin:18pt 0 8pt; }
+p { margin:0 0 10pt; }
+.kicker { text-transform:uppercase; letter-spacing:.1em; font-size:8pt; color:#6b6560; }
+.lead { font-size:13pt; line-height:1.5; color:#6b6560; margin:16pt 0 22pt; }
+.rule { border-top:1px solid #e8e0d5; margin:18pt 0; }
+.note { background:#f0ebe3; border-left:2px solid #c9a97a; padding:12pt 14pt; margin:14pt 0; }
+ul,ol { padding-left:19pt; margin:0 0 12pt; }
+ul { list-style:disc; } ol { list-style:decimal; }
+li { margin-bottom:7pt; padding-left:3pt; }
+strong { font-weight:600; }
+table { width:100%; border-collapse:collapse; margin:14pt 0; font-size:9.2pt; }
+th,td { text-align:left; padding:8pt; border-bottom:1px solid #e8e0d5; vertical-align:top; }
+th { background:#f0ebe3; font-weight:500; }
+tr { break-inside:avoid; }
+a { color:#1a1a1a; text-decoration:underline; text-underline-offset:2px; }
+code,pre { font-family:monospace; font-size:8.5pt; }
+pre { white-space:pre-wrap; overflow-wrap:anywhere; padding:12pt; background:#f0ebe3; margin:12pt 0; }
+.small { font-size:8.5pt; color:#6b6560; }
+.logo { width:145pt; height:auto; margin-bottom:32pt; }
+.steps { display:flex; flex-wrap:wrap; gap:6pt; margin:18pt 0; }
+.steps span { padding:8pt 10pt; background:#f0ebe3; font-size:9pt; }
+.checklist { list-style:none; padding-left:0; }
+.checklist li { border-bottom:1px solid #e8e0d5; padding:7pt 0; }
+.checklist li::before { content:"□ "; color:#6b6560; }
+.sources { font-size:9pt; }
+</style></head><body>
+<section class="sheet">
+<img class="logo" src="/images/logo-header.png" alt="Janus Clinic">
+<p class="kicker">A practical learning guide · 26 October 2026</p>
+<h1>From website copy<br>to patient-ready<br><em>website.</em></h1>
+<p class="lead">What to understand, what to build next, and how to use Lovable without losing the Janus identity.</p>
+<p>For a clinic owner or beginner who wants a website that is easy to edit, easy to extend, and useful to real patients.</p>
+<div class="steps"><span>Understand</span><span>Organize</span><span>Build a pilot</span><span>Verify</span><span>Publish</span><span>Maintain</span></div>
+<div class="note"><strong>The recommendation</strong><br>Lovable is a reasonable tool for the clinic’s public information and appointment-request website. Start with an editable pilot, preserve the design, and test the real patient journey before changing the clinic’s domain.</div>
+<h3>What this guide will help you do</h3>
+<ul><li>Understand the pieces of a website in plain language.</li><li>Think like an engineer, designer, and security reviewer.</li><li>Choose an achievable first version and follow a launch checklist.</li><li>Give an agent specific instructions and judge its results.</li></ul>
+<p class="small">Prepared for SeriousSeran/JanusClinic. This is a proposed roadmap, not evidence that a Lovable migration, security audit, or public launch has already happened.</p>
+</section>
+
+<section class="sheet">
+<p class="kicker">01 · Learn the vocabulary</p><h2>The pieces, in ordinary language.</h2>
+<p>A website is a collection of parts. Understanding their jobs prevents you from buying or building things you do not yet need.</p>
+<table><thead><tr><th>Term</th><th>What it means for Janus</th></tr></thead><tbody>
+<tr><td>Frontend</td><td>The pages patients see: text, photos, menus, treatment lists, and buttons.</td></tr>
+<tr><td>Source code</td><td>The editable instructions used to build those pages. Shared source makes one change apply consistently across many pages.</td></tr>
+<tr><td>Component</td><td>A reusable building block, such as the same header, product card, or booking button on every relevant page.</td></tr>
+<tr><td>Content model</td><td>A consistent set of fields. A product might have a name, photo, price, description, and order link.</td></tr>
+<tr><td>Backend / database</td><td>Server services that store or process information. A brochure site does not automatically need either.</td></tr>
+<tr><td>GitHub</td><td>A versioned home for code. It helps you see changes and return to earlier versions; code backup does not back up a separate database.</td></tr>
+<tr><td>Hosting / deployment</td><td>A service that runs the site online, and the act of putting an approved version there.</td></tr>
+<tr><td>Domain / DNS</td><td>The clinic’s address and the settings that point that address to its hosting service.</td></tr>
+<tr><td>HTTPS</td><td>Encryption between a visitor and the site. It is essential, but does not by itself make forms, accounts, or stored data safe.</td></tr>
+<tr><td>Preview / production</td><td>A place to review work versus the version real patients use. Treat a public preview as public information.</td></tr>
+</tbody></table>
+<div class="note"><strong>Useful mental model:</strong> Lovable can help build and host. GitHub stores code history. Your domain is the public address. The clinic still owns content accuracy, account access, and decisions about patient information.</div>
+</section>
+
+<section class="sheet">
+<p class="kicker">02 · Understand what you have</p><h2>A strong visual reference.<br>The editable foundation comes next.</h2>
+<h3>Already prepared</h3><ul>
+<li>43 public pages and 63 captured assets, with original clean routes.</li>
+<li>A local Node.js server and checks for file integrity, links, and representative browser behavior.</li>
+<li>A design portfolio at <code>/portfolio</code>, exact design guidance in <code>docs/design-identity.md</code>, and instructions for agents in <code>AGENTS.md</code>.</li>
+<li>Reference covers of all 43 original pages and six representative mobile screens.</li></ul>
+<h3>What the capture is</h3><p>It contains rendered HTML, CSS, images, fonts, and compiled browser code. It preserves what visitors can see. It is not the original editable React/Next.js project, clinic database, booking system, or administrative dashboard.</p>
+<p>A large change to visible HTML can conflict with embedded browser data. That is why “the page looks right” and “the site is easy to maintain” are different milestones.</p>
+<h3>What has and has not been proved</h3><p>The public pages, local navigation, images, and representative interactions have been checked. Contact success was tested with a simulated provider response. Real enquiry delivery, a live Lovable deployment, and a production security review have not been verified.</p>
+<div class="note"><strong>Your next useful milestone:</strong> make one representative group of pages from editable components and content, then demonstrate that changing a shared header or treatment updates every intended place.</div>
+<p class="small">Keep the captured version as a reference while rebuilding. Do not overwrite the only working copy to experiment.</p>
+</section>
+
+<section class="sheet">
+<p class="kicker">03 · Think like the professionals</p><h2>What would they add?</h2>
+<table><thead><tr><th>Perspective</th><th>Useful deliverable</th><th>Why it helps</th></tr></thead><tbody>
+<tr><td>Engineer</td><td>A map of pages and reusable components</td><td>Prevents 43 independently edited headers, footers, and layouts.</td></tr>
+<tr><td>Content editor</td><td>Structured treatments, products, and articles</td><td>A price or description can be updated in one known place.</td></tr>
+<tr><td>Designer</td><td>Identity guide, component examples, visual baselines</td><td>New pages still feel like the same clinic.</td></tr>
+<tr><td>Accessibility reviewer</td><td>Keyboard, contrast, labels, heading, and mobile checks</td><td>More patients can use the site reliably.</td></tr>
+<tr><td>Security reviewer</td><td>A data-flow map and risk review</td><td>You know what leaves the browser, who receives it, and who can access it.</td></tr>
+<tr><td>Quality reviewer</td><td>A repeatable checklist and automated checks</td><td>Small changes are less likely to break another page.</td></tr>
+<tr><td>Operations owner</td><td>A launch, backup, monitoring, and rollback runbook</td><td>You can publish safely and recover from mistakes.</td></tr>
+</tbody></table>
+<h3>Recommended order for your goal</h3><ol><li><strong>Identity and inventory:</strong> the reference work already underway.</li><li><strong>Editable components and content:</strong> the highest-value next build.</li><li><strong>Booking and data decisions:</strong> keep the first version simple.</li><li><strong>Quality and launch checks:</strong> test before patients depend on it.</li></ol>
+<div class="note">You do not need to become all these professionals. Learn the questions, ask an agent or specialist to produce the deliverables, and review concrete results.</div>
+</section>
+
+<section class="sheet">
+<p class="kicker">04 · Think like a designer</p><h2>Preserve identity through rules.</h2>
+<p>A designer would record the repeated decisions, not simply collect attractive screenshots.</p>
+<table><thead><tr><th>Rule</th><th>Janus reference</th></tr></thead><tbody>
+<tr><td>Palette</td><td>Ivory #FAF7F4; stone #F0EBE3; deeper stone #E8E0D5; charcoal #1A1A1A; muted gray #6B6560; gold #C9A97A.</td></tr>
+<tr><td>Typography</td><td>Cormorant Garamond headings at normal weight; DM Sans body, navigation, labels, and actions.</td></tr>
+<tr><td>Spacing</td><td>1200px container including gutters; 40px desktop and 24px mobile gutters; standard 96px / 64px section rhythm.</td></tr>
+<tr><td>Components</td><td>Fine borders, 2px button corners, restrained accents, clear labels, generous whitespace.</td></tr>
+<tr><td>Photography</td><td>Original clinic, practitioner, treatment, and product assets. Keep the logo unchanged.</td></tr>
+<tr><td>Voice</td><td>Calm, factual, medically responsible explanations; verified credentials, prices, claims, and testimonials.</td></tr>
+</tbody></table>
+<h3>A useful editing exercise</h3><ol><li>Pick one treatment page and compare desktop and mobile references.</li><li>Change only its confirmed description in the editable version.</li><li>Verify that the heading, spacing, image crop, and consultation action still match the template.</li><li>Ask another person to check readability and whether the treatment is understandable.</li></ol>
+<div class="note"><strong>Avoid drift:</strong> do not let an agent replace the font pairing, invent a logo, add unrelated gradients, or turn every control into a large rounded pill. If you want a redesign, decide that explicitly.</div>
+<p>Read the full identity guide before styling changes. Use the portfolio as a reference, not as a patient-facing sales page.</p>
+</section>
+
+<section class="sheet">
+<p class="kicker">05 · Think like a security reviewer</p><h2>Start with the information flow.</h2>
+<p>For a first public version, patients should be able to read services, find the clinic, and request an appointment. They do not need a patient account or a medical-record database just to do that.</p>
+<h3>Draw this simple map</h3><div class="note">Patient browser → page or form → receiving service → clinic staff → retention or deletion.</div>
+<p>For every arrow, ask what information is sent, whether it is needed, who can see it, and what happens if the service fails.</p>
+<ul><li><strong>Minimize collection:</strong> basic appointment details first. Do not invite medical reports, identity documents, or detailed health histories into an unreviewed contact form.</li>
+<li><strong>Verify forms:</strong> check required fields in both browser and receiving service, abuse/spam controls, error states, and that the correct clinic account receives the enquiry.</li>
+<li><strong>Protect secrets:</strong> private API keys belong in the platform’s secure configuration, not page code, GitHub, PDFs, or prompts.</li>
+<li><strong>Protect accounts:</strong> use clinic-owned accounts, multi-factor authentication, individual staff access, and a backup owner.</li>
+<li><strong>Review external services:</strong> document form, messaging, analytics, map, and hosting providers. Decide what data each may receive and update the privacy notice.</li>
+<li><strong>Check the deployment:</strong> HTTPS, dependency findings, appropriate security headers, safe error messages, and no private data in logs or public pages.</li></ul>
+<p>Have the clinic confirm applicable Sri Lankan privacy and health-data obligations and the suitability of third-party storage before collecting sensitive information.</p>
+<div class="note">A future patient portal needs its own plan: authentication, server-enforced access, data isolation, audit history, retention, recovery, and specialist review. Do not assume a public website builder supplies those decisions automatically.</div>
+</section>
+
+<section class="sheet">
+<p class="kicker">06 · Evaluate Lovable</p><h2>A reasonable tool.<br>A deliberate migration.</h2>
+<p><strong>Recommendation:</strong> use Lovable for an editable public information and booking-request website, with a small pilot before migrating everything.</p>
+<h3>What the current documentation says</h3><ul>
+<li><strong>Website import:</strong> paste a public URL. Lovable rebuilds visible pages as editable project code. It does not recover the original server or form-delivery behavior.</li>
+<li><strong>Adding pages:</strong> up to 10 pages per request; the documented limit is 30 page reads per hour, including comparison reads. Import and comparison consume credits.</li>
+<li><strong>Rollout:</strong> website and ZIP project import may not yet appear in every account.</li>
+<li><strong>Code import:</strong> Upload code accepts a ZIP and rebuilds it as a Lovable project. The docs currently describe TanStack Start as the rebuild stack. Our capture is reference material, not original application source.</li>
+<li><strong>GitHub sync:</strong> connecting a project creates a new repository. It does not simply attach Git sync to this existing JanusClinic repository. Keep the original as a baseline.</li></ul>
+<h3>The maintainability trap</h3><p>Website import adds separate copies of headers, footers, and navigation to pages. Products and journal posts arrive as fixed pages rather than manageable records. Ask for shared components and a content model, otherwise editing remains repetitive.</p>
+<div class="note"><strong>If import is unavailable:</strong> start a Lovable project with the identity guide, original assets, representative screenshots, and a precise page brief. Build a small pilot. Another option is a developer-led rebuild with GitHub and a different host; that offers more control but requires more technical ownership.</div>
+<p class="small">Product features and limits can change. Official links and the verification date are on the final page.</p>
+</section>
+
+<section class="sheet">
+<p class="kicker">07 · Your first Lovable session</p><h2>Build a pilot you can judge.</h2>
+<ol><li><strong>Use a clinic-owned account.</strong> Check who owns the workspace, billing, domain, and backups.</li>
+<li><strong>Keep the original site online.</strong> Do not change DNS or replace the existing hosting yet.</li>
+<li><strong>If available, import the homepage.</strong> Dashboard → + → Import project to Lovable → Website. Use the full public URL and confirm ownership or permission when Lovable asks.</li>
+<li><strong>Provide the identity guidance.</strong> Share the design guide and selected reference screenshots. The local portfolio URL is not accessible to Lovable; supply files or public source URLs.</li>
+<li><strong>Add representative templates.</strong> Start with a service listing, one treatment, a product page, an article, and Contact. Work in small batches.</li>
+<li><strong>Ask for shared source.</strong> Consolidate Header, Footer, Layout, Button, Card, FormField, and typography tokens. Put repeated content in consistent editable structures.</li>
+<li><strong>Demonstrate an edit.</strong> Change one confirmed treatment description and one shared navigation label. Verify the intended pages update without visual drift.</li></ol>
+<h3>A starter prompt</h3><pre>Build an editable pilot of Janus Estheti Clinique.
+Preserve the supplied identity guide, original logo, local fonts,
+photography, clean routes, and desktop/mobile layouts.
+Use shared components and structured content, not separate copies
+of every header and footer. Do not invent clinical claims or prices.
+Keep booking as an appointment request, not a confirmed slot.
+List what works, what is simulated, and what still needs setup.</pre>
+<p class="small">Do not assume import success means the clinic can receive messages. Verify the chosen booking/contact workflow separately.</p>
+</section>
+
+<section class="sheet">
+<p class="kicker">08 · Make content easy to change</p><h2>One change, one known place.</h2>
+<p>The aim is to edit a treatment or product without manually repairing the same information across multiple pages.</p>
+<table><thead><tr><th>Content type</th><th>Example fields</th><th>Who approves it</th></tr></thead><tbody>
+<tr><td>Treatment</td><td>Slug, title, category, description, image, suitability, process, FAQs, booking text.</td><td>Clinical lead</td></tr>
+<tr><td>Product</td><td>Slug, name, category, image, price in LKR, usage, availability and order link.</td><td>Clinic/product owner</td></tr>
+<tr><td>Article</td><td>Slug, title, summary, author, publication/review dates, cover, article body and metadata.</td><td>Clinical/editorial reviewer</td></tr>
+<tr><td>Clinic settings</td><td>Phone, email, address, hours, map, logo, social destinations.</td><td>Clinic manager</td></tr>
+</tbody></table>
+<h3>Start with the simplest adequate editor</h3><p>Structured files are often enough when one person and an agent make occasional changes. If several nontechnical staff need frequent editing, evaluate a CMS later. A CMS is an editing tool; it is not automatically a patient-record system.</p>
+<h3>Migrate the remaining pages</h3><ol><li>Use the 43-page inventory to track each route and template.</li><li>Add pages in manageable batches; review imported duplicates and keep shared components shared.</li><li>Check all treatment, product, article, legal, and contact routes—not just the homepage.</li><li>Keep existing URLs where practical. Define redirects for intentional changes.</li><li>Restore descriptions, canonical URLs, and structured metadata deliberately; website import does not copy every SEO field.</li></ol>
+<div class="note">First-version scope: public information, useful product details, articles, clinic contact, and appointment requests. Add accounts, payments, or clinical records only when there is a clear need and a separate design.</div>
+</section>
+
+<section class="sheet">
+<p class="kicker">09 · Check quality like an engineer</p><h2>Ask for evidence, not “done.”</h2>
+<table><thead><tr><th>Check</th><th>What you should see</th></tr></thead><tbody>
+<tr><td>Content and routes</td><td>Every intended page exists; links work; unknown addresses show a useful 404; prices, hours and credentials are approved.</td></tr>
+<tr><td>Desktop and mobile</td><td>Readable headings, sensible image crops, usable menus, no horizontal overflow, and consistent spacing.</td></tr>
+<tr><td>Accessibility</td><td>Keyboard navigation, visible focus, meaningful labels and alt text, readable contrast, and a sensible heading order.</td></tr>
+<tr><td>Form behavior</td><td>Required/invalid fields, success and failure states, spam handling, and confirmed clinic delivery using an approved test enquiry.</td></tr>
+<tr><td>Performance</td><td>Reasonable image sizes, lazy loading where appropriate, local/reliable fonts, and acceptable behavior on a real phone and slower connection.</td></tr>
+<tr><td>Search and sharing</td><td>Correct titles, descriptions, canonical URLs, sitemap, indexability, social previews, and accurate clinic structured data.</td></tr>
+<tr><td>Security and privacy</td><td>No exposed private keys; reviewed providers and personal-data flow; access rules tested for any restricted feature.</td></tr>
+</tbody></table>
+<h3>In this repository</h3><pre>npm run check          # original capture and local references
+npm test               # local HTTP server behavior
+npm run test:browser   # browser routes and interactions</pre>
+<p>These commands validate this repository. A new Lovable project needs equivalent checks for its actual generated source and hosting. Passing the old capture’s checks does not validate a new deployment.</p>
+<div class="note">During development, simulate external form responses. Before launch, arrange a controlled live test with clinic staff, using test details rather than real patient information.</div>
+</section>
+
+<section class="sheet">
+<p class="kicker">10 · Launch with a concrete plan</p><h2>Make the public version deliberate.</h2>
+<ol><li><strong>Approve the scope and content.</strong> The clinic reviews treatment statements, contact details, prices, imagery, privacy information, and the booking process.</li>
+<li><strong>Resolve critical findings.</strong> Run the platform’s security checks and review relevant findings. A clean scanner is useful evidence, not a complete security assessment.</li>
+<li><strong>Publish a review version.</strong> Lovable’s Publish flow lets you choose the audience. A patient website needs Public access when it is ready. Keep sensitive content out of public previews.</li>
+<li><strong>Verify the actual published URL.</strong> Open it signed out on a real phone. Test deep links, images, menus, sharing metadata, and the approved enquiry journey.</li>
+<li><strong>Connect the clinic domain.</strong> Follow the current Custom domains instructions. Copy the exact records Lovable provides and confirm HTTPS works.</li>
+<li><strong>Preserve email settings.</strong> Review the existing DNS records before changing anything. Do not delete MX/TXT or other records used by clinic email or services.</li>
+<li><strong>Check search setup.</strong> Use the final domain in canonical URLs and sitemap. Remove staging-only noindex from patient pages when appropriate; keep internal reference material separate.</li>
+<li><strong>Monitor the switch.</strong> Ask clinic staff to verify enquiries and important pages. Keep the previous hosting and a documented rollback path until the new version is stable.</li></ol>
+<div class="note"><strong>Rollback means a plan, not a button:</strong> record the previous deployment or DNS target and who can restore it. DNS changes are not instant; caches and record TTLs affect how quickly visitors move.</div>
+<p>Updating code in an editor does not automatically update the published site. Lovable’s current documentation says to use <strong>Publish changes</strong> for later releases.</p>
+</section>
+
+<section class="sheet">
+<p class="kicker">11 · Keep it healthy after launch</p><h2>Give the website an owner.</h2>
+<table><thead><tr><th>When</th><th>Simple routine</th></tr></thead><tbody>
+<tr><td>Every content change</td><td>Confirm the information, review the affected template on phone and desktop, test the relevant journey, and record the version.</td></tr>
+<tr><td>Weekly</td><td>Check contact delivery, phone/WhatsApp destinations, hours, promotions, and obvious broken links. Review reports of problems.</td></tr>
+<tr><td>Monthly</td><td>Review dependency/security findings, access permissions, provider bills, and site performance. Update what is relevant and retest.</td></tr>
+<tr><td>Quarterly or after major changes</td><td>Review clinical and privacy content, ownership, recovery access, and the rollback instructions. Revisit whether the current editing workflow still fits.</td></tr>
+</tbody></table>
+<h3>Keep a small handoff pack</h3><ul><li>Page inventory and content ownership.</li><li>Identity guide and component reference.</li><li>How to edit, test, publish, and restore a previous version.</li><li>Which providers receive enquiries and how long information is kept.</li><li>Account owners and recovery procedures; store passwords and recovery codes securely, not in the repository.</li></ul>
+<h3>Understand what a backup covers</h3><p>GitHub records code versions. Separately managed content, databases, uploaded files, and provider settings need their own recovery plan if you introduce them. Practice restoring a test copy before depending on a backup.</p>
+<div class="note">A website without accounts or a database can be simpler to operate. Add complexity when it serves a real clinic workflow, not because a builder makes it easy to generate.</div>
+</section>
+
+<section class="sheet">
+<p class="kicker">12 · Give agents better instructions</p><h2>Prompts you can reuse.</h2>
+<h3>Before a change</h3><pre>Read AGENTS.md and the design identity guide.
+Explain the current page pattern and propose the smallest change
+that satisfies this request. List any information you need from me.
+Keep the existing identity unless I explicitly ask for a redesign.</pre>
+<h3>Make content editable</h3><pre>Separate treatment/product/article content from page layout.
+Use shared components and consistent fields. Show me where I edit
+one item, then demonstrate that the listing and detail page update.
+Preserve routes and confirmed content. Do not invent missing facts.</pre>
+<h3>Review an enquiry workflow</h3><pre>Map what data the form collects, where it is sent, who can access
+it, and how it is retained. Check validation, spam handling,
+failure states, private-key handling, and the privacy notice.
+Use simulated responses until a controlled live test is approved.</pre>
+<h3>Finish with evidence</h3><pre>Report what changed and how I can review it. Run the relevant
+checks and show which actually executed. Compare desktop/mobile
+screenshots. Separate verified behavior, simulated integrations,
+and anything still requiring an account setting or decision.</pre>
+<div class="note">A useful agent explains a concrete result you can inspect. Ask it to define unfamiliar terms and show one example rather than accepting a long list of tools.</div>
+</section>
+
+<section class="sheet">
+<p class="kicker">13 · Your next steps and sources</p><h2>A small plan you can finish.</h2>
+<ol><li><strong>Review the identity portfolio.</strong> Confirm that it describes the Janus look you want to keep.</li><li><strong>Create a Lovable pilot.</strong> Import or rebuild representative pages; check whether your account has the import feature.</li><li><strong>Prove editing works.</strong> Shared components, structured content, and one demonstrated update before scaling to all pages.</li><li><strong>Choose the enquiry workflow.</strong> Confirm the clinic recipient and data policy.</li><li><strong>Complete the quality checklist.</strong> Then review a published preview before moving the domain.</li></ol>
+<h3>Ready for patients?</h3><ul class="checklist"><li>Clinic-approved content and ownership</li><li>All intended pages and mobile navigation checked</li><li>Booking/enquiry delivery confirmed in a controlled live test</li><li>Privacy, data handling, and relevant security findings reviewed</li><li>Public access, domain, HTTPS, metadata, and email DNS checked</li><li>Named maintainer, recovery access, and rollback instructions</li></ul>
+<h3>Official references</h3><div class="sources"><p>Checked on <strong>26 October 2026</strong>. Interfaces, plans, rollout availability, and limits can change; recheck before using them.</p>
+<p><a href="https://docs.lovable.dev/features/projects/import-website">Lovable: Import a website</a> — URL import, rollout, multi-page limits, and what does not transfer.</p>
+<p><a href="https://docs.lovable.dev/features/projects/import-project">Lovable: Import a project</a> — ZIP-code import and migration behavior.</p>
+<p><a href="https://docs.lovable.dev/integrations/github">Lovable: GitHub integration</a> — new-repository creation and two-way sync.</p>
+<p><a href="https://docs.lovable.dev/features/publish">Lovable: Publish your project</a> — audience, publishing, updates, and domain guidance.</p>
+<p><a href="https://www.w3.org/WAI/tutorials/">W3C: Accessibility tutorials</a> · <a href="https://owasp.org/www-project-top-ten/">OWASP: Web application security risks</a></p></div>
+</section>
+</body></html>

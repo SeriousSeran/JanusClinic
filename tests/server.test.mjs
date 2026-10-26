@@ -37,3 +37,34 @@ test('serves the archive without exposing files or accepting writes', async (t) 
   assert.equal(await head.text(), '');
   assert.equal((await fetch(origin + '/about', { method: 'POST', body: 'test' })).status, 405);
 });
+
+test('serves the maintained portfolio independently of the generated capture', async (t) => {
+  const { createSiteServer } = await import('../server.mjs');
+  const parent = await mkdtemp(join(tmpdir(), 'janus-portfolio-'));
+  const root = join(parent, 'capture');
+  const portfolioRoot = join(parent, 'reference');
+  await mkdir(root);
+  await mkdir(portfolioRoot);
+  await writeFile(join(root, 'index.html'), '<h1>Original homepage</h1>');
+  await writeFile(join(portfolioRoot, 'index.html'), '<h1>Design portfolio</h1>');
+  await writeFile(join(portfolioRoot, 'portfolio.css'), 'body { color: #1a1a1a; }');
+  await writeFile(join(portfolioRoot, 'portfolio.mjs'), 'export const identity = true;');
+  await writeFile(join(parent, 'private.txt'), 'private');
+  const server = createSiteServer({ root, portfolioRoot });
+  await new Promise(resolve => server.listen(0, '127.0.0.1', resolve));
+  const origin = `http://127.0.0.1:${server.address().port}`;
+  t.after(async () => { await new Promise(resolve => server.close(resolve)); await rm(parent, { recursive: true }); });
+  for (const path of ['/portfolio', '/portfolio/']) {
+    const response = await fetch(origin + path);
+    assert.equal(response.status, 200, path);
+    assert.match(await response.text(), /Design portfolio/);
+  }
+  const css = await fetch(origin + '/portfolio/portfolio.css');
+  assert.equal(css.status, 200);
+  assert.match(css.headers.get('content-type'), /text\/css/);
+  const script = await fetch(origin + '/portfolio/portfolio.mjs');
+  assert.match(script.headers.get('content-type'), /application\/javascript/);
+  assert.match(await (await fetch(origin + '/')).text(), /Original homepage/);
+  assert.equal((await fetch(origin + '/portfolio/missing')).status, 404);
+  assert.equal((await fetch(origin + '/portfolio/%2e%2e%2fprivate.txt')).status, 400);
+});

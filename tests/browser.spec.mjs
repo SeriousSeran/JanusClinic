@@ -86,3 +86,47 @@ test('contact form hydrates and displays confirmation with a simulated provider 
   expect(submitted).toContain('Local Test');
   expect(submitted).toContain('test@example.invalid');
 });
+
+test('identity portfolio preserves the site tokens and exposes every page reference', async ({ page }, testInfo) => {
+  await page.setViewportSize({ width: 1440, height: 1000 });
+  await page.goto('/');
+  const tokens = await page.evaluate(() => {
+    const style = getComputedStyle(document.documentElement);
+    return Object.fromEntries(['--color-background', '--color-text', '--color-accent', '--color-surface'].map(name => [name, style.getPropertyValue(name).trim()]));
+  });
+  await page.goto('/portfolio');
+  await expect(page.getByRole('heading', { level: 1 })).toContainText('Keep the Janus');
+  await expect(page.locator('[data-portfolio-page]')).toHaveCount(manifest.pages.length);
+  await expect(page.locator('#mobile-gallery img')).toHaveCount(6);
+  expect(await page.evaluate(names => {
+    const style = getComputedStyle(document.documentElement);
+    return Object.fromEntries(names.map(name => [name, style.getPropertyValue(name).trim()]));
+  }, Object.keys(tokens))).toEqual(tokens);
+  await page.evaluate(() => document.fonts.ready);
+  await expect(page.locator('h1')).toHaveCSS('font-family', /Cormorant Garamond/);
+  await expect(page.locator('body')).toHaveCSS('font-family', /DM Sans/);
+  await page.screenshot({ path: testInfo.outputPath('portfolio-desktop.png') });
+  const inventory = await (await page.request.get('/portfolio/capture/pages.json')).json();
+  expect(inventory.pages.map(p => p.route).sort()).toEqual(manifest.pages.map(p => new URL(p.source_url).pathname || '/').sort());
+  for (const reference of inventory.pages) {
+    for (const cover of [reference.desktop, reference.mobile].filter(Boolean)) {
+      const response = await page.request.get('/portfolio/capture/' + cover);
+      expect(response.status(), cover).toBe(200);
+      expect(response.headers()['content-type']).toBe('image/jpeg');
+    }
+  }
+  await page.getByRole('button', { name: 'Products', exact: true }).click();
+  await expect(page.locator('#gallery-status')).toHaveText('8 of 43 captured pages');
+  await expect(page.locator('[data-portfolio-page]:visible')).toHaveCount(8);
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto('/portfolio/');
+  await expect(page.locator('[data-portfolio-page]')).toHaveCount(43);
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+  await page.screenshot({ path: testInfo.outputPath('portfolio-mobile.png') });
+  const journal = page.getByRole('button', { name: 'Journal', exact: true });
+  await journal.focus();
+  await journal.press('Enter');
+  await expect(page.locator('#gallery-status')).toHaveText('9 of 43 captured pages');
+  await page.locator('[data-portfolio-page]:visible').first().click();
+  await expect(page).toHaveURL(/\/journal$/);
+});

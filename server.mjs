@@ -6,15 +6,20 @@ import { fileURLToPath } from 'node:url';
 const projectRoot = fileURLToPath(new URL('.', import.meta.url));
 const types = {
   '.html': 'text/html; charset=utf-8', '.css': 'text/css; charset=utf-8',
-  '.js': 'application/javascript; charset=utf-8', '.json': 'application/json',
+  '.js': 'application/javascript; charset=utf-8', '.mjs': 'application/javascript; charset=utf-8',
+  '.json': 'application/json', '.pdf': 'application/pdf',
   '.png': 'image/png', '.jpg': 'image/jpeg', '.jpeg': 'image/jpeg',
   '.webp': 'image/webp', '.avif': 'image/avif', '.svg': 'image/svg+xml',
   '.ico': 'image/x-icon', '.woff2': 'font/woff2', '.woff': 'font/woff',
   '.xml': 'application/xml; charset=utf-8', '.txt': 'text/plain; charset=utf-8',
 };
 
-export function createSiteServer({ root = resolve(projectRoot, 'public') } = {}) {
+export function createSiteServer({
+  root = resolve(projectRoot, 'public'),
+  portfolioRoot = resolve(projectRoot, 'reference/portfolio'),
+} = {}) {
   root = resolve(root);
+  portfolioRoot = resolve(portfolioRoot);
   return createServer(async (request, response) => {
     const fail = (status, message) => {
       response.writeHead(status, { 'Content-Type': 'text/plain; charset=utf-8' });
@@ -36,15 +41,19 @@ export function createSiteServer({ root = resolve(projectRoot, 'public') } = {})
           path.split('/').some(segment => segment.startsWith('.'))) {
         return fail(400, 'Invalid path');
       }
-      let file = resolve(root, '.' + path);
-      if (file !== root && !file.startsWith(root + sep)) return fail(400, 'Invalid path');
+      // Authored identity references survive refreshes of the generated public capture.
+      const isPortfolio = path === '/portfolio' || path.startsWith('/portfolio/');
+      const servingRoot = isPortfolio ? portfolioRoot : root;
+      if (isPortfolio) path = path.slice('/portfolio'.length) || '/';
+      let file = resolve(servingRoot, '.' + path);
+      if (file !== servingRoot && !file.startsWith(servingRoot + sep)) return fail(400, 'Invalid path');
       let info = await stat(file);
       if (info.isDirectory()) {
         file = resolve(file, 'index.html');
         info = await stat(file);
       }
       if (!info.isFile()) return fail(404, 'Page not found');
-      const [actualFile, actualRoot] = await Promise.all([realpath(file), realpath(root)]);
+      const [actualFile, actualRoot] = await Promise.all([realpath(file), realpath(servingRoot)]);
       if (!actualFile.startsWith(actualRoot + sep)) return fail(404, 'Page not found');
       response.writeHead(200, {
         'Content-Type': types[extname(file).toLowerCase()] || 'application/octet-stream',
