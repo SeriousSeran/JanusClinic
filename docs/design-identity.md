@@ -93,3 +93,7 @@ To deliberately regenerate cover snapshots, start the local server and run `npm 
 ## Gateway and imagery update · 5 November 2026
 
 The maintained homepage and three area pages live in `site/templates/`, using `site/content.json` and the original design tokens. Three adult Sri Lankan AI portraits use soft rose backgrounds and natural skin texture; preserve their modest editorial styling. Images are illustrative, never evidence of actual treatment results. `site/imagery.json` records provenance and the explicit decorative replacement map. Real clinical, practitioner, clinic, product and procedural images remain original. The portfolio's 49 covers and original hero remain historical references; inspect the current gateway alongside them. On mobile, keep all three area shortcuts visible before the image cards.
+
+## Liquid glass preview
+
+The owner requested the liquid-glass-inspired treatment. `site/assets/glass.css` styles the authored floating header, gateway portrait captions and mobile shortcuts. Keep its ivory tint, restrained depth and rounded glass surfaces while retaining the existing logo/fonts and solid price/clinical content. Reduced-transparency, unsupported-blur and forced-colors paths use opaque surfaces. No animated blur or new dependency. This styling approval does not implement or activate registration and booking.

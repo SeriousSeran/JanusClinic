@@ -13,3 +13,7 @@ Recommended scope for the visual comparison: navigation, shared account/welcome 
 Agent Browser successfully opened the local preview and ran axe on its real page: 38 checks passed, zero automated violations, one incomplete item requiring manual review. This is an installation smoke check, not proof that the proposed glass treatment is accessible; that treatment is not yet implemented.
 
 Next design step remains the offered comparison of subtle and more pronounced glass. No website design, customer account or booking delivery was changed by installing the tools.
+
+## Preview implementation
+
+The owner requested adding the treatment and a preview link. The shared authored header now uses restrained frosted ivory glass; gateway portrait captions overlap the lower photo edge with a readable ivory tint, while mobile area shortcuts use matching surfaces. Prices, catalog rows, forms and longer clinical copy retain solid backgrounds. The implementation uses CSS only, includes reduced-transparency/forced-colors fallbacks, and adds no dependency. Account registration and expanded wellness booking functionality remain separate pending implementation.
