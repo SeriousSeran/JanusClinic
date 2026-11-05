@@ -8,7 +8,7 @@ Unless the user requests a design change, preserve the original logo and photogr
 
 ## Follow the current brief
 
-Read [docs/website-direction.md](docs/website-direction.md) for the planned Cosmetic / Salon / Wellness gateway, the requested Sri Lankan model imagery, and unresolved content decisions. The original portfolio is a design baseline; its existing foreign-model imagery is not a requirement to retain those models. The supplied salon catalog is in `content/salon/catalog.draft.json`: current LKR prices are owner-confirmed, only the LKR 6,800 root-touching option is active, and massage/body care belong under Salon for now. Use the 123 active entries, not excluded source rows. Resolve flagged labels and contact details before publishing those details. Do not invent the three planned wellness tiers.
+Read [docs/website-direction.md](docs/website-direction.md) for the planned Cosmetic / Salon / Wellness gateway, the requested Sri Lankan model imagery, and unresolved content decisions. The original portfolio is a design baseline; its existing foreign-model imagery is not a requirement to retain those models. The supplied salon catalog is in `content/salon/catalog.draft.json`: current LKR prices are owner-confirmed, only the LKR 6,800 root-touching option is active, and massage/body care belong under Salon for now. Use the 123 active entries, not excluded source rows. Resolve flagged labels and contact details before publishing those details. The subsequent Wellness Collection brief now defines three memberships and approved prices; read `docs/wellness-brief-review.md` for the current decisions rather than treating the earlier undefined-tier plan as current. Salon and Wellness foot massages are distinct services performed by different people.
 
 ## Respect source boundaries
 
@@ -31,3 +31,7 @@ Read [docs/github-preview.md](docs/github-preview.md) before changing the export
 ## Maintained gateway and area pages
 
 The implemented `/`, `/cosmetic/`, `/salon/` and `/wellness/` pages use `site/templates/`, `site/content.json`, `site/assets/` and `scripts/render_site.py`. Edit these sources, never `site/generated/` or `dist/`. `npm start` renders automatically; after edits use `npm run site:build` for local viewing and `npm run preview:build` for Pages. The Salon page consumes the catalog directly; preserve six visible wording-review notes until confirmed. Preserve the AI illustration disclosure and source provenance. Keep original portfolio covers unchanged and retain the mobile shortcuts to all three areas. Read `docs/editing-the-website.md` for common tasks.
+
+## Installed design and planning skills
+
+Read `docs/agent-skills.md` for the installed skills catalog, usage and tool setup. Skills live in `.agents/skills/`; source commits and file hashes are pinned in `.agents/skills-lock.json`. Select relevant skills for the task rather than loading every toolkit. Owner decisions and this repository's identity/source/preview rules override generic style prescriptions. Spec Kit's Codex skills and `.specify/` workflow are installed for major feature planning; reference the existing briefs instead of maintaining duplicate specifications. Run `npm run skills:check` when changing installed skills. Do not copy toolkit starters over the maintained website or add their example assets to the exported application without a feature need.

@@ -19,7 +19,8 @@
     "preview:build": "python3 scripts/build-preview.py",
     "preview:serve": "python3 -m http.server 4173 --bind 127.0.0.1 --directory dist",
     "test:preview": "playwright test --config playwright.preview.config.mjs",
-    "site:build": "python3 scripts/render_site.py"
+    "site:build": "python3 scripts/render_site.py",
+    "skills:check": "python3 scripts/check-skills.py"
   },
   "devDependencies": {
     "@playwright/test": "1.56.1"
