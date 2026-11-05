@@ -1,0 +1,33 @@
+{
+  "generated_on": "2026-11-05",
+  "tool": "OpenAI image generation",
+  "purpose": "Illustrative fictional adult Sri Lankan models, not patients, clinical staff or results",
+  "art_direction": "Natural skin texture, modest ivory styling, soft dusty rose studio backgrounds, understated warm daylight; no skin whitening or heavy retouching",
+  "portraits": [
+    {
+      "file": "site/assets/cosmetic.webp",
+      "source_png": "/workspace/generated_images/exec-ff7c4d20-a6d5-40b9-878a-83f29445e636.png",
+      "brief": "Adult Sri Lankan woman around 32; hair swept naturally back; direct calm gaze; natural skin; ivory blouse; rose studio backdrop."
+    },
+    {
+      "file": "site/assets/salon.webp",
+      "source_png": "/workspace/generated_images/exec-0951ef6d-7b6d-4fd1-b346-0b32128dd685.png",
+      "brief": "Adult Sri Lankan woman around 28; long loose wavy black hair; relaxed smile; ivory blouse; rose studio backdrop."
+    },
+    {
+      "file": "site/assets/wellness.webp",
+      "source_png": "/workspace/generated_images/exec-f78d445d-7ac4-4c68-8a2c-3de8a1851397.png",
+      "brief": "Adult Sri Lankan Tamil woman around 43; loosely tied natural curls; relaxed confident expression; subtle expression lines; ivory blouse; rose backdrop."
+    }
+  ],
+  "replacements": {
+    "/images/hero/hero-skincare.webp": "/site/assets/cosmetic.webp",
+    "/images/treatments/hair.png": "/site/assets/salon.webp",
+    "/images/treatments/hydrafacial.jpg": "/site/assets/cosmetic.webp"
+  },
+  "descriptions": {
+    "/site/assets/cosmetic.webp": "AI-generated illustrative Sri Lankan woman against a soft rose background; not a patient or treatment result",
+    "/site/assets/salon.webp": "AI-generated illustrative Sri Lankan woman with long wavy black hair against a soft rose background"
+  },
+  "preserved": "Real clinician, clinic, product, procedural and bridal photographs; original capture; historical portfolio photography and reference covers. Source PNGs stay in the generated-images workspace; web copies use WebP encoding without compositional edits."
+}

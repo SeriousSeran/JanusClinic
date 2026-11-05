@@ -89,3 +89,7 @@ Before accepting a change:
 5. Refresh visual baselines only after reviewing an intentional design change. Do not regenerate them merely to make a mismatch disappear.
 
 To deliberately regenerate cover snapshots, start the local server and run `npm run capture:portfolio`. `PORTFOLIO_BASE_URL` can select another localhost port; `CHROMIUM_PATH` can select a system Chromium executable. The command stages a complete `reference/portfolio/capture/` set, rejects broken visible imagery, and replaces covers and inventory together after success; a failed capture leaves the previous references intact. Review the new covers and `pages.json` before committing.
+
+## Gateway and imagery update · 5 November 2026
+
+The maintained homepage and three area pages live in `site/templates/`, using `site/content.json` and the original design tokens. Three adult Sri Lankan AI portraits use soft rose backgrounds and natural skin texture; preserve their modest editorial styling. Images are illustrative, never evidence of actual treatment results. `site/imagery.json` records provenance and the explicit decorative replacement map. Real clinical, practitioner, clinic, product and procedural images remain original. The portfolio's 49 covers and original hero remain historical references; inspect the current gateway alongside them. On mobile, keep all three area shortcuts visible before the image cards.

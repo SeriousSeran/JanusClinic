@@ -28,7 +28,7 @@ test('desktop content, local images, fonts and client navigation work', async ({
   const errors = [];
   page.on('pageerror', error => errors.push(error.message));
   await page.goto('/');
-  await expect(page.getByRole('heading', { level: 1 })).toContainText('Where skin finds');
+  await expect(page.getByRole('heading', { level: 1 })).toContainText('Care, in every');
   await page.evaluate(() => document.fonts.ready);
   for (const image of await page.locator('main img').filter({ visible: true }).all()) {
     await image.scrollIntoViewIfNeeded();

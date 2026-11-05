@@ -68,3 +68,29 @@ test('serves the maintained portfolio independently of the generated capture', a
   assert.equal((await fetch(origin + '/portfolio/missing')).status, 404);
   assert.equal((await fetch(origin + '/portfolio/%2e%2e%2fprivate.txt')).status, 400);
 });
+
+test('serves authored area pages and images ahead of the archive while keeping file boundaries', async t => {
+  const { createSiteServer } = await import('../server.mjs');
+  const parent = await mkdtemp(join(tmpdir(), 'janus-authored-'));
+  const root = join(parent, 'capture');
+  const authoredRoot = join(parent, 'authored');
+  await mkdir(root);
+  await mkdir(join(authoredRoot, 'salon'), { recursive: true });
+  await mkdir(join(authoredRoot, 'site/assets'), { recursive: true });
+  await writeFile(join(root, 'index.html'), '<h1>Original</h1>');
+  await writeFile(join(authoredRoot, 'index.html'), '<h1>Gateway</h1>');
+  await writeFile(join(authoredRoot, 'salon/index.html'), '<h1>Salon</h1>');
+  await writeFile(join(authoredRoot, 'site/assets/cosmetic.webp'), 'portrait');
+  await writeFile(join(parent, 'private.txt'), 'private');
+  const server = createSiteServer({ root, authoredRoot });
+  await new Promise(resolve => server.listen(0, '127.0.0.1', resolve));
+  t.after(async () => { await new Promise(resolve => server.close(resolve)); await rm(parent, { recursive: true }); });
+  const origin = `http://127.0.0.1:${server.address().port}`;
+  assert.match(await (await fetch(origin + '/')).text(), /Gateway/);
+  for (const path of ['/salon', '/salon/']) assert.match(await (await fetch(origin + path)).text(), /Salon/);
+  const portrait = await fetch(origin + '/site/assets/cosmetic.webp');
+  assert.equal(portrait.status, 200);
+  assert.equal(portrait.headers.get('content-type'), 'image/webp');
+  assert.ok([400, 404].includes((await fetch(origin + '/site/assets/%2e%2e%2fprivate.txt')).status));
+  assert.equal(await readFile(join(root, 'index.html'), 'utf8'), '<h1>Original</h1>');
+});

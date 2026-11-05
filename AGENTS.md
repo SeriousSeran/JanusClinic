@@ -27,3 +27,7 @@ Use `npm run capture:portfolio` only to deliberately refresh approved visual ref
 ## GitHub Pages review preview
 
 Read [docs/github-preview.md](docs/github-preview.md) before changing the export. The Pages artifact is a separate read-only build, not the regular Node application. Preserve the repository URL prefix, original capture integrity, disabled enquiry/booking actions, and preview label. Run `npm run preview:build` and `npm run test:preview` after relevant changes. Add new authored routes to the exporter deliberately; never assume a Node-only route is automatically published.
+
+## Maintained gateway and area pages
+
+The implemented `/`, `/cosmetic/`, `/salon/` and `/wellness/` pages use `site/templates/`, `site/content.json`, `site/assets/` and `scripts/render_site.py`. Edit these sources, never `site/generated/` or `dist/`. `npm start` renders automatically; after edits use `npm run site:build` for local viewing and `npm run preview:build` for Pages. The Salon page consumes the catalog directly; preserve six visible wording-review notes until confirmed. Preserve the AI illustration disclosure and source provenance. Keep original portfolio covers unchanged and retain the mobile shortcuts to all three areas. Read `docs/editing-the-website.md` for common tasks.

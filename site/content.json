@@ -1,0 +1,23 @@
+{
+  "home": {
+    "eyebrow": "Janus Estheti Clinique · Sri Lanka",
+    "heading": "Care, in every",
+    "emphasis": "sense.",
+    "intro": "A considered approach to looking and feeling yourself. Discover the part of Janus that’s right for you."
+  },
+  "areas": [
+    {"id": "cosmetic", "name": "Cosmetic", "eyebrow": "Skin & aesthetic care", "description": "Explore medical cosmetic treatments and find out what a consultation involves.", "action": "Explore cosmetic care", "image": "/site/assets/cosmetic.webp", "alt": "Illustrative Sri Lankan woman with naturally textured skin against a soft rose background"},
+    {"id": "salon", "name": "Salon", "eyebrow": "Hair, beauty & body care", "description": "From everyday hair care to a little time for yourself. Browse our services and prices.", "action": "Explore the salon", "image": "/site/assets/salon.webp", "alt": "Illustrative Sri Lankan woman with long wavy black hair against a soft rose background"},
+    {"id": "wellness", "name": "Wellness", "eyebrow": "A new chapter", "description": "A thoughtful new part of Janus is taking shape. Discover what’s coming.", "action": "Discover wellness", "image": "/site/assets/wellness.webp", "alt": "Illustrative Sri Lankan woman with a relaxed expression against a soft rose background"}
+  ],
+  "cosmetic_treatments": [
+    {"slug": "botox", "name": "BOTOX & Muscle Relaxing Injections", "detail": "Read about the treatment, suitability and frequently asked questions."},
+    {"slug": "hifu", "name": "HIFU", "detail": "Explore the guide to high-intensity focused ultrasound."},
+    {"slug": "laser-pigmentation", "name": "Laser Pigmentation", "detail": "Learn about consultation and pigmentation treatment."},
+    {"slug": "carbon-peeling", "name": "Carbon Peeling", "detail": "Read the treatment overview and what to expect."},
+    {"slug": "acne-treatment", "name": "Acne Treatment", "detail": "Find information about acne care and consultation."},
+    {"slug": "collagen-treatment", "name": "Collagen Treatment", "detail": "Explore the treatment information and common questions."},
+    {"slug": "hair-treatment", "name": "Hair Treatment", "detail": "Read about medical cosmetic hair and scalp care."},
+    {"slug": "hair-removal", "name": "Laser Hair Removal", "detail": "Learn about suitability, sessions and treatment preparation."}
+  ]
+}

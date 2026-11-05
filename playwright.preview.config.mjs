@@ -1,6 +1,8 @@
 import { defineConfig } from '@playwright/test';
 export default defineConfig({
-  testDir: './tests', testMatch: 'preview-browser.spec.mjs', workers: 1,
+  testDir: './tests', testMatch: ['preview-browser.spec.mjs', 'gateway-browser.spec.mjs'], workers: 1,
+  outputDir: 'test-results/preview',
+  metadata: { repositoryPrefix: '/JanusClinic' },
   use: {
     baseURL: 'http://127.0.0.1:4173', browserName: 'chromium',
     launchOptions: { executablePath: process.env.CHROMIUM_PATH || '/usr/bin/chromium' },

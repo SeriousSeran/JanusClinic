@@ -1,6 +1,6 @@
 # Current website direction
 
-This records the user's stated direction as of 26 October 2026. It supplements the original capture and identity guide; it does not claim that the new website has already been implemented.
+Updated 5 November 2026. This supplements the original capture and identity guide. The three-area homepage, Cosmetic landing page, Salon catalog, Wellness holding page and three illustrative Sri Lankan portraits are now implemented in maintained source and the read-only preview. Wellness tier details remain outstanding.
 
 ## User's requirements
 
@@ -20,7 +20,7 @@ This records the user's stated direction as of 26 October 2026. It supplements t
 - Owner confirmed prices are current and in **LKR** on 26 October 2026. Keep only **Root Touching (Inova), LKR 6,800**; exclude the LKR 5,000 row. Some treatment/brand labels and contact details still need confirmation. The photograph itself is undated.
 - **Massage and body care are under Salon for now**, as confirmed by the owner; this may change later. Printed categories remain separate from website-area mapping.
 
-## Still needed before implementation/publication
+## Still needed before a patient-facing launch
 
 - Resolution of flagged catalog wording and any tax/fee or extra pricing conditions that should be shown. Current LKR prices are already confirmed.
 - Which cosmetic treatments to retain or change, using the existing site as the starting inventory.

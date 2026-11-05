@@ -2,6 +2,8 @@ import { createServer } from 'node:http';
 import { readFile, realpath, stat } from 'node:fs/promises';
 import { resolve, sep, extname } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { readFileSync } from 'node:fs';
+import { execFileSync } from 'node:child_process';
 
 const projectRoot = fileURLToPath(new URL('.', import.meta.url));
 const types = {
@@ -17,9 +19,12 @@ const types = {
 export function createSiteServer({
   root = resolve(projectRoot, 'public'),
   portfolioRoot = resolve(projectRoot, 'reference/portfolio'),
+  authoredRoot = resolve(root) === resolve(projectRoot, 'public') ? resolve(projectRoot, 'site/generated') : null,
 } = {}) {
   root = resolve(root);
   portfolioRoot = resolve(portfolioRoot);
+  authoredRoot = authoredRoot ? resolve(authoredRoot) : null;
+  const imagery = authoredRoot ? JSON.parse(readFileSync(resolve(projectRoot, 'site/imagery.json'), 'utf8')).replacements : {};
   return createServer(async (request, response) => {
     const fail = (status, message) => {
       response.writeHead(status, { 'Content-Type': 'text/plain; charset=utf-8' });
@@ -43,8 +48,11 @@ export function createSiteServer({
       }
       // Authored identity references survive refreshes of the generated public capture.
       const isPortfolio = path === '/portfolio' || path.startsWith('/portfolio/');
-      const servingRoot = isPortfolio ? portfolioRoot : root;
+      const authoredRoute = ['/', '/cosmetic', '/cosmetic/', '/salon', '/salon/', '/wellness', '/wellness/'].includes(path) || path.startsWith('/site/assets/');
+      const replacement = !isPortfolio && imagery[path];
+      const servingRoot = isPortfolio ? portfolioRoot : authoredRoot && (authoredRoute || replacement) ? authoredRoot : root;
       if (isPortfolio) path = path.slice('/portfolio'.length) || '/';
+      if (replacement) path = replacement;
       let file = resolve(servingRoot, '.' + path);
       if (file !== servingRoot && !file.startsWith(servingRoot + sep)) return fail(400, 'Invalid path');
       let info = await stat(file);
@@ -74,6 +82,7 @@ export function createSiteServer({
 }
 
 if (process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
+  execFileSync('python3', [resolve(projectRoot, 'scripts/render_site.py')], { stdio: 'inherit' });
   const port = Number(process.env.PORT || 3000);
   const host = process.env.HOST || '127.0.0.1';
   const server = createSiteServer();

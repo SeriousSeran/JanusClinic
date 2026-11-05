@@ -8,6 +8,7 @@ import re
 import shutil
 import tempfile
 from urllib.parse import parse_qs, urlsplit
+from render_site import render_pages
 
 ROOT = Path(__file__).resolve().parent.parent
 HOSTS = {'janusestheticlinique.com', 'www.janusestheticlinique.com'}
@@ -53,8 +54,11 @@ def faq_content(source):
 
 
 class PreviewHTML(HTMLParser):
-    def __init__(self, base):
+    def __init__(self, base, imagery=None, area_navigation=True):
         super().__init__(convert_charrefs=False)
+        self.imagery = imagery or {}
+        self.area_navigation = area_navigation
+        self.illustrative_portrait = False
         self.base = base
         self.output = []
         self.skip_script = False
@@ -72,13 +76,17 @@ class PreviewHTML(HTMLParser):
             path = parse_qs(url.query).get('url', [''])[0]
             if not path.startswith('/images/') or '..' in path.split('/'):
                 raise ValueError('Unexpected image URL: ' + value)
-            return self.base + path
-        return self.base + url.path + ('?' + url.query if url.query else '') + ('#' + url.fragment if url.fragment else '')
+            return self.base + self.imagery.get(path, path)
+        return self.base + self.imagery.get(url.path, url.path) + ('?' + url.query if url.query else '') + ('#' + url.fragment if url.fragment else '')
 
     def handle_starttag(self, tag, attrs):
         data = dict(attrs)
+        mapped_portrait = tag == 'img' and self.imagery and self.local_url(data.get('src', '')).startswith(self.base + '/site/assets/')
+        if mapped_portrait:
+            self.illustrative_portrait = True
+            attrs = [(key, 'AI-generated illustrative Sri Lankan model; not a patient or treatment result' if key == 'alt' else value) for key, value in attrs]
         if tag == 'script':
-            if data.get('src') != '/portfolio/portfolio.mjs':
+            if data.get('src') not in {'/portfolio/portfolio.mjs', '/site/assets/navigation.js'}:
                 self.skip_script = True
                 return
         if self.skip_script or self.skip_iframe:
@@ -114,6 +122,8 @@ class PreviewHTML(HTMLParser):
             rewritten.append((key, value))
         attributes = ''.join(' ' + key + ('' if value is None else '="' + html.escape(value, quote=True) + '"') for key, value in rewritten)
         self.output.append('<' + tag + attributes + '>')
+        if tag == 'body' and self.area_navigation:
+            self.output.append('<nav class="preview-areas" aria-label="Janus areas"><a href="' + self.base + '/">Janus</a><a href="' + self.base + '/cosmetic/">Cosmetic</a><a href="' + self.base + '/salon/">Salon</a><a href="' + self.base + '/wellness/">Wellness</a></nav>')
         if tag == 'form':
             self.output.append('<p class="preview-form-note">Design preview only. No enquiry or booking will be sent.</p>')
 
@@ -134,6 +144,8 @@ class PreviewHTML(HTMLParser):
         if tag == 'head':
             self.output.append('<meta name="robots" content="noindex, nofollow"><meta http-equiv="Content-Security-Policy" content="' + html.escape(CSP, quote=False) + '"><link rel="stylesheet" href="' + self.base + '/preview/site.css">')
         if tag == 'body':
+            if self.illustrative_portrait:
+                self.output.append('<p class="preview-illustration-note">Model portraits on this page include AI-generated illustrations, not patient photographs or treatment results.</p>')
             self.output.append('<aside class="preview-bar" aria-label="Preview controls"><strong>Design preview</strong><span id="preview-notice" role="status" tabindex="-1">Forms and booking actions are disabled.</span><a href="' + self.base + '/portfolio/">Design portfolio</a></aside><script defer src="' + self.base + '/preview/site.js"></script>')
         self.output.append('</' + tag + '>')
 
@@ -184,6 +196,7 @@ def build(destination, base):
     if destination.exists() and not (destination / 'preview-manifest.json').is_file():
         raise ValueError('Refusing to replace an output directory without the preview build marker.')
     destination.parent.mkdir(parents=True, exist_ok=True)
+    imagery = json.loads((ROOT / 'site/imagery.json').read_text())['replacements']
     with tempfile.TemporaryDirectory(prefix='.preview-build-', dir=destination.parent) as temporary:
         output = Path(temporary) / 'next'
         output.mkdir()
@@ -199,14 +212,21 @@ def build(destination, base):
             source = (ROOT / page['file']).read_text()
             route = urlsplit(page['source_url']).path or '/'
             faq_data[route] = faq_content(source)
-            parser = PreviewHTML(base)
+            parser = PreviewHTML(base, imagery)
             parser.feed(source)
             target = output / Path(page['file']).relative_to('public')
             target.parent.mkdir(parents=True, exist_ok=True)
             target.write_text(''.join(parser.output))
+        for route, source in render_pages().items():
+            parser = PreviewHTML(base, area_navigation=False)
+            parser.feed(source)
+            target = output / route.lstrip('/') / 'index.html'
+            target.parent.mkdir(parents=True, exist_ok=True)
+            target.write_text(''.join(parser.output))
+        shutil.copytree(ROOT / 'site/assets', output / 'site/assets')
         shutil.copytree(ROOT / 'reference/portfolio', output / 'portfolio', ignore=shutil.ignore_patterns('.*'))
         source = (output / 'portfolio/index.html').read_text()
-        parser = PreviewHTML(base)
+        parser = PreviewHTML(base, area_navigation=False)
         parser.feed(source)
         (output / 'portfolio/index.html').write_text(''.join(parser.output))
         shutil.copytree(ROOT / 'preview', output / 'preview')
@@ -214,7 +234,7 @@ def build(destination, base):
         (output / 'robots.txt').write_text('User-agent: *\nDisallow: /\n')
         (output / '.nojekyll').write_text('')
         (output / '404.html').write_text('<!doctype html><html lang="en"><meta charset="utf-8"><meta name="robots" content="noindex"><title>Preview page not found</title><h1>Preview page not found</h1><a href="' + base + '/">Return to the preview</a></html>')
-        (output / 'preview-manifest.json').write_text(json.dumps({'base_path': base, 'captured_pages': len(manifest['pages']), 'mode': 'read-only-design-preview'}, indent=2))
+        (output / 'preview-manifest.json').write_text(json.dumps({'base_path': base, 'captured_pages': len(manifest['pages']), 'authored_pages': 4, 'mode': 'read-only-design-preview'}, indent=2))
         audit = Audit(output, base)
         for page in output.rglob('*.html'):
             audit.feed(page.read_text())
@@ -227,7 +247,7 @@ def build(destination, base):
             if previous.exists():
                 previous.rename(destination)
             raise
-    print(f"Built {len(manifest['pages'])} captured pages + portfolio; {sum(map(len, faq_data.values()))} FAQ answers; all static references verified.")
+    print(f"Built {len(manifest['pages'])} captured pages, 4 authored pages + portfolio; {sum(map(len, faq_data.values()))} FAQ answers; all static references verified.")
 
 
 if __name__ == '__main__':

@@ -10,7 +10,7 @@ for (const form of document.querySelectorAll('form')) form.addEventListener('sub
 
 const open = document.querySelector('[aria-label="Open navigation menu"]');
 const close = document.querySelector('[aria-label="Close navigation menu"]');
-const dialog = document.querySelector('[role="dialog"][aria-label="Navigation menu"]');
+const dialog = document.body.hasAttribute('data-authored-site') ? null : document.querySelector('[role="dialog"][aria-label="Navigation menu"]');
 const setMenu = expanded => {
   if (!dialog) return;
   dialog.inert = !expanded;

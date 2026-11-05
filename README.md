@@ -12,27 +12,37 @@ To deliberately refresh approved cover screenshots while the site is running, us
 
 [Download the learning guide](reference/portfolio/learning-guide.pdf) for the engineering, design, privacy, testing, and deployment roadmap. It explains the current capture, a beginner-friendly Lovable pilot, shared components and content, and a patient-facing launch checklist. The editable source is [docs/learning-guide.html](docs/learning-guide.html); regenerate the PDF with `npm run docs:pdf` while the local server is running. Lovable documentation was checked on 26 October 2026; feature rollout and limits may change.
 
-## Planned direction and salon catalog
+## Current website and salon catalog
 
-The [current website brief](docs/website-direction.md) records the planned Cosmetic / Salon / Wellness gateway and Sri Lankan model imagery. The supplied salon menu has been transcribed into [structured draft data](content/salon/catalog.draft.json), with [a readable review copy](docs/salon-catalog-review.md). The owner confirmed current LKR prices, retained only the LKR 6,800 root-touching option, and placed massage/body care under Salon for now. There are 123 active services; flagged names and contact details still need review.
+The homepage now opens Cosmetic, Salon and Wellness, with three AI-generated adult Sri Lankan portraits on soft rose backgrounds. Cosmetic links to the existing treatment guides; Salon displays the supplied catalog; Wellness remains a holding page while the programme is defined. See the [current website brief](docs/website-direction.md). The supplied salon menu has been transcribed into [structured draft data](content/salon/catalog.draft.json), with [a readable review copy](docs/salon-catalog-review.md). The owner confirmed current LKR prices, retained only the LKR 6,800 root-touching option, and placed massage/body care under Salon for now. There are 123 active services; flagged names and contact details still need review.
+
+## Editing the new pages
+
+- `site/content.json`: homepage wording, area descriptions and cosmetic treatment links.
+- `site/templates/`: shared layout and the four page templates.
+- `site/assets/site.css` and `navigation.js`: responsive appearance and navigation.
+- `site/assets/*.webp` and `site/imagery.json`: optimized portraits, source provenance and explicit decorative-image replacements.
+- `content/salon/catalog.draft.json`: salon service names, categories, LKR prices and wording notes.
+
+Run `npm run site:build` for the local app, or `npm run preview:build` for GitHub Pages. Never edit generated output. The [editing guide](docs/editing-the-website.md) explains common changes. The original capture and historical portfolio references remain intact.
 
 ## Online design preview
 
-A read-only GitHub Pages preview is built by `.github/workflows/preview.yml` on pushes to `main`. It includes the original pages, portfolio and learning PDF, with forms and booking actions disabled. See [preview instructions](docs/github-preview.md) for what is included, how to verify it, and the distinction from the regular local app.
+A read-only GitHub Pages preview is built by `.github/workflows/preview.yml` on pushes to `main`. It includes the new gateway and area pages, existing captured pages, portfolio and learning PDF, with forms and booking actions disabled. See [preview instructions](docs/github-preview.md) for what is included, how to verify it, and the distinction from the regular local app.
 
 Run `npm run preview:build` and `npm run test:preview` to check the static export locally.
 
 ## Run
 
-Requires Node.js 22 or newer. The website itself has no npm runtime dependencies and needs no build:
+Requires Node.js 22 or newer and Python 3. There are no npm runtime dependencies. Startup renders the four maintained pages automatically:
 
 ```sh
 npm start
 ```
 
-The server binds to loopback on port 3000 by default. Set `HOST` and `PORT` if another interface or port is needed. `npm run dev` watches the server file; reload the browser after editing captured HTML or CSS.
+The server binds to loopback on port 3000 by default. Set `HOST` and `PORT` if another interface or port is needed. `npm run dev` watches the server file. After editing maintained page templates, content or assets, run `npm run site:build` and reload the browser.
 
-Every original clean URL works, including service, product and journal detail pages. HTML and assets are served from `public/`. Next.js image requests resolve to local original images; image resizing is not performed. Browser navigation falls back to local full-page HTML navigation because the original Next.js server is not part of this extraction.
+Every original clean URL works, including service, product and journal detail pages. The gateway and area pages are served from ignored `site/generated/`; unchanged captured pages are served from `public/`. Next.js image requests resolve to local original images; image resizing is not performed. Browser navigation falls back to local full-page HTML navigation because the original Next.js server is not part of this extraction.
 
 ## Install development checks
 
@@ -56,7 +66,7 @@ Browser tests use system Chromium at `/usr/bin/chromium`. Set `CHROMIUM_PATH` to
 - Original responsive HTML, CSS, local fonts, original images, and published Next.js client JavaScript, including mobile navigation and contact-form UI.
 - Original canonical metadata and sitemap URLs, which continue to identify the original public site.
 
-This is rendered public HTML plus compiled browser code, **not the original editable React/Next.js source**, backend, CMS, databases or provider accounts. Page content can be edited in its corresponding `public/<route>/index.html`, but that HTML also includes embedded Next.js data. For substantial content or behavior changes, rebuild the affected pages as maintained application source to avoid hydration inconsistencies.
+This is rendered public HTML plus compiled browser code, **not the original editable React/Next.js source**, backend, CMS, databases or provider accounts. Do not use `public/` as maintained page source: that HTML also includes embedded Next.js data. For substantial content or behavior changes, rebuild the affected pages as maintained application source to avoid hydration inconsistencies.
 
 ## External integrations
 
