@@ -14,6 +14,6 @@ export default function TreatmentImage({ offering, compact = false }: { offering
       ? <div className="treatment-image-frame treatment-image-fallback" role="img" aria-label={image.alt}><span>Image unavailable</span></div>
       : <img className="treatment-image-frame" src={src} alt={image.alt} width={image.width} height={image.height}
           loading="lazy" decoding="async" style={{ objectPosition: image.position }} onError={() => setFailedSrc(src)} />}
-    <figcaption>{image.caption}</figcaption>
+    <figcaption className={compact ? 'sr-only' : undefined}>{image.caption}</figcaption>
   </figure>;
 }
