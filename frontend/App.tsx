@@ -14,7 +14,7 @@ import { Services } from './pages/Services';
 import { About } from './pages/About';
 
 const areaNames = {wellness:'Wellness',salon:'Salon',cosmetic:'Cosmetic Care'};
-const nav = [['Wellness','/wellness/'],['Salon','/salon/'],['Cosmetic Care','/cosmetic/'],['About us','/services/'],['Meet your Doctor','/about/'],['Contact','/contact']];
+const nav = [['Meet your Doctor','/about/'],['About us','/services/'],['Wellness','/wellness/'],['Salon','/salon/'],['Cosmetic Care','/cosmetic/'],['Contact','/contact']];
 function useLocation() {
   const [location,setLocation]=useState(window.location.pathname+window.location.search+window.location.hash);
   useEffect(()=>{const update=()=>setLocation(window.location.pathname+window.location.search+window.location.hash);window.addEventListener('popstate',update);return()=>window.removeEventListener('popstate',update);},[]);
