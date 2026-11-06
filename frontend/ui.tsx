@@ -4,13 +4,14 @@ import { bookingHref } from './lib/catalog';
 import authoredRoutes from './data/routes.json';
 export const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 export const asset = (path: string) => base + '/' + path.replace(/^\//, '');
-export function Link({to,children,...props}:{to:string;children:ReactNode}&AnchorHTMLAttributes<HTMLAnchorElement>) {
+export function Link({to,children,replace=false,...props}:{to:string;children:ReactNode;replace?:boolean}&AnchorHTMLAttributes<HTMLAnchorElement>) {
   return <a href={asset(to)} {...props} onClick={e=>{
     props.onClick?.(e);
     if(e.defaultPrevented||e.button!==0||e.metaKey||e.ctrlKey||e.shiftKey||e.altKey||props.target||props.download) return;
-    const route=to.split(/[?#]/)[0];
+    const path=to.split(/[?#]/)[0];
+    const route=path.replace(/\/$/,'')+'/';
     if(!authoredRoutes.includes(route))return;
-    e.preventDefault();history.pushState({},'',asset(to));dispatchEvent(new PopStateEvent('popstate'));
+    e.preventDefault();history[replace?'replaceState':'pushState']({},'',asset(to));dispatchEvent(new PopStateEvent('popstate'));
   }}>{children}</a>;
 }
 export const BookLink=({id,children='Book this experience',className='primary'}:{id:string;children?:ReactNode;className?:string})=><Link to={bookingHref(id)} className={className}>{children}</Link>;

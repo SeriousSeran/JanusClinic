@@ -1,0 +1,13 @@
+# Contact & Booking · private review only
+
+The new maintained `/contact/` route presents contact details, published hours, a location section and a clear **Register / Sign in to book** action. `/book/` remains the existing memory-only registration/booking demonstration. This change is staged for the private Janus design review, not pushed to GitHub or published to GitHub Pages.
+
+The ivory/sage/teal palette, local typography, shared navigation and rounded editorial sections follow the separate About us and Meet your Doctor pages. Native details disclosures, anchor navigation, section arrival motion and a user-triggered map work without added dependencies. Reduced-motion and forced-colors styles are included.
+
+Contact details and hours remain sourced from `frontend/data/clinic.json`. The owner supplied `https://share.google/cSlVqqcddb1tgUuCX` on 6 November 2026; it resolves to Google's Janus Medical Center (Janus Eastheti Clinique) listing, knowledge ID `/g/11h3c77nng`. Keep that exact link for the listing. The embedded map and Maps action search the clinic name and common published street address; no coordinates or independently verified entrance are invented. Published hours still ask visitors to call to confirm. Borella/Rajagiriya locality differences have not been silently reconciled.
+
+The map loads only after **Load Google Maps**. Loading replaces the invitation with an accessible iframe and moves keyboard focus to it. An external Maps fallback stays available. The React shell CSP permits only `https://www.google.com` as an external frame source so the map also works after SPA navigation from other authored pages; legacy captured pages keep frames disabled. No other script, connection, form or storage capability is broadened. Telephone and email links open the visitor's own apps; there is no enquiry form or automatic delivery.
+
+Future GitHub integration should include `frontend/pages/Contact.tsx`, `contact.css`, `frontend/App.tsx`, `frontend/data/{clinic,routes}.json`, `scripts/build-preview.py`, the updated browser checks/configuration and this note. Preserve the already-published navigation order and both previous redesigns. Do not copy generated bundles into maintained source.
+
+Validation: typecheck, original-capture integrity and prefixed static build are checked locally. This session's managed browser preview helper is unavailable, so interactive/layout browser verification remains pending; `tests/contact-page.spec.mjs` covers desktop/mobile widths, user-triggered map loading using an intercepted fixture, source links, booking routing and no outgoing writes when a browser environment is available. No real Google navigation, phone call, email or booking is executed by that test.

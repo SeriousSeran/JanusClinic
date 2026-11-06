@@ -1,0 +1,13 @@
+# Profile and Registration · private review
+
+The separate `/profile/` page offers profile creation, username/email sign-in, profile display and editing. Registration never forces booking. A completed profile presents Back to homepage and Book an appointment; a doctor-contact intent additionally offers Contact your Doctor. Both booking routes redirect signed-out visitors here, preserving the treatment selection or care-area query. Continuation URLs are restricted to explicit internal destinations. The old identification form has been removed from Booking.
+
+Each in-memory account has a unique case-insensitive username and one unique, case-normalized email. Registration requires password confirmation and a 15–128 character password; long passphrases and spaces are allowed. The preview uses Web Crypto PBKDF2-SHA256 with random per-account salts and 600,000 iterations. Password strings are cleared from the form on success; only the derived comparison value stays in the memory store. Profile credential changes require the current password. Identity/DOB/phone validation and derived age remain shared with booking.
+
+This remains a design-review simulation: account records and sessions exist only in memory in one tab, survive Sign out within that tab, and disappear on refresh. It is not production authentication or a security boundary. No passwords or profile records are written to localStorage, sessionStorage, cookies or a remote service. Use fictional details and a unique demo passphrase. The browser profile page explains these limits. The booking gate is frontend navigation, not server authorization.
+
+Before a real member-site launch, connect managed authentication and server-side authorization, durable account/profile storage, email ownership verification, account recovery, abuse controls and secure sessions. Do not represent email uniqueness within this temporary store as uniqueness across real users. Email verification and recovery are not simulated as successful operations.
+
+Research reference: https://cheatsheetseries.owasp.org/cheatsheets/Authentication_Cheat_Sheet.html (username/email identifiers, password length, generic login failures, reauthentication for sensitive profile changes). Existing Janus iOS-inspired components and contours remain the design baseline.
+
+Account unit tests cover normalized login, duplicate identifiers, profile changes, password rotation, refresh/reset semantics and safe internal continuation. Typecheck/export/capture checks are run. Browser checks remain pending because the managed browser helper is unavailable in this session. No live account, email or appointment is created. GitHub remains unchanged.

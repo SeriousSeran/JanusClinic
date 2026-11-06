@@ -10,5 +10,9 @@
   "/wellness/packages/",
   "/wellness/memberships/",
   "/services/",
-  "/about/"
+  "/about/",
+  "/contact/",
+  "/profile/",
+  "/booking-preview/",
+  "/profile-preview/"
 ]

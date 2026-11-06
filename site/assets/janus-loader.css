@@ -1,0 +1,23 @@
+/* Janus loader: flowing arc inspired by the owner's uploaded recording. */
+.janus-loader{position:fixed;inset:0;z-index:20000;display:grid;place-items:center;background:#FAF3F2;pointer-events:none;transition:opacity .4s ease,visibility .4s ease}
+.janus-loader-inner{text-align:center;padding:28px;max-width:100vw}
+.janus-loader-logo{position:relative;display:grid;place-items:center;width:340px;height:340px;max-width:82vw;max-height:82vw;isolation:isolate}
+.janus-loader img{position:relative;width:218px;max-width:58vw;height:auto;z-index:1;animation:janus-breathe 3.6s ease-in-out infinite}
+.janus-loader-orbit{position:absolute;inset:0;width:100%;height:100%;overflow:visible;transform-origin:center;animation:janus-spin 3.2s linear infinite}
+.janus-loader-track{fill:none;stroke:#EBD5DF;stroke-width:1}
+.janus-loader-arc{fill:none;stroke:#92335E;stroke-width:3;stroke-linecap:round;stroke-dasharray:26 74;stroke-dashoffset:0;animation:janus-flow 3.2s cubic-bezier(.45,0,.55,1) infinite}
+.janus-loader-dots{position:absolute;display:flex;gap:7px;justify-content:center;top:62%;left:0;right:0}
+.janus-loader-dots i{width:5px;height:5px;border-radius:50%;background:#9A316B;animation:janus-dot 1.8s ease-in-out infinite}
+.janus-loader-dots i:nth-child(2){animation-delay:.2s}.janus-loader-dots i:nth-child(3){animation-delay:.4s}
+.janus-loader p{font:400 12px/1.7 'DM Sans',sans-serif;color:#785363;letter-spacing:.12em;margin:26px 0 0}
+.janus-loader.leaving{opacity:0;visibility:hidden}
+.janus-loader--preview{position:relative;min-height:100svh;pointer-events:auto}
+.loader-preview-back{position:absolute;bottom:32px;left:50%;transform:translateX(-50%);display:inline-flex;justify-content:center;align-items:center;min-height:48px;padding:12px 24px;border-radius:999px;background:#8B2858;color:#FFF6F9;text-decoration:none;font:500 14px/1.5 'DM Sans',sans-serif;white-space:nowrap}
+.loader-preview-back:focus-visible{outline:2px solid #8B2858;outline-offset:5px}
+@keyframes janus-spin{to{transform:rotate(360deg)}}
+@keyframes janus-flow{0%,100%{stroke-dasharray:24 76;stroke-dashoffset:0}50%{stroke-dasharray:52 48;stroke-dashoffset:-16}}
+@keyframes janus-dot{0%,70%,100%{opacity:.25;transform:translateY(0)}35%{opacity:1;transform:translateY(-3px)}}
+@keyframes janus-breathe{0%,100%{transform:scale(1)}50%{transform:scale(1.012)}}
+@media(max-width:420px){.janus-loader-logo{width:290px;height:290px}.janus-loader img{width:195px}.janus-loader p{font-size:11px}}
+@media(prefers-reduced-motion:reduce){.janus-loader-orbit,.janus-loader-arc,.janus-loader img,.janus-loader-dots i{animation:none}.janus-loader-dots i{opacity:.65}.janus-loader{transition:none}}
+@media(forced-colors:active){.janus-loader{background:Canvas}.janus-loader-arc{stroke:CanvasText}.janus-loader-track{stroke:GrayText}.janus-loader p{color:CanvasText}.janus-loader-dots i{background:CanvasText}}

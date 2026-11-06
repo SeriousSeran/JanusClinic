@@ -51,13 +51,14 @@ test('mobile menu works and no enquiry or booking is sent', async ({ page }) => 
   await open.click();
   await page.getByLabel('Mobile navigation').getByRole('link', { name: 'Contact', exact: true }).click();
   await expect(page).toHaveURL(/\/JanusClinic\/contact\/$/);
-  await page.getByLabel('Full Name').fill('Preview test');
-  await page.getByLabel('Phone Number').fill('0000000000');
-  await page.getByRole('button', { name: 'Send Message', exact: true }).click();
-  await expect(page.locator('#preview-notice')).toContainText('no booking or message was sent');
-  await page.locator('main [data-preview-action]').first().click();
+  await expect(page.locator('h1')).toContainText('Your next chapter.');
+  await expect(page.locator('main form')).toHaveCount(0);
+  await expect(page.locator('main a[href^="tel:"]')).toHaveAttribute('href', 'tel:+94777060404');
+  await page.locator('main').getByRole('link', { name: 'Register / Sign in to book' }).first().click();
+  await expect(page).toHaveURL(/\/JanusClinic\/profile\//);
+  await expect(page.locator('main')).toContainText('Profile and');
   expect(writes).toEqual([]);
-  expect(await page.locator('a[href^="https://wa.me"], a[href^="tel:"], a[href^="mailto:"]').count()).toBe(0);
+  expect(await page.locator('form[action]').count()).toBe(0);
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
 });
 
