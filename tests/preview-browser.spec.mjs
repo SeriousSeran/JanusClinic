@@ -28,9 +28,10 @@ test('all preview pages load with real images and no captured runtime', async ({
 
 test('desktop navigation and FAQ expansion work on the static host', async ({ page }) => {
   await page.goto(base + '/');
-  await page.locator('header').getByRole('link', { name: 'Services', exact: true }).click();
+  await page.locator('header').getByRole('link', { name: 'About us', exact: true }).click();
   await expect(page).toHaveURL(/\/JanusClinic\/services\/$/);
-  await page.getByRole('link', { name: 'BOTOX & Muscle Relaxing Injections', exact: true }).first().click();
+  await page.getByRole('link', { name: 'Explore Cosmetic Clinic' }).click();
+  await page.locator('.treatment-item').filter({has:page.getByRole('heading',{name:/BOTOX/})}).getByRole('link',{name:'View treatment details'}).click();
   const faq = page.getByRole('button', { name: 'Does BOTOX hurt?' });
   await expect(faq).toHaveAttribute('aria-controls', /preview-answer-/);
   await faq.focus(); await faq.press('Enter');
