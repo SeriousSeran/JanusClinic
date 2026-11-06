@@ -26,6 +26,11 @@ jobs:
         run: python3 scripts/check.py
       - name: Build read-only preview
         run: npm run preview:build -- --base-path "/${GITHUB_REPOSITORY#*/}" --output dist/site
+      - name: Include portable source handoff
+        run: |
+          npm run handoff:zip
+          mkdir -p dist/site/handoff
+          cp artifacts/janusclinic-handoff.zip dist/site/handoff/janusclinic-handoff.zip
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:

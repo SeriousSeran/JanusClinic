@@ -47,3 +47,5 @@ Node24, Python3 and system Chromium are used. Optional Firefox/WebKit tests need
 The owner chose customer journey only for this preview. Real authentication, database/privacy/access controls, clinic notification and confirmation, staff dashboard, payments and membership credits are deferred to the Lovable/live application. Keep the authoritative structured catalogs rather than copying prices into independent components.
 
 The installed design skills and Spec Kit are documented in docs/agent-skills.md. Use relevant tools without overriding owner decisions or repeating planning approvals already given. No further approval is needed to finish fixes within this approved preview scope.
+
+The Pages build also publishes a downloadable source checkpoint at `https://seriousseran.github.io/JanusClinic/handoff/janusclinic-handoff.zip`. Its `checkpoint.json` identifies the build commit. It excludes dependencies, credentials and generated runtime caches.
