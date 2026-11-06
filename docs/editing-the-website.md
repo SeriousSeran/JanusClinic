@@ -22,8 +22,8 @@ npm run test:preview
 
 ## Where to edit
 
-- `frontend/App.tsx`: header, homepage, Salon and Cosmetic Care pages.
-- `frontend/pages/Wellness.tsx`: complete twelve-section Wellness Collection.
+- `frontend/App.tsx`: header, homepage and Cosmetic Care; `frontend/pages/Salon.tsx`: searchable Salon catalog and variant selection.
+- `frontend/pages/Wellness.tsx`: concise Wellness overview and dedicated Treatments, Packages, Memberships and Body Contouring collections.
 - `frontend/pages/Booking.tsx`: identification, preferences, editable review and demo result.
 - `frontend/theme.css`: current palette, layout and Glisse theme overrides; page-specific styles are beside their components.
 - `frontend/data/wellness.json`: authoritative Wellness names, prices, package inclusions and membership entitlements.
@@ -58,3 +58,13 @@ The old chat error `environment registry connect returned 409 Conflict: environm
 Optimized WebP files live in `site/assets/treatments/`; the exporter copies them to both targets. Full images are at most 960px wide, thumbnails 160px. `TreatmentImage.tsx` keeps captions visible, lazy loads images and displays a readable fallback if an asset fails. The original capture is unchanged. Run `node --test tests/treatment-images.test.mjs` and the `treatment-images.spec.mjs` browser checks after image changes.
 
 The mixed library includes seven generated images with Sri Lankan adults or editorial still lifes, the already-approved AI hair portrait and eight inspected original photographic sources. Generated imagery is illustrative, never evidence of patients, results, staff or actual facilities. Original filenames are unreliable: `hydrafacial.jpg` shows a social scene, `acne.png` shows unrelated product bottles, `pedicure.jpg` depicts a manicure, and `laser-hair-removal.webp` depicts electrolysis. Do not infer a procedure from its filename; inspect it first. These original files remain preserved, while the new map avoids mismatched procedure imagery. Conceptual body-care illustrations do not depict the actual vibration device or a specific contouring area.
+
+## Usability structure · 6 November 2026
+
+`frontend/data/routes.json` is the single authored-route list shared by React navigation and the Python exporter. Add new routes there and handle their content in the App; verify direct refresh on Pages. Wellness full collections live at `/wellness/treatments/`, `/wellness/packages/`, `/wellness/memberships/` and `/wellness/body-contouring/`; the overview links to all of them.
+
+`useCatalogFilters` reads `q`, `category` and `variant` from the URL. Search replaces the current history entry; deliberate category/variant choices push history entries. Back/refresh restore those values. Query edits must preserve typing focus and scroll position. `salon-families.ts` groups explicit Short/Medium/Long names only, keeping crown areas separate. Every variant retains its original ID, image association, duration and price; only the selected row is visible.
+
+Booking owns its selected-service image/price summary throughout the flow. Header booking controls on a booking route anchor to the current step, and the redundant floating action is absent. The mobile preview/booking bar is combined and safe-area-aware; keep the demo notice visible. Colors use semantic surface/text/on-dark tokens.
+
+`clinic.json` records the original published phone, common street address, hours and source/confirmation notes. The original contact page says Rajagiriya while the supplied catalog says Borella; the new strip shows only the common street/Colombo08 address and asks visitors to call to confirm. Hours are labelled published, not newly management-approved. Actual Wellness-room/device photographs, unconfirmed treatment details and final operational policies still need clinic input.

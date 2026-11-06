@@ -37,3 +37,7 @@ The account/booking flow is a clearly labelled, memory-only demo. Preserve no wr
 ## Installed design and planning skills
 
 Read `docs/agent-skills.md` for the installed skills catalog, usage and tool setup. Skills live in `.agents/skills/`; source commits and file hashes are pinned in `.agents/skills-lock.json`. Select relevant skills for the task rather than loading every toolkit. Owner decisions and this repository's identity/source/preview rules override generic style prescriptions. Spec Kit's Codex skills and `.specify/` workflow are installed for major feature planning; reference the existing briefs instead of maintaining duplicate specifications. Run `npm run skills:check` when changing installed skills. Do not copy toolkit starters over the maintained website or add their example assets to the exported application without a feature need.
+
+## Current discovery and booking improvements
+
+Read PRODUCT.md and DESIGN.md as entry points to the existing authority documents. Full Wellness collections use dedicated routes from `frontend/data/routes.json`; keep the exporter and SPA synchronized through that source. Salon length variants group through `salon-families.ts` without dropping original IDs or merging crown/whole-head procedures. Preserve URL filters/variant choice through Back and refresh, and keep typing focus stable. Generic booking controls on booking screens must preserve the current service and dates. Use source-labelled clinic details from `clinic.json`; do not certify unconfirmed hours/locality, equipment or clinical information.

@@ -222,7 +222,7 @@ def build(destination, base, react_root):
         shutil.copytree(react_root / 'site/app', output / 'site/app')
         shell = (react_root / 'index.html').read_text()
         shell = shell.replace('</head>', '<meta http-equiv="Content-Security-Policy" content="' + html.escape(CSP, quote=False) + '"></head>')
-        routes = ['/', '/cosmetic/', '/salon/', '/wellness/', '/book/', '/wellness/book/', '/wellness/body-contouring/']
+        routes = json.loads((ROOT / 'frontend/data/routes.json').read_text())
         for route in routes:
             target = output / route.lstrip('/') / 'index.html'
             target.parent.mkdir(parents=True, exist_ok=True)

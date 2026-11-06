@@ -1,0 +1,18 @@
+{
+  "name": "Janus Estheti Clinique",
+  "address": "30/3, Gothami Road, Colombo 08, Sri Lanka",
+  "phoneDisplay": "+94 77 706 0404",
+  "phone": "+94777060404",
+  "email": "janusclinique@gmail.com",
+  "hours": [
+    "Monday–Friday: 10:00 am–8:00 pm",
+    "Saturday–Sunday: 8:00 am–4:00 pm"
+  ],
+  "hoursStatus": "Published hours · please call to confirm your visit",
+  "source": "Original clinic contact page, captured 26 October 2026",
+  "sourcePath": "/contact/",
+  "confirmationStatus": "Published source; current hours and exact locality require clinic confirmation. The catalog says Borella while the original contact page says Rajagiriya. The shared street/Colombo08 address is used without asserting either locality.",
+  "image": "/images/team/dr-jayaruwan.png",
+  "imageDescription": "Published practitioner portrait of Dr Jayaruwan Bandara",
+  "photographyStatus": "Clinic photographs awaiting confirmation"
+}

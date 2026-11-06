@@ -7,6 +7,7 @@ import type { FieldErrors } from '../lib/booking';
 import { useDemoSession } from '../session';
 import { Link } from '../ui';
 import './booking.css';
+import TreatmentImage from '../TreatmentImage';
 
 const blankCustomer: DemoCustomer = { name: '', age: '', gender: '', phone: '' };
 const sampleCustomer: DemoCustomer = { name: 'Demo customer', age: '30', phone: '0770000000', gender: 'Prefer not to say' };
@@ -105,10 +106,11 @@ export default function Booking({ initialOfferingId }: { initialOfferingId?: str
     <p className="eyebrow">Customer journey · Demonstration</p>
     <h1 id="booking-title" className="text-h1">Explore a booking request.</h1>
     <p className="booking-notice"><strong>DEMO ONLY.</strong> Use fictional details. Nothing is sent to the clinic, no appointment is scheduled, and no payment is taken. Details stay only in React memory and reset on refresh.</p>
+    {offering && <aside className="booking-context" aria-label="Your selected service"><TreatmentImage offering={offering} compact/><div><span className="eyebrow">Your selection</span><h2>{offering.name}</h2><p>{offeringPrice(offering)}{offering.kind === 'membership' ? ' / month · enquiry only' : ''}{offering.providerLabel ? ` · ${offering.providerLabel}` : ''}</p></div></aside>}
     <ol className="booking-progress" aria-label="Demo booking steps">{['Identify', 'Appointment', 'Review', 'Demo preview'].map((label, index) => <li key={label} aria-current={['identify', 'appointment', 'review', 'confirmation'][index] === step ? 'step' : undefined}>{index + 1}. {label}</li>)}</ol>
     {unknownSelection && <p className="booking-notice" role="status">The linked offering was not found. Choose an available offering in the appointment picker after identifying for this demo.</p>}
     <div className="glass-panel booking-panel">
-      <h2 ref={headingRef} tabIndex={-1}>{step === 'identify' ? 'Your demo profile' : step === 'appointment' ? 'Appointment preferences' : step === 'review' ? 'Review your demo request' : 'Demo request preview'}</h2>
+      <h2 id="booking-current-step" ref={headingRef} tabIndex={-1}>{step === 'identify' ? 'Your demo profile' : step === 'appointment' ? 'Appointment preferences' : step === 'review' ? 'Review your demo request' : 'Demo request preview'}</h2>
       {step === 'identify' && <>
         <p>Browsing is open to everyone. Identification here is a simulation for the booking journey. Use fictional details; this does not create or look up a real account.</p>
         <div className="button-row" role="group" aria-label="Demo customer type">

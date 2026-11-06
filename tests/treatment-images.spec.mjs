@@ -17,9 +17,11 @@ async function verifyImages(page, base) {
 }
 test('every Wellness treatment and assessment has a visible, loaded and disclosed image',async({page},info)=>{
  const base=prefix(info);await page.goto(base+'/wellness/');
+ await expect(page.locator('#wellness-assessment .treatment-image')).toHaveCount(1);
+ await verifyImages(page,base);
+ await page.goto(base+'/wellness/treatments/');
  const individual=page.locator('#treatments .treatment-image');
  await expect(individual).toHaveCount(13);
- await expect(page.locator('#wellness-assessment .treatment-image')).toHaveCount(1);
  await verifyImages(page,base);
  const card=page.locator('article').filter({has:page.locator('[data-offering-id="wellness-foot"]')}).first();
  await card.locator('summary').click();

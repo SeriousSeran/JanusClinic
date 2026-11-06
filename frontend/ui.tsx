@@ -1,6 +1,7 @@
 import {useEffect,useState,type AnchorHTMLAttributes,type HTMLAttributes,type ReactNode} from 'react';
 import {Glass as GlisseGlass} from 'glisse';
 import { bookingHref } from './lib/catalog';
+import authoredRoutes from './data/routes.json';
 export const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 export const asset = (path: string) => base + '/' + path.replace(/^\//, '');
 export function Link({to,children,...props}:{to:string;children:ReactNode}&AnchorHTMLAttributes<HTMLAnchorElement>) {
@@ -8,7 +9,7 @@ export function Link({to,children,...props}:{to:string;children:ReactNode}&Ancho
     props.onClick?.(e);
     if(e.defaultPrevented||e.button!==0||e.metaKey||e.ctrlKey||e.shiftKey||e.altKey||props.target||props.download) return;
     const route=to.split(/[?#]/)[0];
-    if(!['/','/salon/','/cosmetic/','/wellness/','/book/','/wellness/book/','/wellness/body-contouring/'].includes(route))return;
+    if(!authoredRoutes.includes(route))return;
     e.preventDefault();history.pushState({},'',asset(to));dispatchEvent(new PopStateEvent('popstate'));
   }}>{children}</a>;
 }

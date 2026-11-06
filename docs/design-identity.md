@@ -105,3 +105,9 @@ The owner approved sage and teal across the entire website: ivory #F5F0E8, sage 
 ## Approved mixed treatment imagery · 6 November 2026
 
 The owner approved existing relevant photographic sources mixed with clearly disclosed AI editorial illustrations featuring Sri Lankan adults and restrained still lifes. See `docs/superpowers/specs/2026-11-06-treatment-imagery-design.md`. Use the central `frontend/data/treatment-images.json` map and shared figure component. Treatment figures use consistent3:2 crops; Salon thumbnails use square crops. Keep rose/ivory/sage styling, natural skin texture and modest framing. Related Salon price variants share appropriate family images. Do not misrepresent unverified photos as actual clinic equipment, staff or outcomes; keep genuine facility photography separate. Earlier no-generic-illustration guidance is superseded only for this approved treatment imagery scope.
+
+## Usability and source-context update · 6 November 2026
+
+The approved review now uses a compact mobile welcome, three visible care thumbnails, one combined preview/booking bar, and dedicated full Wellness collections. Source colors are semantic tokens; small metadata on dark surfaces uses explicit on-dark text. Salon length variants keep original IDs and prices in family selectors; filters restore from the URL.
+
+Visual inspection established that filenames under `public/images/clinic/` do not establish genuine facility provenance: they depict treatment scenes/still lifes, and `dsc-001.jpg` depicts a masked practitioner rather than an interior. The current authored pages do not claim these are actual clinic rooms. The homepage clinic strip uses the existing published practitioner portrait; Wellness uses a disclosed AI hero and an explicit pending verified-facilities section. Preserve original capture files; replace only authored references when clinic-confirmed room/device photographs arrive.

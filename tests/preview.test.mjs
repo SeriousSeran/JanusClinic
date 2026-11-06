@@ -15,7 +15,7 @@ test('exports a read-only site under the GitHub project path without the Node se
   assert.match(home, /id="root"/);
   assert.match(home, /type="module"[^>]*src="\/JanusClinic\/site\/app\//);
   assert.match(home, /noindex, nofollow/);
-  for (const area of ['cosmetic', 'salon', 'wellness', 'book', 'wellness/book', 'wellness/body-contouring']) {
+  for (const area of ['cosmetic', 'salon', 'wellness', 'book', 'wellness/book', 'wellness/body-contouring', 'wellness/treatments', 'wellness/packages', 'wellness/memberships']) {
     const page = await readFile(join(output, area, 'index.html'), 'utf8');
     assert.match(page, /id="main-content"/);
     assert.match(page, /site\/app\//);
