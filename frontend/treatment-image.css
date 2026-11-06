@@ -1,0 +1,16 @@
+.treatment-image{width:100%;min-width:0;margin:0 0 1.25rem;}
+.treatment-image-frame{display:block;width:100%;height:auto;aspect-ratio:3/2;object-fit:cover;background:#e8e3d9;}
+.treatment-image figcaption{margin:0;padding-top:.45rem;font-family:var(--font-sans,sans-serif);font-size:.6875rem;line-height:1.5;color:#526168;}
+.treatment-image-fallback{display:grid;place-items:center;padding:1rem;text-align:center;font-size:.8rem;}
+.treatment-image-compact{width:72px;flex:none;margin:0;}
+.treatment-image-compact .treatment-image-frame{aspect-ratio:1;}
+.treatment-image-compact figcaption{font-size:10px;line-height:1.4;overflow-wrap:normal;}
+.salon-service{display:flex;align-items:flex-start;gap:12px;}
+.salon-service-name{min-width:0;overflow-wrap:anywhere;}
+.wellness-treatment{margin-bottom:1.75rem;}
+.wellness-treatment>.treatment-image{margin-bottom:.3rem;}
+.wellness-assessment-section .treatment-image figcaption{color:#e3dfd5;}
+.wellness-assessment-section .treatment-image-fallback{color:#213b45;}
+.wellness-card>.treatment-image{margin-bottom:1rem;}
+@media(max-width:600px){.salon-service{flex-direction:column;gap:8px;}.treatment-image-compact{width:72px;}.salon-service-name{line-height:1.6;}}
+@media(forced-colors:active){.treatment-image figcaption{color:CanvasText;}.treatment-image-fallback{border:1px solid CanvasText;color:CanvasText;background:Canvas;}}

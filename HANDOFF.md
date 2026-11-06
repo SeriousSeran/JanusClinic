@@ -49,3 +49,7 @@ The owner chose customer journey only for this preview. Real authentication, dat
 The installed design skills and Spec Kit are documented in docs/agent-skills.md. Use relevant tools without overriding owner decisions or repeating planning approvals already given. No further approval is needed to finish fixes within this approved preview scope.
 
 The Pages build also publishes a downloadable source checkpoint at `https://seriousseran.github.io/JanusClinic/handoff/janusclinic-handoff.zip`. Its `checkpoint.json` identifies the build commit. It excludes dependencies, credentials and generated runtime caches.
+
+## Treatment image update · 6 November 2026
+
+The owner approved mixed imagery for all 144 treatments:13 Wellness,8 Cosmetic Care and123 Salon entries. Wellness packages, memberships, contour programmes and the free assessment also have image context. Use `frontend/data/treatment-images.json`, `frontend/lib/treatment-images.ts`, `frontend/TreatmentImage.tsx` and `site/assets/treatments/`. Salon size/length variants share family thumbnails. AI illustrations are visibly labelled; original photographic sources remain explicitly illustrative. Preserve the original capture. The full and thumbnail library is about820KB; do not replace it with full-resolution generation outputs. See `docs/editing-the-website.md` for editing instructions and the original filename mismatches discovered during visual inspection.

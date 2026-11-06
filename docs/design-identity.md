@@ -101,3 +101,7 @@ The owner requested the liquid-glass-inspired treatment. `site/assets/glass.css`
 ## Current React / Glisse identity
 
 The owner approved sage and teal across the entire website: ivory #F5F0E8, sage #B8B5A2, teal #213B45, champagne #B59A70 and stone #D8CFC2. Preserve the original magenta logo and Cormorant Garamond / DM Sans. `frontend/theme.css` and actual Glisse0.5.0 components implement the current system; `site/assets/legacy-theme.css` themes sanitized captured pages. Earlier palette tables and historical screenshots describe the archived original. Do not refresh those covers to conceal redesign differences. Keep long copy, prices and inputs readable on solid surfaces.
+
+## Approved mixed treatment imagery · 6 November 2026
+
+The owner approved existing relevant photographic sources mixed with clearly disclosed AI editorial illustrations featuring Sri Lankan adults and restrained still lifes. See `docs/superpowers/specs/2026-11-06-treatment-imagery-design.md`. Use the central `frontend/data/treatment-images.json` map and shared figure component. Treatment figures use consistent3:2 crops; Salon thumbnails use square crops. Keep rose/ivory/sage styling, natural skin texture and modest framing. Related Salon price variants share appropriate family images. Do not misrepresent unverified photos as actual clinic equipment, staff or outcomes; keep genuine facility photography separate. Earlier no-generic-illustration guidance is superseded only for this approved treatment imagery scope.

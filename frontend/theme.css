@@ -6,3 +6,5 @@
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
 @media(prefers-reduced-transparency:reduce),(forced-colors:active){.lg-glass{backdrop-filter:none!important;-webkit-backdrop-filter:none!important;background:#F5F0E8!important;--lg-glass-bend:0;--lg-glass-dispersion:0}.lg-glass::before,.lg-glass::after{display:none!important}}
 @media(forced-colors:active){.lg-glass,.primary,.secondary{border:1px solid CanvasText!important;box-shadow:none!important}}
+/* Keep descriptive table captions and action labels available to assistive technology. */
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);clip-path:inset(50%);white-space:nowrap;border:0;}
