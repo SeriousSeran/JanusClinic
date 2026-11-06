@@ -33,18 +33,17 @@ test('Cosmetic photos and all Salon variants retain relevant images and searchab
  await page.locator('.catalog-category').evaluateAll(elements=>elements.forEach(e=>e.open=true));
  await expect(page.locator('[data-service-id] .treatment-image')).toHaveCount(123);
  // Shared images are checked once after every row's association/provenance is asserted.
- const rows=page.locator('[data-service-id]');
- for(const row of await rows.all()){
-  const figure=row.locator('.treatment-image');
-  await expect(figure).toHaveAttribute('data-offering-id',await row.getAttribute('data-service-id'));
-  if(await figure.getAttribute('data-source')==='ai')await expect(figure.locator('figcaption')).toContainText('AI-generated illustration');
+ const rows=await page.locator('[data-service-id]').evaluateAll(elements=>elements.map(row=>{
+  const figure=row.querySelector('.treatment-image');
+  return {id:row.getAttribute('data-service-id'),imageId:figure.getAttribute('data-offering-id'),source:figure.getAttribute('data-source'),caption:figure.querySelector('figcaption').textContent};
+ }));
+ for(const row of rows){
+  expect(row.imageId).toBe(row.id);
+  if(row.source==='ai')expect(row.caption).toContain('AI-generated illustration');
  }
- for(const category of await page.locator('.catalog-category').all()){
-  await category.scrollIntoViewIfNeeded();
-  const images=category.locator('.treatment-image img');
-  await images.evaluateAll(imgs=>imgs.forEach(img=>img.loading='eager'));
-  await expect.poll(()=>images.evaluateAll(imgs=>imgs.every(img=>img.complete&&img.naturalWidth>0))).toBe(true);
- }
+ const images=page.locator('.catalog-category .treatment-image img');
+ await images.evaluateAll(imgs=>imgs.forEach(img=>img.loading='eager'));
+ await expect.poll(()=>images.evaluateAll(imgs=>imgs.every(img=>img.complete&&img.naturalWidth>0))).toBe(true);
  await page.getByLabel('Search salon services').fill('foot massage');
  await expect(page.locator('[data-service-id]')).toHaveCount(1);
  await expect(page.locator('[data-service-id="beauty-028"]')).toContainText('5,000');
@@ -76,4 +75,18 @@ test('compact Salon booking labels retain their accessible names without crowdin
  const bounds=await row.locator('.catalog-book .sr-only').boundingBox();
  expect(bounds.width).toBeLessThanOrEqual(1);
  await expect(row).toContainText('5,000');
+});
+test('Wellness image disclosure meets normal-text contrast',async({page},info)=>{
+ await page.goto(prefix(info)+'/wellness/');
+ const contrast=await page.locator('#treatments .treatment-image figcaption').first().evaluate(el=>{
+  const style=getComputedStyle(el);
+  const rgb=value=>value.match(/[\d.]+/g).slice(0,3).map(Number);
+  const background=rgb(getComputedStyle(el.closest('.surface')).backgroundColor);
+  const opacity=Number(style.opacity);
+  const foreground=rgb(style.color).map((channel,i)=>channel*opacity+background[i]*(1-opacity));
+  const luminance=channels=>channels.map(channel=>{const s=channel/255;return s<=.04045?s/12.92:((s+.055)/1.055)**2.4;}).reduce((sum,c,i)=>sum+c*[.2126,.7152,.0722][i],0);
+  const a=luminance(foreground),b=luminance(background);
+  return (Math.max(a,b)+.05)/(Math.min(a,b)+.05);
+ });
+ expect(contrast).toBeGreaterThanOrEqual(4.5);
 });
