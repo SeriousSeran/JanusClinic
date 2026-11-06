@@ -2,7 +2,7 @@
 
 Every push to main runs the Pages workflow: install pinned npm dependencies, typecheck, verify the original capture, build React with Vite and combine it with sanitized captured pages. The public preview is https://seriousseran.github.io/JanusClinic/.
 
-Seven React entry routes have physical HTML files, including `/book/`, `/wellness/book/` and `/wellness/body-contouring/`, so direct refreshes work without GitHub SPA rewrites. All module, stylesheet, image and font paths carry the repository prefix. The same pipeline builds root paths for the local Node server.
+Ten React entry routes from `frontend/data/routes.json` have physical HTML files, including `/book/`, `/wellness/book/`, `/wellness/treatments/`, `/wellness/packages/`, `/wellness/memberships/` and `/wellness/body-contouring/`, so direct refreshes work without GitHub SPA rewrites. All module, stylesheet, image and font paths carry the repository prefix. The same pipeline builds root paths for the local Node server.
 
 `scripts/build-site.mjs` builds Vite then calls `scripts/build-preview.py` with the matching compiled directory. The exporter preserves the original `public/` capture and manifest, strips captured Next.js/analytics/form delivery, carries forward 77 FAQ answers, copies the portfolio and learning PDF and validates static HTML references. React entry scripts are taken from the controlled build output; captured scripts remain stripped. CSP permits same-origin scripts and inline styling required by Glisse, data images used by its lens, and blocks native form delivery. It does not permit a backend connection to an outside provider.
 

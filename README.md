@@ -4,6 +4,9 @@ Editable React + TypeScript + Vite with actual Glisse0.5.0 components. Public pr
 
 ## What is implemented
 
+- Compact mobile welcome and combined preview/booking bar, persistent selected-service context, and source-labelled clinic information.
+- Dedicated Wellness collection routes, URL-backed treatment filters, and grouped Salon variants with Back/refresh restoration.
+
 - Sage/teal identity throughout, original Janus logo and local fonts, three illustrative Sri Lankan portraits.
 - Shared customer panel above Wellness, Salon and Cosmetic Care; unrestricted browsing.
 - Wellness Collection:13 individual treatments,5 signature packages,3 monthly memberships, contour programmes, standalone free assessment, facilities/FAQ and booking entry points.

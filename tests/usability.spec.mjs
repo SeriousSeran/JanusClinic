@@ -65,3 +65,12 @@ test('unverified source imagery is never presented as a verified clinic interior
  await expect(page.locator('#facilities')).toContainText('Verified clinic photographs are pending');
  await expect(page.locator('#facilities img')).toHaveCount(0);
 });
+test('fresh Wellness section links scroll into view and focus the destination',async({page},info)=>{
+ await page.setViewportSize({width:390,height:844});
+ for(const id of ['wellness-assessment','facilities','booking']){
+  await page.goto(prefix(info)+'/wellness/#'+id);
+  const target=page.locator('#'+id);
+  await expect(target).toBeInViewport();
+  await expect(target).toBeFocused();
+ }
+});
