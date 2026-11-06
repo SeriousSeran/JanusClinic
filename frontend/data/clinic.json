@@ -5,14 +5,18 @@
   "phone": "+94777060404",
   "email": "janusclinique@gmail.com",
   "hours": [
-    "Monday–Friday: 10:00 am–8:00 pm",
-    "Saturday–Sunday: 8:00 am–4:00 pm"
+    "Monday\u2013Friday: 10:00 am\u20138:00 pm",
+    "Saturday\u2013Sunday: 8:00 am\u20134:00 pm"
   ],
-  "hoursStatus": "Published hours · please call to confirm your visit",
+  "hoursStatus": "Published hours \u00b7 please call to confirm your visit",
   "source": "Original clinic contact page, captured 26 October 2026",
   "sourcePath": "/contact/",
   "confirmationStatus": "Published source; current hours and exact locality require clinic confirmation. The catalog says Borella while the original contact page says Rajagiriya. The shared street/Colombo08 address is used without asserting either locality.",
   "image": "/images/team/dr-jayaruwan.png",
   "imageDescription": "Published practitioner portrait of Dr Jayaruwan Bandara",
-  "photographyStatus": "Clinic photographs awaiting confirmation"
+  "photographyStatus": "Clinic photographs awaiting confirmation",
+  "googlePlaceUrl": "https://share.google/cSlVqqcddb1tgUuCX",
+  "mapsQuery": "Janus Medical Center (Janus Eastheti Clinique), 30/3 Gothami Road, Colombo 08, Sri Lanka",
+  "mapsSource": "Clinic Google listing supplied by the owner on 6 November 2026. The shared link resolves to Google listing /g/11h3c77nng; embedded map uses a clinic-name/address search, not an independently verified coordinate.",
+  "doctorWhatsApp": "+94772122222"
 }

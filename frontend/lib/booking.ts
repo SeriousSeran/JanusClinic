@@ -16,10 +16,19 @@ export function colomboToday(now = new Date()): string {
   return `${get('year')}-${get('month')}-${get('day')}`;
 }
 
+export function ageFromDateOfBirth(value: string, today = colomboToday()): number | null {
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(value)) return null;
+  const date = new Date(value+'T12:00:00Z');
+  if (!Number.isFinite(date.getTime()) || date.toISOString().slice(0,10)!==value || value>today) return null;
+  const age=Number(today.slice(0,4))-Number(value.slice(0,4))-(today.slice(5)<value.slice(5)?1:0);
+  return age>=0&&age<=120?age:null;
+}
+
 export function validateCustomer(customer: DemoCustomer): FieldErrors {
   const errors: FieldErrors = {};
   if (!customer.name.trim()) errors.name = 'Enter a fictional name for this demo.';
-  if (!/^\d{1,3}$/.test(customer.age.trim()) || Number(customer.age) > 120) errors.age = 'Enter an age as a whole number from 0 to 120.';
+  if (ageFromDateOfBirth(customer.dateOfBirth ?? '') === null) errors.dateOfBirth = 'Enter a valid date of birth, today or earlier (up to 120 years ago).';
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test((customer.email ?? '').trim())) errors.email = 'Enter a valid fictional email address, such as guest@example.com.';
   if (!normalizePhone(customer.phone)) errors.phone = 'Enter a fictional Sri Lankan mobile number, such as 0771234567.';
   return errors;
 }

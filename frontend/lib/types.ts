@@ -7,5 +7,5 @@ export interface Offering {
   inclusions?: { id: string; quantity: number }[]; tier?: string; reviewNote?: string;
   detailPath?: string; providerLabel?: string;
 }
-export interface DemoCustomer { name: string; age: string; gender: string; phone: string }
+export interface DemoCustomer { username?: string; name: string; age: string; email: string; dateOfBirth: string; gender: string; phone: string }
 export interface BookingDraft { offeringId: string; date: string; time: string; notes: string }

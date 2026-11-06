@@ -1,7 +1,8 @@
+import {registerForBooking} from './profile-helper.mjs';
 import {test,expect} from '@playwright/test';
 const prefix=info=>info.config.metadata.repositoryPrefix||'';
 test.beforeEach(async({page})=>{await page.route('**/*',route=>new URL(route.request().url()).hostname==='127.0.0.1'?route.continue():route.abort());});
-async function sample(page){await page.getByRole('button',{name:'Existing demo customer',exact:true}).click();await page.getByRole('button',{name:'Use sample registered customer'}).click();await page.getByRole('button',{name:'Simulate verification'}).click();}
+const sample=registerForBooking;
 test('preselected package, edit flow and confirmation stay local and clearly simulated',async({page},info)=>{
  const base=prefix(info);const errors=[],writes=[];page.on('pageerror',e=>errors.push(e.message));page.on('request',r=>{if(!['GET','HEAD'].includes(r.method()))writes.push(r.url());});
  await page.goto(base+'/book/?offering=quick-reset');await sample(page);
@@ -14,12 +15,11 @@ test('preselected package, edit flow and confirmation stay local and clearly sim
  expect(await page.evaluate(()=>[localStorage.length,sessionStorage.length])).toEqual([0,0]);expect(writes).toEqual([]);expect(errors).toEqual([]);
 });
 test('new demo registration validates inputs and retains the correct massage provider',async({page},info)=>{
- await page.goto(prefix(info)+'/book/?offering=beauty-028');await page.getByRole('button',{name:'Continue with demo profile'}).click();await expect(page.locator('#name-error')).toBeVisible();
- await page.getByLabel('Fictional name (required)',{exact:true}).fill('Sample Visitor');await page.getByLabel('Age (required)',{exact:true}).fill('31');await page.getByLabel('Fictional mobile number (required)',{exact:true}).fill('+94 77 123 4567');await page.getByRole('button',{name:'Continue with demo profile'}).click();await expect(page.locator('.booking-selection')).toContainText('LKR 5,000');await expect(page.locator('.booking-selection')).toContainText('Salon therapist');
+ await page.goto(prefix(info)+'/book/?offering=beauty-028');await sample(page);await expect(page.locator('.booking-selection')).toContainText('LKR 5,000');await expect(page.locator('.booking-selection')).toContainText('Salon therapist');
  await page.getByLabel('Preferred date (required)',{exact:true}).fill('2000-01-01');await page.getByRole('button',{name:'Review demo request'}).click();await expect(page.locator('#date-error')).toBeVisible();
 });
 test('unknown offerings recover without exposing the internal price unit',async({page},info)=>{
- await page.goto(prefix(info)+'/book/?offering=wellness-cavitation-area');await expect(page.getByRole('main')).toContainText('linked offering was not found');await sample(page);await expect(page.getByLabel('Offering (required)',{exact:true})).toHaveValue('');expect(await page.locator('option[value="wellness-cavitation-area"]').count()).toBe(0);
+ await page.goto(prefix(info)+'/book/?offering=wellness-cavitation-area');await sample(page);await expect(page.getByRole('main')).toContainText('linked offering was not found');await expect(page.getByLabel('Offering (required)',{exact:true})).toHaveValue('');expect(await page.locator('option[value="wellness-cavitation-area"]').count()).toBe(0);
  await page.getByLabel('Area',{exact:true}).selectOption('cosmetic');await page.getByLabel('Offering (required)',{exact:true}).selectOption('cosmetic-botox');await expect(page.locator('.booking-selection')).toContainText('Price on consultation');await expect(page.locator('.booking-selection')).not.toContainText('Complimentary');
 });
 test('portable catalog replaces expired attachment paths and all authored routes refresh',async({page,request},info)=>{

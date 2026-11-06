@@ -1,0 +1,25 @@
+/* Private review: deep rose Janus theme. Salon and Wellness retain their palette. */
+html[data-janus-palette="rose"]{--color-background:#FAF3F2;--color-surface:#EBD5DC;--color-surface-dark:#D3ACBA;--color-text:#382932;--color-muted:#70505F;--color-accent:#A77D55;--color-border:#C197AA;--color-field:#FFF9FA;--color-primary-hover:#702043;--color-secondary-hover:#E8CBD6;--color-inset:#F5E5EB;--color-notice:#EFDCE3;--color-field-border:#987080;--color-helper:#70505F;--color-on-dark:#FFF6F9;--color-on-dark-muted:#F0DCE5;--lg-foreground:#382932;--lg-muted:#70505F;--lg-glass:rgb(250 243 242 / .9);--lg-fill:#8B2858;--lg-ring:#8B2858;--lg-edge:#C197AA;--lg-surface:#FAF3F2;--lg-selection:#D3ACBA55}
+[data-janus-palette="rose"] body{background:#FAF3F2;color:#382932}
+[data-janus-palette="rose"] .primary{background:#8B2858;border-color:#8B2858;color:#FFF6F9}
+[data-janus-palette="rose"] .primary:hover{background:#702043}
+[data-janus-palette="rose"] :is(.header-glass,.card-label){background:rgb(250 243 242 / .94)!important}
+[data-janus-palette="rose"] .account-panel{background:rgb(235 213 220 / .94)!important}
+[data-janus-palette="rose"] :is(header.fixed,.preview-bar){background:#FAF3F2!important;color:#382932}
+[data-janus-palette="rose"] .preview-areas{background:#EBD5DC;color:#382932}
+[data-janus-palette="rose"] :is(.about-story,.services-story,.contact-story){background:#FAF3F2;color:#382932}
+[data-janus-palette="rose"] :is(.about-story,.services-story,.contact-story) em{color:#8B2858}
+[data-janus-palette="rose"] :is(.about-intro,.about-values,.story-philosophy,.story-commitment,.contact-location,.contact-questions){background:#EBD5DC}
+[data-janus-palette="rose"] :is(.about-statement,.about-closing,.story-art,.contact-welcome,.contact-method,.contact-map-shell){background:#DDBBCB}
+[data-janus-palette="rose"] .contact-method:nth-child(2){background:#E8D7C7}
+[data-janus-palette="rose"] .contact-method:nth-child(3){background:#E4C7D3}
+[data-janus-palette="rose"] :is(.art-stone,.about-conversation li>span,.contact-steps li>span){background:#E4C7D3;border-color:#AD758E}
+[data-janus-palette="rose"] .art-two{background:#C99CB0}
+[data-janus-palette="rose"] :is(.story-process>h2,.story-process>.eyebrow,.process-note){background:#FAF3F2}
+[data-janus-palette="rose"] :is(.story-primary,.contact-story .contact-primary){background:#8B2858;color:#FFF6F9;border-color:#8B2858;border-radius:999px}
+[data-janus-palette="rose"] .contact-hours{background:#F8E8EF;border-color:#B77594}
+[data-janus-palette="rose"] .contact-hours:is(:hover,:focus-visible,.hours-highlighted){background:#EBC6D7;border-color:#8B2858}
+[data-janus-palette="rose"] .contact-hours .eyebrow{color:#81234F}
+[data-janus-palette="rose"] :is(.contact-contours,.contact-map-invitation>svg){stroke:#AC728D}
+[data-janus-palette="rose"] .river-progress{stroke:#9A4C70}
+@media(forced-colors:active){html[data-janus-palette="rose"]{--color-text:CanvasText;--color-background:Canvas;--color-muted:CanvasText}}

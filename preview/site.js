@@ -26,7 +26,7 @@ const setMenu = expanded => {
 if (dialog) {
   setMenu(false);
   open.addEventListener('click', () => setMenu(true));
-  addEventListener('resize', () => { if (innerWidth >= 768) setMenu(false); });
+  addEventListener('resize', () => { if (innerWidth >= 1200) setMenu(false); });
   close.addEventListener('click', () => { setMenu(false); open.focus(); });
   dialog.addEventListener('keydown', event => {
     if (event.key === 'Escape') { setMenu(false); open.focus(); }
@@ -66,3 +66,14 @@ if (header) {
     });
   }
 })().catch(console.error);
+
+// Review directory: filter locally without requests or storage.
+const reviewSearch=document.querySelector('[data-review-search]');
+if(reviewSearch){const pages=[...document.querySelectorAll('[data-review-page]')];reviewSearch.addEventListener('input',()=>{const query=reviewSearch.value.trim().toLowerCase();let visible=0;for(const page of pages){page.hidden=!page.textContent.toLowerCase().includes(query);if(!page.hidden)visible++;}document.querySelector('[data-review-count]').textContent=visible+' pages to explore';});}
+// Keep preserved detail-page navigation aligned with the maintained Janus labels.
+for(const link of document.querySelectorAll('header a,.nav-link')){const label=link.textContent.trim();if(label==='Services')link.textContent='About us';if(label==='About')link.textContent='Meet your Doctor';}
+
+// A home destination in every preserved-page dropdown as well.
+for(const menu of document.querySelectorAll('[role="dialog"][aria-label="Navigation menu"] nav')){if(![...menu.querySelectorAll('a')].some(link=>link.textContent.trim()==='Homepage')){const home=document.createElement('a');const script=document.querySelector('script[src$="/preview/site.js"]');home.href=new URL('../',script.src).pathname;home.textContent='Homepage';home.className='text-h2 py-3 nav-link';menu.prepend(home);}}
+
+for(const menu of document.querySelectorAll('[role="dialog"][aria-label="Navigation menu"] nav')){const script=document.querySelector('script[src$="/preview/site.js"]');const profile=document.createElement('a');profile.href=new URL('../profile/',script.src).pathname;profile.textContent='My profile';profile.className='text-h2 py-3 nav-link';const home=[...menu.querySelectorAll('a')].find(link=>link.textContent.trim()==='Homepage');if(home)home.after(profile);else menu.prepend(profile);}

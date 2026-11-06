@@ -1,0 +1,140 @@
+.contact-story{color:var(--teal,#213B45);background:var(--ivory,#F5F0E8);overflow:clip}
+.contact-section{max-width:1200px;margin:0 auto;padding:100px 40px;scroll-margin-top:120px}
+.contact-story h1{font-size:clamp(3rem,5.5vw,5.25rem);line-height:1.04;letter-spacing:-.035em}
+.contact-story h2{font-size:clamp(2.6rem,4.2vw,4rem);line-height:1.1;letter-spacing:-.025em}
+.contact-story h3{font-size:30px;line-height:1.15}
+.contact-story em{color:#5C6C60}
+.contact-story p{max-width:55ch}
+.contact-story address{font-style:normal}
+.contact-hero{display:grid;grid-template-columns:1.35fr 1fr;gap:70px;align-items:center;padding-top:75px;padding-bottom:90px}
+.contact-hero-copy>p:not(.eyebrow){max-width:47ch}
+.contact-story .contact-lead{font-size:19px;line-height:1.6;margin-top:28px}
+.contact-actions{display:flex;flex-wrap:wrap;align-items:center;gap:18px 28px;margin-top:32px}
+.contact-story .contact-primary{display:inline-flex;justify-content:center;align-items:center;gap:24px;border:1px solid #213B45;border-radius:999px;padding:17px 24px;background:#213B45;color:#F5F0E8;font:500 13px/1.5 var(--font-sans);text-decoration:none;cursor:pointer;transition:background .2s,transform .2s;min-height:52px}
+.contact-story .contact-primary:hover{background:#36545A;transform:translateY(-2px)}
+.contact-story .contact-text-link{display:inline-flex;gap:15px;align-items:center;border-bottom:1px solid #8C7758;padding:10px 0;font-size:13px;text-decoration:none}
+.contact-story a:focus-visible,.contact-story button:focus-visible,.contact-story summary:focus-visible{outline:2px solid #213B45;outline-offset:5px}
+.contact-story .contact-demo-note{font-size:11px;line-height:1.65;max-width:49ch;margin-top:20px;color:#526166}
+.contact-welcome{position:relative;isolation:isolate;overflow:hidden;min-height:590px;padding:40px;background:#D8D9C9;border-radius:190px 190px 80px 80px;display:flex;flex-direction:column;justify-content:space-between}
+.contact-welcome-top{display:flex;justify-content:center;gap:16px;align-items:center;margin-top:22px}
+.contact-welcome-top .eyebrow{font-size:9px;letter-spacing:.12em;margin:0}
+.contact-contours{position:absolute;inset:0;width:100%;height:100%;z-index:-1;opacity:.55;stroke:#A2AA95;stroke-width:1}
+.contact-welcome-copy{margin-top:65px}
+.contact-welcome-copy h2{font-size:52px;margin:10px 0 24px}
+.contact-welcome-copy address{font-size:14px;max-width:24ch;line-height:1.8}
+.contact-welcome-number{font-size:11px;letter-spacing:.1em}
+.contact-welcome .contact-text-link{margin-top:6px}
+.contact-hours{margin-top:40px;border-top:1px solid #A6AD99;padding-top:20px}
+.contact-hours .eyebrow{font-size:9px;margin-bottom:10px}
+.contact-hours p:not(.eyebrow){font-size:12px;margin:5px 0}
+.contact-hours small{display:block;font-size:10px;line-height:1.6;margin-top:12px;max-width:30ch}
+.contact-reach{padding-top:80px}
+.contact-section-intro{text-align:center;margin-bottom:50px}
+.contact-section-intro p{margin:20px auto 0}
+.contact-section-intro .eyebrow{margin-bottom:18px}
+.contact-methods{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.contact-method{display:flex;flex-direction:column;color:inherit;min-width:0;padding:36px 28px 28px;border-radius:44px;background:#E8E6DB;text-decoration:none;transition:background .25s,transform .25s}
+.contact-method:nth-child(2){background:#E9E0D4}
+.contact-method:nth-child(3){background:#D8D9C9}
+.contact-method:hover{background:#D3D5C4;transform:translateY(-4px)}
+.contact-method-label{font-size:9px;letter-spacing:.12em;text-transform:uppercase}
+.contact-method h3{margin:38px 0 18px}
+.contact-method-value{font-size:14px;line-height:1.7;overflow-wrap:anywhere}
+.contact-method-bottom{margin-top:auto;padding-top:36px;display:flex;justify-content:space-between;gap:12px;font-size:11px;line-height:1.6}
+.contact-location{max-width:1320px;margin:0 auto;background:#E8E6DB;border-radius:110px;overflow:hidden;scroll-margin-top:110px}
+.contact-location-heading{display:grid;grid-template-columns:1.4fr 1fr;gap:70px;align-items:end;padding-bottom:48px}
+.contact-location-heading address{display:flex;gap:14px;font-size:15px;max-width:32ch;line-height:1.8}
+.contact-location-heading address svg{flex-shrink:0;margin-top:3px}
+.contact-location-heading p:not(.eyebrow){font-size:12px;line-height:1.8;margin:18px 0 4px}
+.contact-map-shell{margin:0 60px;border-radius:65px;overflow:hidden;position:relative;background:#D8D9C9;min-height:440px}
+.contact-map-shell iframe{display:block;width:100%;height:480px;border:0;background:#D8D9C9}
+.contact-map-invitation{min-height:440px;position:relative;isolation:isolate;text-align:center;display:flex;flex-direction:column;justify-content:center;align-items:center;padding:40px 24px}
+.contact-map-invitation>svg{position:absolute;inset:0;width:100%;height:100%;z-index:-1;stroke:#9DA78E;stroke-width:1;fill:none;opacity:.65}
+.contact-map-pin{display:flex;flex-direction:column;align-items:center;gap:12px;font-size:9px;letter-spacing:.14em;margin-bottom:24px}
+.contact-map-pin svg{width:44px;height:44px;padding:9px;box-sizing:content-box;border:1px solid #8C957D;border-radius:50%;background:#E8E6DB}
+.contact-map-invitation h3{font-size:38px;margin:0}
+.contact-map-invitation p{font-size:13px;margin:12px 0 24px}
+.contact-map-invitation small{font-size:10px;line-height:1.6;margin-top:18px;max-width:38ch}
+.contact-map-caption{font-size:11px;line-height:1.8;text-align:center;max-width:none!important;padding:20px 40px 40px;margin:0}
+.contact-map-caption a,.contact-map-fallback a{text-decoration:underline;text-underline-offset:4px}
+.contact-map-fallback{font-size:11px;text-align:center;padding:14px 24px;margin:0;max-width:none!important}
+.contact-next{display:grid;grid-template-columns:1fr 1fr;gap:100px;align-items:center;padding-top:120px}
+.contact-next>div>p:not(.eyebrow){margin-top:24px}
+.contact-next .contact-primary{margin-top:15px}
+.contact-steps{list-style:none;padding:0;margin:0;position:relative}
+.contact-steps:before{content:'';position:absolute;left:25px;top:30px;bottom:90px;width:1px;background:#A0A88F}
+.contact-steps li{display:flex;gap:26px;position:relative;padding:22px 0}
+.contact-steps li>span{display:grid;place-items:center;font-size:11px;flex:0 0 52px;height:56px;border:1px solid #A0A88F;border-radius:45% 55% 48% 52%;background:#E8E6DB}
+.contact-steps h3{font-size:29px;margin-bottom:12px}
+.contact-steps p{font-size:14px;margin:0;line-height:1.8}
+.contact-questions{background:#E8E6DB;border-radius:90px;display:grid;grid-template-columns:1fr 1fr;gap:70px;padding-top:65px;padding-bottom:65px}
+.contact-questions h2{font-size:40px}
+.contact-faq details{border-bottom:1px solid #B8B5A2;padding:22px 0}
+.contact-faq summary{font-size:14px;cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:20px;line-height:1.6}
+.contact-faq summary::-webkit-details-marker{display:none}
+.contact-faq summary:after{content:'+';font-size:18px}
+.contact-faq details[open] summary:after{content:'−'}
+.contact-faq p{font-size:13px;line-height:1.9;margin:18px 0 3px}
+.contact-faq a{text-decoration:underline;text-underline-offset:3px}
+.contact-signoff{display:flex;align-items:center;justify-content:center;gap:25px;padding:70px 24px 100px;font-family:var(--font-serif);font-style:italic;font-size:24px;text-align:center}
+.contact-signoff>span{width:65px;height:1px;background:#B59A70;flex-shrink:0}
+.contact-arrived{animation:contact-arrive .65s ease-out}
+@keyframes contact-arrive{from{transform:translateY(20px)}to{transform:translateY(0)}}
+@media(max-width:1023px){.contact-hero{gap:35px;grid-template-columns:1.15fr 1fr}.contact-welcome{padding:30px;min-height:570px}.contact-methods{gap:14px}.contact-method{padding:30px 22px}.contact-method h3{font-size:26px}.contact-method-value{font-size:13px}.contact-next{gap:50px}.contact-location-heading{gap:35px}.contact-questions{gap:35px}}
+@media(max-width:767px){.contact-section{padding:60px 24px}.contact-hero{grid-template-columns:1fr;gap:36px;padding-top:44px}.contact-story h1{font-size:clamp(2.65rem,10.5vw,3.8rem)}.contact-story h2{font-size:38px}.contact-story .contact-lead{font-size:17px}.contact-actions{gap:12px 24px}.contact-primary{max-width:100%;gap:16px!important}.contact-welcome{min-height:510px;border-radius:155px 155px 65px 65px;padding:32px}.contact-welcome-copy{margin-top:45px}.contact-welcome-copy h2{font-size:47px}.contact-welcome-top{margin-top:18px}.contact-section-intro{text-align:left;margin-bottom:32px}.contact-section-intro p{margin:20px 0}.contact-methods{grid-template-columns:1fr;gap:14px}.contact-method{padding:28px;border-radius:34px}.contact-method h3{margin:24px 0 14px;font-size:32px}.contact-method-value{font-size:15px}.contact-method-bottom{padding-top:24px}.contact-location{border-radius:60px}.contact-location-heading,.contact-next,.contact-questions{grid-template-columns:1fr;gap:32px}.contact-location-heading{padding-bottom:28px}.contact-map-shell{margin:0 16px;border-radius:40px;min-height:400px}.contact-map-invitation{min-height:400px;padding:32px 20px}.contact-map-invitation h3{font-size:32px}.contact-map-shell iframe{height:430px}.contact-map-caption{padding:20px 28px 32px}.contact-next{padding-top:75px}.contact-steps li{gap:20px}.contact-steps h3{font-size:28px}.contact-questions{border-radius:55px}.contact-signoff{font-size:21px;gap:16px;padding:55px 24px 80px}.contact-signoff>span{width:24px}}
+@media(prefers-reduced-motion:reduce){.contact-arrived{animation:none}.contact-story .contact-primary,.contact-method{transition:none}.contact-story .contact-primary:hover,.contact-method:hover{transform:none}}
+@media(forced-colors:active){.contact-method,.contact-welcome,.contact-map-shell,.contact-story .contact-primary{border:1px solid CanvasText}.contact-story em,.contact-story .contact-demo-note{color:CanvasText}}
+/* Compact, readable contact options. */
+.contact-hero{gap:42px;padding-bottom:56px}
+.contact-reach{padding-top:48px;padding-bottom:64px}
+.contact-section-intro{margin-bottom:30px}
+.contact-section-intro p{font-size:17px}
+.contact-methods{gap:14px}
+.contact-method{padding:28px 26px 24px}
+.contact-method-label{font-size:12px;letter-spacing:.07em}
+.contact-method h3{font-size:34px;margin:22px 0 14px}
+.contact-method-value{font-size:18px;line-height:1.6}
+.contact-method-bottom{font-size:14px;padding-top:24px;min-height:44px;align-items:center}
+.contact-story .contact-primary{font-size:16px;padding:16px 24px}
+.contact-story .contact-text-link{font-size:16px;min-height:44px}
+.contact-welcome-copy address{font-size:17px;max-width:28ch}
+.contact-hours p:not(.eyebrow){font-size:15px;line-height:1.65}
+.contact-hours .eyebrow{font-size:12px}
+.contact-hours small{font-size:12px;max-width:34ch}
+.contact-location-heading{gap:42px;padding-top:64px;padding-bottom:32px}
+.contact-location-heading address{font-size:18px}
+.contact-location-heading p:not(.eyebrow){font-size:15px}
+.contact-map-caption,.contact-map-fallback{font-size:14px}
+.contact-map-invitation p{font-size:16px}
+.contact-map-invitation small{font-size:12px}
+.contact-next{padding-top:72px;padding-bottom:64px;gap:60px}
+.contact-faq summary{font-size:17px}
+.contact-faq p{font-size:16px}
+@media(max-width:1023px){.contact-methods{grid-template-columns:1fr}.contact-method{display:grid;grid-template-columns:1fr 1.2fr;column-gap:24px}.contact-method-label{grid-column:1/-1}.contact-method h3{margin:14px 0;font-size:32px}.contact-method-value{align-self:center}.contact-method-bottom{grid-column:1/-1;padding-top:8px}}
+@media(max-width:767px){.contact-hero{gap:28px;padding-bottom:36px}.contact-reach{padding-top:32px;padding-bottom:44px}.contact-section-intro{margin-bottom:24px}.contact-method{display:flex;padding:24px;border-radius:32px}.contact-method h3{margin:16px 0 12px}.contact-method-value{align-self:auto;font-size:18px}.contact-method-bottom{padding-top:16px}.contact-location-heading{padding-top:44px;gap:24px}.contact-next{padding-top:52px;padding-bottom:48px;gap:32px}.contact-story .contact-primary{gap:14px!important;font-size:15px}.contact-welcome{min-height:500px}.contact-map-caption{font-size:13px}}
+/* Janus brand accents and a prominent opening-hours panel. */
+.contact-story{background:#FAF5F1;color:#213B45}
+.contact-story em{color:#99506F}
+.contact-welcome{background:#EEDDE4}
+.contact-contours{stroke:#BA88A0}
+.contact-method{background:#F0E4E9}
+.contact-method:nth-child(2){background:#F0E6DC}
+.contact-method:nth-child(3){background:#EADCE4}
+.contact-method:hover{background:#E5CDD9}
+.contact-location,.contact-questions{background:#F0E5E8}
+.contact-map-shell{background:#E8D8DF}
+.contact-map-invitation>svg{stroke:#B1869C}
+.contact-map-pin svg,.contact-steps li>span{background:#F8EEF2;border-color:#BA88A0}
+.contact-story .contact-primary{background:#9A316B;border-color:#9A316B;color:#FFF9FC}
+.contact-story .contact-primary:hover{background:#7F2556}
+.contact-story .contact-text-link{border-color:#A8577E}
+.contact-hours{position:relative;background:#FBF3F6;border:1px solid #C69AB0;border-radius:28px;padding:24px;margin-top:28px;box-shadow:0 8px 24px #75244D0C;cursor:pointer;transition:background .3s,box-shadow .3s,border-color .3s,transform .3s;outline-offset:5px}
+.contact-hours .eyebrow{font-size:14px;font-weight:600;color:#8B2D60;letter-spacing:.08em;margin:0 0 14px}
+.contact-hours p:not(.eyebrow){font-size:19px;font-weight:500;line-height:1.6;margin:9px 0}
+.contact-hours small{font-size:14px;line-height:1.7;max-width:34ch;margin-top:14px}
+.contact-hours:hover,.contact-hours:focus-visible,.contact-hours.hours-highlighted{background:#F4DDE9;border-color:#9A316B;box-shadow:0 0 0 4px #AC46751A,0 12px 30px #75244D16;transform:translateY(-2px)}
+.contact-hours.hours-highlighted{animation:hours-glow .75s ease-out}
+@keyframes hours-glow{0%{box-shadow:0 0 0 0 #AC46754D}65%{box-shadow:0 0 0 9px #AC467508}100%{box-shadow:0 0 0 4px #AC46751A}}
+@media(max-width:767px){.contact-hours{padding:22px;border-radius:25px}.contact-hours p:not(.eyebrow){font-size:18px}.contact-hours small{font-size:13px}}
+@media(prefers-reduced-motion:reduce){.contact-hours{transition:none}.contact-hours:hover,.contact-hours:focus-visible,.contact-hours.hours-highlighted{transform:none}.contact-hours.hours-highlighted{animation:none}}
+@media(forced-colors:active){.contact-hours{border:2px solid CanvasText}.contact-hours .eyebrow{color:CanvasText}}

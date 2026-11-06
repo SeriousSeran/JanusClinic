@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { normalizePhone, colomboToday, validateCustomer, validateAppointment, formatPreferredDate } from '../frontend/lib/booking.ts';
-const customer = { name: 'Demo customer', age: '30', gender: '', phone: '0771234567' };
+import { ageFromDateOfBirth, normalizePhone, colomboToday, validateCustomer, validateAppointment, formatPreferredDate } from '../frontend/lib/booking.ts';
+const customer = { name: 'Demo customer', age: '30', email: 'guest@example.com', dateOfBirth: '1996-01-01', gender: '', phone: '0771234567' };
 const draft = { offeringId: 'sample', date: '2027-01-02', time: 'Morning', notes: '' };
 test('normalizes Sri Lankan mobile formats without inferring a provider', () => {
   for (const value of ['0771234567', '+94771234567', '94771234567', '077 123-4567']) assert.equal(normalizePhone(value), '+94771234567');
@@ -9,12 +9,16 @@ test('normalizes Sri Lankan mobile formats without inferring a provider', () => 
 test('rejects malformed mobile numbers and non-mobile numbers', () => {
   for (const value of ['', '0111234567', '+44771234567', '077123456', '07712345678', '077abc4567', '++94771234567', '(077)1234567', '0094771234567']) assert.equal(normalizePhone(value), null, value);
 });
-test('requires a name, integer age zero through 120 and valid phone', () => {
-  assert.deepEqual(validateCustomer(customer), {});
-  for (const age of ['0', '120']) assert.deepEqual(validateCustomer({ ...customer, age }), {});
-  for (const age of ['', '-1', '121', '1.5', 'abc', '1e2']) assert.ok(validateCustomer({ ...customer, age }).age, age);
-  assert.ok(validateCustomer({ ...customer, name: '  ' }).name);
-  assert.ok(validateCustomer({ ...customer, phone: '0111234567' }).phone);
+test('validates contact email and date of birth and calculates age at birthday boundaries', () => {
+ assert.deepEqual(validateCustomer(customer), {});
+ assert.equal(ageFromDateOfBirth('2000-11-07','2026-11-06'),25);
+ assert.equal(ageFromDateOfBirth('2000-11-07','2026-11-07'),26);
+ assert.equal(ageFromDateOfBirth('2000-02-29','2026-02-28'),25);
+ assert.equal(ageFromDateOfBirth('2000-02-29','2026-03-01'),26);
+ for(const dob of ['', '2025-02-29','2099-01-01','1800-01-01'])assert.ok(validateCustomer({...customer,dateOfBirth:dob}).dateOfBirth);
+ for(const email of ['', 'guest', 'guest@', 'guest @example.com'])assert.ok(validateCustomer({...customer,email}).email);
+ assert.ok(validateCustomer({...customer,name:'  '}).name);
+ assert.ok(validateCustomer({...customer,phone:'0111234567'}).phone);
 });
 test('calculates today in Asia/Colombo around UTC midnight', () => {
   assert.equal(colomboToday(new Date('2026-11-06T19:00:00Z')), '2026-11-07');

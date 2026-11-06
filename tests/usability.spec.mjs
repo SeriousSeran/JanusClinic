@@ -1,11 +1,12 @@
+import {registerForBooking} from './profile-helper.mjs';
 import {test,expect} from '@playwright/test';
 const prefix=info=>info.config.metadata.repositoryPrefix||'';
-async function sample(page){await page.getByRole('button',{name:'Existing demo customer',exact:true}).click();await page.getByRole('button',{name:'Use sample registered customer'}).click();await page.getByRole('button',{name:'Simulate verification'}).click();}
+const sample=registerForBooking;
 test('booking selection is visible before identity and generic booking navigation preserves it',async({page},info)=>{
  await page.goto(prefix(info)+'/book/?offering=quick-reset');
+ await sample(page);
  await expect(page.locator('.booking-context')).toContainText('Quick Reset');
  await expect(page.locator('.booking-context')).toContainText('5,000');
- await sample(page);
  await page.getByLabel('Preferred date (required)',{exact:true}).fill('2027-06-01');
  await page.getByRole('link',{name:'Continue booking',exact:true}).first().click();
  await expect(page.getByLabel('Offering (required)',{exact:true})).toHaveValue('quick-reset');
@@ -52,7 +53,7 @@ test('Salon family prices and URL filters survive booking, Back and refresh',asy
  await page.getByLabel('Search salon services').fill('global colour');
  await page.getByLabel('Variant for Full hair global colour',{exact:true}).selectOption('hair-015');
  const row=page.locator('[data-service-id="hair-015"]');await expect(row).toBeVisible();await expect(row).toContainText('19,000');
- await row.getByRole('link',{name:/Book/}).click();await expect(page.locator('.booking-context')).toContainText('Medium');
+ await row.getByRole('link',{name:/Book/}).click();await sample(page);await expect(page.locator('.booking-context')).toContainText('Medium');
  await page.goBack();await expect(page.getByLabel('Search salon services')).toHaveValue('global colour');
  await expect(page.getByLabel('Variant for Full hair global colour',{exact:true})).toHaveValue('hair-015');
  await page.reload();await expect(page.getByLabel('Search salon services')).toHaveValue('global colour');

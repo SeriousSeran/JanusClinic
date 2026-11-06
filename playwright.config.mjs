@@ -2,7 +2,7 @@ import { defineConfig } from '@playwright/test';
 
 export default defineConfig({
   testDir: './tests',
-  testMatch: ['browser.spec.mjs', 'gateway-browser.spec.mjs', 'journey.spec.mjs', 'treatment-images.spec.mjs', 'usability.spec.mjs', 'redesigned-pages.spec.mjs'],
+  testMatch: ['browser.spec.mjs', 'gateway-browser.spec.mjs', 'journey.spec.mjs', 'treatment-images.spec.mjs', 'usability.spec.mjs', 'redesigned-pages.spec.mjs', 'contact-page.spec.mjs', 'profile-flow.spec.mjs'],
   outputDir: 'test-results/local',
   workers: 2,
   retries: 0,
