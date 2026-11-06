@@ -1,32 +1,18 @@
-# Editing the Janus review website
+# Editing the current Janus preview
 
-The new homepage and three area pages are maintained source. The other pages are still the original capture. The GitHub Pages site is for reviewing design changes; its booking and messaging controls remain disabled.
+The editable customer journey is React + TypeScript, built by Vite and styled with actual Glisse 0.5.0 components. The parent, Salon, Cosmetic Care and Wellness share the approved sage/teal palette. Original captured pages remain reference content and are sanitized into the preview; never edit compiled browser bundles.
 
-## Change a heading or description
-
-Open `site/content.json`. The `home` object contains the homepage introduction; `areas` contains the three area labels, descriptions and image descriptions. Save your changes, run `npm run site:build`, and reload the local browser. `npm start` also rebuilds these pages at startup.
-
-For the area-page introduction or shared header/footer, edit the corresponding file under `site/templates/`. Use the existing heading, spacing and button classes. Keep all three mobile area shortcuts and the logo intact.
-
-## Change a salon service or price
-
-Open `content/salon/catalog.draft.json`. Find the service by its stable `id`; change its `name` or `price_lkr` after confirmation. Keep prices as numbers, not strings containing “LKR”. The renderer formats commas and the LKR table heading. Categories control where each service appears, including body care under Salon for now. Do not restore the excluded LKR 5,000 root-touching row.
-
-Six services include a `review_note` because their printed labels are unclear. Confirm the actual spelling before removing a note. Update the owner-confirmation record and visible confirmed-on date if the prices are reconfirmed. Update `site/templates/salon.html` if the displayed confirmation date changes.
-
-## Change an image
-
-Place the replacement WebP under `site/assets/`, then update its path and accurate alternative text in `site/content.json`. Update `site/imagery.json` with source/provenance. Its `replacements` map applies only to selected decorative images in captured review pages; other original images stay unchanged. Keep the AI disclosure for generated portraits. Never describe these models as actual patients or results.
-
-The source PNGs were retained in the cloud workspace; portable optimized WebP copies are committed to Git. The three WebP files total approximately 430 KB. Format conversion preserves composition and does not alter the subjects.
-
-## Define wellness later
-
-The Wellness page intentionally has no packages or tier names. Once the actual three tiers have been agreed, add confirmed descriptions and prices to maintained content and replace the holding page. Until then, do not present packages as available. Massage and body care remain in Salon.
-
-## Check and publish a preview change
+## Start and verify
 
 ```sh
+npm ci --ignore-scripts
+npm start
+```
+
+This builds React for root URLs, combines it with the legacy capture and serves http://127.0.0.1:3000. Run `npm run site:build` after edits and refresh, or restart `npm start`. For GitHub Pages use `npm run preview:build`; `npm run preview:serve` serves http://127.0.0.1:4173/JanusClinic/. Vite builds the two targets separately so their asset prefixes do not collide.
+
+```sh
+npm run typecheck
 npm run check
 npm test
 npm run test:browser
@@ -34,6 +20,33 @@ npm run preview:build
 npm run test:preview
 ```
 
-Review desktop and mobile screenshots under `test-results/local/` and `test-results/preview/`. Browser checks prevent live external submissions. Push a reviewed, tested change to `main`; the existing GitHub Actions workflow deploys the preview automatically. Check the actual deployment result and browser URL before assuming it is online.
+## Where to edit
 
-Never edit `site/generated/`, `dist/` or minified captured bundles. Generated files are rebuilt from source. The original capture and historical portfolio covers remain references; do not refresh them just to hide a visual difference.
+- `frontend/App.tsx`: header, homepage, Salon and Cosmetic Care pages.
+- `frontend/pages/Wellness.tsx`: complete twelve-section Wellness Collection.
+- `frontend/pages/Booking.tsx`: identification, preferences, editable review and demo result.
+- `frontend/theme.css`: current palette, layout and Glisse theme overrides; page-specific styles are beside their components.
+- `frontend/data/wellness.json`: authoritative Wellness names, prices, package inclusions and membership entitlements.
+- `content/salon/catalog.draft.json`: 123 Salon entries, current prices, durations and six wording-review notes.
+- `frontend/lib/catalog.ts`: maps those sources into booking offerings and calculates regular values; it does not duplicate the price lists.
+- `frontend/lib/booking.ts`: phone/date/age validation and Sri Lanka date formatting.
+- `frontend/session.tsx`: in-memory demo customer; nothing persists on refresh.
+- `site/assets/` and `site/imagery.json`: portraits, legacy palette override and image provenance.
+
+Use `frontend/ui.tsx` Link/BookLink/asset helpers so repository-prefixed links remain valid. Captured detail links intentionally navigate to full static pages; demo in-memory state ends on a full page reload.
+
+## Important data rules
+
+Salon Foot Massage is LKR5,000/60min (Salon therapist); Wellness Foot Massage is LKR4,000/duration pending (Wellness therapist). Keep separate IDs. Contour Discovery/Starter has one ID, with its two area sessions priced through a hidden common unit rather than forcing an anatomical area. The hidden unit must never appear in booking choices. Cosmetic treatment prices remain 'Price on consultation'; their numeric zero sentinel must not render as free.
+
+The first consultation and standalone Wellness assessment are complimentary. Package and membership prices are owner-approved; duration, contraindication, package validity and refund/carry-forward policies remain pending where not provided. Never invent missing clinical information or patient testimonials.
+
+## Preview boundaries and later migration
+
+Registration, sample verification, customer names, appointment details and DEMO references are local demonstrations only. No real account, OTP, database, storage, appointment delivery, membership activation, payment or WhatsApp message is created. React navigation preserves the demo profile; refresh clears it. Use fictional details.
+
+For Lovable, move the maintained React source and catalog data; then replace the demo session and submission operations with verified backend services, access controls and clinic confirmation. Staff administration and payment automation remain later work. Do not enable external actions merely by changing a preview label.
+
+## Attachment recovery
+
+The old chat error `environment registry connect returned 409 Conflict: environment_offline` concerns the chat platform's disconnected attachment workspace. It is not an error generated by the Janus website. The preserved photograph is `reference/catalogs/salon-catalog.jpg`; the preview publishes a portable copy at `/site/assets/salon-catalog.jpg`, linked from Salon. Use that link or the repository copy instead of `/tmp/codex-remote-attachments/...` references, which can expire.

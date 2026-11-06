@@ -36,3 +36,7 @@ Do not publish uncertain prices, silently reconcile conflicting contacts, promis
 Visitors may browse freely; registration/login is required when booking. Use a shared account/welcome area above Wellness, Salon and Cosmetic Care. The first consultation is free, with no separate initial doctor-consultation fee; do not infer terms for follow-up visits. All supplied wellness treatment/package/membership/contour prices are finally approved. Membership/refund/cancellation policies remain proposed until separately confirmed. See `docs/wellness-brief-review.md` for reconciled requirements.
 
 Liquid glass is now a design discussion, not an implemented or approved theme change. Consider its intensity and scope while preserving Janus identity and readable pricing/clinical information.
+
+## Implemented React customer journey · 6 November 2026
+
+The approved plan in `specs/001-glisse-customer-journey/` is implemented as a read-only React/TypeScript/Vite preview with actual Glisse0.5.0. The owner selected sage/teal across all areas. The full Wellness Collection and shared memory-only identification/booking demonstration replace the holding page. Staff management and live integrations remain deferred. See HANDOFF.md and docs/editing-the-website.md for current source and operational boundaries. Earlier references to an unimplemented collection or merely proposed glass are historical context, superseded by this update.

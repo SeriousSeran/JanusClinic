@@ -17,9 +17,9 @@ const types = {
 };
 
 export function createSiteServer({
-  root = resolve(projectRoot, 'public'),
-  portfolioRoot = resolve(projectRoot, 'reference/portfolio'),
-  authoredRoot = resolve(root) === resolve(projectRoot, 'public') ? resolve(projectRoot, 'site/generated') : null,
+  root = resolve(projectRoot, 'site/generated'),
+  portfolioRoot = resolve(root, 'portfolio'),
+  authoredRoot = null,
 } = {}) {
   root = resolve(root);
   portfolioRoot = resolve(portfolioRoot);
@@ -82,7 +82,7 @@ export function createSiteServer({
 }
 
 if (process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
-  execFileSync('python3', [resolve(projectRoot, 'scripts/render_site.py')], { stdio: 'inherit' });
+  execFileSync('node', [resolve(projectRoot, 'scripts/build-site.mjs')], { cwd: projectRoot, stdio: 'inherit' });
   const port = Number(process.env.PORT || 3000);
   const host = process.env.HOST || '127.0.0.1';
   const server = createSiteServer();

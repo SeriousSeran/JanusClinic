@@ -7,3 +7,5 @@ dist/
 .preview-build-*/
 site/generated/
 __pycache__/
+.build/
+artifacts/

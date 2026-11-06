@@ -16,10 +16,16 @@ jobs:
       pages: read
     steps:
       - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci --ignore-scripts
+      - run: npm run typecheck
       - name: Verify original capture
         run: python3 scripts/check.py
       - name: Build read-only preview
-        run: python3 scripts/build-preview.py --base-path "/${GITHUB_REPOSITORY#*/}" --output dist/site
+        run: npm run preview:build -- --base-path "/${GITHUB_REPOSITORY#*/}" --output dist/site
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:

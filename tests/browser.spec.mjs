@@ -39,10 +39,10 @@ test('desktop content, local images, fonts and client navigation work', async ({
   expect(await page.evaluate(() => document.fonts.check('400 16px "Cormorant Garamond"'))).toBe(true);
   await page.screenshot({ path: testInfo.outputPath('desktop-home.png'), fullPage: true });
   await page.locator('header').getByRole('link', { name: 'Services', exact: true }).first().click();
-  await expect(page).toHaveURL(/\/services$/);
+  await expect(page).toHaveURL(/\/services\/$/);
   await expect(page.getByRole('heading', { level: 1 })).toContainText('What we treat');
   await page.getByRole('link', { name: 'BOTOX & Muscle Relaxing Injections', exact: true }).first().click();
-  await expect(page).toHaveURL(/\/services\/medical-cosmetic\/botox$/);
+  await expect(page).toHaveURL(/\/services\/medical-cosmetic\/botox\/?$/);
   await expect(page.getByRole('heading', { level: 1 })).toContainText('BOTOX');
   expect(errors).toEqual([]);
 });
@@ -57,34 +57,15 @@ test('mobile menu opens, closes and navigates without horizontal overflow', asyn
   await expect(menu).toHaveAttribute('aria-expanded', 'false');
   await menu.click();
   await page.getByLabel('Mobile navigation').getByRole('link', { name: 'Products', exact: true }).click();
-  await expect(page).toHaveURL(/\/products$/);
+  await expect(page).toHaveURL(/\/products\/$/);
   await expect(page.getByRole('heading', { level: 1 })).toHaveText('Products');
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(true);
   await page.screenshot({ path: testInfo.outputPath('mobile-products.png'), fullPage: true });
 });
 
-test('product orders retain WhatsApp links', async ({ page }) => {
-  await page.goto('/products/cinteric-gel');
-  const order = page.getByRole('link', { name: /Order via WhatsApp/ }).first();
-  await expect(order).toHaveAttribute('href', /https:\/\/wa.me\/94777060404\?text=/);
-  expect(decodeURIComponent(await order.getAttribute('href'))).toContain('Cinteric');
-});
-
-test('contact form hydrates and displays confirmation with a simulated provider response', async ({ page }) => {
-  let submitted;
-  await page.route('https://api.web3forms.com/submit', async route => {
-    submitted = route.request().postData();
-    await route.fulfill({ status: 200, contentType: 'application/json', body: JSON.stringify({ success: true }) });
-  });
-  await page.goto('/contact');
-  await page.getByLabel('Full Name').fill('Local Test');
-  await page.getByLabel('Phone Number').fill('+94 77 000 0000');
-  await page.getByLabel('Email Address').fill('test@example.invalid');
-  await page.getByLabel('Message', { exact: true }).fill('Local automated check; never delivered.');
-  await page.getByRole('button', { name: 'Send Message', exact: true }).click();
-  await expect(page.getByText('Thank you, message received.')).toBeVisible();
-  expect(submitted).toContain('Local Test');
-  expect(submitted).toContain('test@example.invalid');
+test('legacy product contact actions stay disabled in the unified local preview', async ({page}) => {
+ await page.goto('/products/cinteric-gel');
+ await expect(page.locator('main [data-preview-action]').first()).toHaveAttribute('href','#preview-notice');
 });
 
 test('identity portfolio preserves the site tokens and exposes every page reference', async ({ page }, testInfo) => {
@@ -92,7 +73,7 @@ test('identity portfolio preserves the site tokens and exposes every page refere
   await page.goto('/');
   const tokens = await page.evaluate(() => {
     const style = getComputedStyle(document.documentElement);
-    return Object.fromEntries(['--color-background', '--color-text', '--color-accent', '--color-surface'].map(name => [name, style.getPropertyValue(name).trim()]));
+    return Object.fromEntries(['--color-background', '--color-text', '--color-accent', '--color-surface'].map(name => [name, style.getPropertyValue(name).trim().toLowerCase()]));
   });
   await page.goto('/portfolio');
   await expect(page.getByRole('heading', { level: 1 })).toContainText('Keep the Janus');
@@ -100,7 +81,7 @@ test('identity portfolio preserves the site tokens and exposes every page refere
   await expect(page.locator('#mobile-gallery img')).toHaveCount(6);
   expect(await page.evaluate(names => {
     const style = getComputedStyle(document.documentElement);
-    return Object.fromEntries(names.map(name => [name, style.getPropertyValue(name).trim()]));
+    return Object.fromEntries(names.map(name => [name, style.getPropertyValue(name).trim().toLowerCase()]));
   }, Object.keys(tokens))).toEqual(tokens);
   await page.evaluate(() => document.fonts.ready);
   await expect(page.locator('h1')).toHaveCSS('font-family', /Cormorant Garamond/);

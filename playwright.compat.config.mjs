@@ -1,0 +1,2 @@
+import {defineConfig} from '@playwright/test';
+export default defineConfig({testDir:'./tests',testMatch:'compat.spec.mjs',outputDir:'test-results/compat',workers:1,timeout:45000,use:{baseURL:'http://127.0.0.1:4174',screenshot:'only-on-failure'},projects:[{name:'Firefox',use:{browserName:'firefox'}},{name:'WebKit',use:{browserName:'webkit'}}],webServer:{command:'python3 -m http.server 4174 --bind 127.0.0.1 --directory dist',url:'http://127.0.0.1:4174/JanusClinic/',reuseExistingServer:false}});

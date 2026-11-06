@@ -1,92 +1,63 @@
-# Janus Estheti Clinique website
+# JanusClinic customer-journey preview
 
-A faithful local capture of **https://www.janusestheticlinique.com/**, extracted on 26 October 2026. It contains all **43 public sitemap pages** and **63 local assets** (images, font subsets, stylesheet, browser bundles, sitemap and robots file).
+Editable React + TypeScript + Vite with actual Glisse0.5.0 components. Public preview: https://seriousseran.github.io/JanusClinic/.
 
-## Design portfolio and contributor guidance
+## What is implemented
 
-Open the local **`/portfolio`** route for exact color and typography specimens, component patterns, all 43 original desktop page covers, and six mobile references. Read [AGENTS.md](AGENTS.md) and [the identity guide](docs/design-identity.md) before changing the design. Reference files live in `reference/portfolio/`, outside the generated capture, so extraction does not erase them.
-
-To deliberately refresh approved cover screenshots while the site is running, use `npm run capture:portfolio`. The refresh stages the full set and rejects broken visible cover imagery before replacing the previous references. Review visual changes before accepting new baselines.
-
-## Beginner learning guide and Lovable roadmap
-
-[Download the learning guide](reference/portfolio/learning-guide.pdf) for the engineering, design, privacy, testing, and deployment roadmap. It explains the current capture, a beginner-friendly Lovable pilot, shared components and content, and a patient-facing launch checklist. The editable source is [docs/learning-guide.html](docs/learning-guide.html); regenerate the PDF with `npm run docs:pdf` while the local server is running. Lovable documentation was checked on 26 October 2026; feature rollout and limits may change.
-
-## Current website and salon catalog
-
-The homepage now opens Cosmetic, Salon and Wellness, with three AI-generated adult Sri Lankan portraits on soft rose backgrounds. Cosmetic links to the existing treatment guides; Salon displays the supplied catalog; Wellness remains a holding page while the programme is defined. See the [current website brief](docs/website-direction.md). The supplied salon menu has been transcribed into [structured draft data](content/salon/catalog.draft.json), with [a readable review copy](docs/salon-catalog-review.md). The owner confirmed current LKR prices, retained only the LKR 6,800 root-touching option, and placed massage/body care under Salon for now. There are 123 active services; flagged names and contact details still need review.
-
-## Editing the new pages
-
-- `site/content.json`: homepage wording, area descriptions and cosmetic treatment links.
-- `site/templates/`: shared layout and the four page templates.
-- `site/assets/site.css` and `navigation.js`: responsive appearance and navigation.
-- `site/assets/*.webp` and `site/imagery.json`: optimized portraits, source provenance and explicit decorative-image replacements.
-- `content/salon/catalog.draft.json`: salon service names, categories, LKR prices and wording notes.
-
-Run `npm run site:build` for the local app, or `npm run preview:build` for GitHub Pages. Never edit generated output. The [editing guide](docs/editing-the-website.md) explains common changes. The original capture and historical portfolio references remain intact.
-
-## Online design preview
-
-A read-only GitHub Pages preview is built by `.github/workflows/preview.yml` on pushes to `main`. It includes the new gateway and area pages, existing captured pages, portfolio and learning PDF, with forms and booking actions disabled. See [preview instructions](docs/github-preview.md) for what is included, how to verify it, and the distinction from the regular local app.
-
-Run `npm run preview:build` and `npm run test:preview` to check the static export locally.
+- Sage/teal identity throughout, original Janus logo and local fonts, three illustrative Sri Lankan portraits.
+- Shared customer panel above Wellness, Salon and Cosmetic Care; unrestricted browsing.
+- Wellness Collection:13 individual treatments,5 signature packages,3 monthly memberships, contour programmes, standalone free assessment, facilities/FAQ and booking entry points.
+- Salon:123 services, current LKR prices, supplied durations and six wording-review notes.
+- Cosmetic Care links to the original treatment guides; treatment pricing remains on consultation.
+- Memory-only demo registration/sample verification, preselected offerings, Sri Lanka date/time preferences, editable review and explicit DEMO result. No real accounts, storage, messages, appointments, membership activation or payments.
+- Seven authored entry routes plus preserved captured pages, portfolio49 historical covers and an updated learning PDF.
+- A portable catalog photograph linked from Salon, independent of expired chat-attachment paths.
 
 ## Run
 
-Requires Node.js 22 or newer and Python 3. There are no npm runtime dependencies. Startup renders the four maintained pages automatically:
-
-```sh
-npm start
-```
-
-The server binds to loopback on port 3000 by default. Set `HOST` and `PORT` if another interface or port is needed. `npm run dev` watches the server file. After editing maintained page templates, content or assets, run `npm run site:build` and reload the browser.
-
-Every original clean URL works, including service, product and journal detail pages. The gateway and area pages are served from ignored `site/generated/`; unchanged captured pages are served from `public/`. Next.js image requests resolve to local original images; image resizing is not performed. Browser navigation falls back to local full-page HTML navigation because the original Next.js server is not part of this extraction.
-
-## Install development checks
+Use Node24 and Python3. Browser tests use system Chromium at `/usr/bin/chromium` (override with CHROMIUM_PATH).
 
 ```sh
 npm ci --ignore-scripts
-npm run check
-npm test
-npm run test:browser
+npm start
 ```
 
-`npm run check` verifies SHA256 hashes and checks internal page, image, font and script references. Intentional edits to captured files will cause integrity checking to fail: review those edits and update the matching manifest hashes before treating the capture as verified.
-
-Browser tests use system Chromium at `/usr/bin/chromium`. Set `CHROMIUM_PATH` to another installed Chromium executable if necessary. Browser tests automatically start the site when required and reuse an existing local server outside CI. Screenshots and traces are written under the ignored `test-results/` directory. All external requests are blocked during browser tests except a simulated Web3Forms response; no message is delivered to the clinic.
-
-## What is preserved
-
-- Home, About, Contact, Promotions, Privacy and Terms pages.
-- Services, three treatment categories and 16 treatment detail pages.
-- Products and seven product detail pages.
-- Journal and eight full article pages.
-- Original responsive HTML, CSS, local fonts, original images, and published Next.js client JavaScript, including mobile navigation and contact-form UI.
-- Original canonical metadata and sitemap URLs, which continue to identify the original public site.
-
-This is rendered public HTML plus compiled browser code, **not the original editable React/Next.js source**, backend, CMS, databases or provider accounts. Do not use `public/` as maintained page source: that HTML also includes embedded Next.js data. For substantial content or behavior changes, rebuild the affected pages as maintained application source to avoid hydration inconsistencies.
-
-## External integrations
-
-Bookings and product orders retain their original WhatsApp destinations. Telephone, email and social links retain their original destinations. The Contact page embeds Google Maps and submits directly to the original Web3Forms endpoint; those features require visitor Internet access and working provider configuration. Live delivery has not been tested. The published page includes the provider's public form identifier; it is not a backend credential added by this project.
-
-The original contact form disables native browser validation; this extraction preserves that behavior. A successful local UI check with a simulated response does not establish live delivery or server-side validation. The original placeholder Google Analytics ID is also retained. The published browser bundles additionally request `/_vercel/insights/script.js`; that Vercel analytics endpoint is part of the original hosting backend and returns 404 locally. Visitor-facing content and interactions do not depend on it, and no replacement analytics collector is implemented.
-
-## Refresh the capture
-
-Requires Python 3, curl, verified CA trust and HTTPS access to `janusestheticlinique.com` and `www.janusestheticlinique.com`:
+Open http://127.0.0.1:3000. Startup builds the complete root-path preview. After edits, run `npm run site:build` and refresh or restart. For GitHub-style static serving, run `npm run preview:build`, then `npm run preview:serve`, and open http://127.0.0.1:4173/JanusClinic/.
 
 ```sh
-npm run extract
+npm run typecheck
 npm run check
 npm test
 npm run test:browser
+npm run preview:build
+npm run test:preview
 ```
 
-**Refreshing replaces the generated `public/` directory and capture manifest. Commit or back up local content edits first.** Downloads are staged and checked for successful completion before replacing the previous capture. No certificate verification is disabled. The capture manifest records origin URLs, timestamps, file sizes, hashes and external resource references. A source-site redesign may require updating asset discovery and browser expectations.
+Optional engine checks: `npx playwright install --with-deps firefox webkit`, then `npm run test:compat`. Host dependency installation needs suitable OS permissions. Report unsupported host setup separately from application failures.
 
-## Cloud startup
+## Edit and continue
 
-Use the existing `/workspace/JanusClinic` checkout; each cloud task is already isolated, so no extra worktree is required. Installed files and dependencies can persist in an environment snapshot, but the Node process must be started again for each new task. Start with `npm start`, then check the homepage and a detail page with local HTTP requests. The saved cloud startup instructions contain the same checks.
+Read [AGENTS.md](AGENTS.md), [the editing guide](docs/editing-the-website.md), [the implementation specification](specs/001-glisse-customer-journey/spec.md), [preview architecture](docs/github-preview.md), and [HANDOFF.md](HANDOFF.md).
+
+- React source: `frontend/`; styling and Glisse overrides: `frontend/theme.css`.
+- Wellness source: `frontend/data/wellness.json`; Salon source: `content/salon/catalog.draft.json`.
+- Shared catalog/validation: `frontend/lib/`; prefix-safe navigation: `frontend/ui.tsx`.
+- Original rendered capture: `public/` and `capture-manifest.json`; do not patch its minified bundles or silently change hashes.
+- Design reference/PDF: `reference/portfolio/`; the historical covers are deliberately unchanged.
+- Installed skills and Spec Kit: [tool guide](docs/agent-skills.md), `.agents/skills/`, `.specify/`.
+
+Build artifacts `.build/`, `site/generated/` and `dist/` are ignored. Do not edit them. The Python authored-page templates were retired during React migration; no second maintained page renderer remains.
+
+## Deployment and future live application
+
+Main-branch pushes trigger the existing GitHub Pages workflow. It installs pinned dependencies, checks types and capture integrity, builds the static artifact and deploys it. Verify the actual published result before claiming a deployment.
+
+Lovable migration, real phone verification, protected customer storage, server validation, clinic notifications/confirmation, staff administration, payments and recurring billing remain future integrations. Keep demonstration and live state distinct.
+
+## Learning materials and attachment recovery
+
+[Learning guide PDF](reference/portfolio/learning-guide.pdf) · [Editable guide source](docs/learning-guide.html). Run `npm run docs:pdf` with a local preview running; PORTFOLIO_BASE_URL can select another local origin or repository-prefix path.
+
+The old `environment registry connect returned409 / environment_offline` attachment error belongs to the chat platform. Use `reference/catalogs/salon-catalog.jpg` or the website's Salon catalog link instead of expired `/tmp/codex-remote-attachments/` paths.
+
+`npm run handoff:zip` creates an ignored source-only handoff ZIP. It includes approved decisions, skills and source, but excludes credentials, browser caches, installed dependencies, generated previews and customer data. Continue in the same GitHub repository; do not create another repository from the ZIP.

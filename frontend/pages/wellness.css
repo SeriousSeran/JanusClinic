@@ -1,0 +1,80 @@
+.wellness-page { --wellness-line: #b8b5a2; }
+.wellness-page section[id], .wellness-service-group { scroll-margin-top: 7rem; }
+.wellness-hero { display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: clamp(2rem,5vw,5rem); }
+.wellness-hero h1 { font-size: clamp(3rem,6vw,5.8rem); line-height: .99; margin: 1.25rem 0 1.5rem; }
+.wellness-hero p { max-width: 37rem; }
+.wellness-hero figure { margin: 0; }
+.wellness-hero img { display:block; width:100%; height: 35rem; object-fit:cover; }
+.wellness-page figcaption { font-size: .75rem; padding-top:.65rem; opacity:.8; }
+.wellness-intro { max-width: 850px; text-align:center; }
+.wellness-intro h2 { margin: 1rem 0; }
+.wellness-section-heading { display:flex; align-items:end; justify-content:space-between; gap:3rem; margin-bottom:2rem; }
+.wellness-section-heading h2 { margin:.7rem 0 0; }
+.wellness-section-heading > p { max-width:31rem; margin:0; }
+.wellness-category-grid { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); border-top:1px solid var(--wellness-line); }
+.wellness-category { padding:2rem 1.5rem; border-bottom:1px solid var(--wellness-line); text-decoration:none; color:inherit; }
+.wellness-category + .wellness-category { border-left:1px solid var(--wellness-line); }
+.wellness-category h3 { display:flex; justify-content:space-between; margin:.5rem 0; font-size:2.2rem; }
+.wellness-category h3 span { font-size:1.2rem; }
+.wellness-category p { font-size:.9rem; }
+.wellness-category:hover { background:#b8b5a22b; }
+.wellness-service-columns { display:grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap:2rem; }
+.wellness-service-group h3 { font-size:2rem; margin:0 0 1rem; }
+.wellness-service { border-top:1px solid var(--wellness-line); }
+.wellness-service:last-child { border-bottom:1px solid var(--wellness-line); }
+.wellness-service summary { display:flex; gap:1rem; justify-content:space-between; cursor:pointer; padding:1.1rem 0; font-size:.9rem; }
+.wellness-service summary::before { content:'+'; flex:none; }
+.wellness-service[open] summary::before { content:'−'; }
+.wellness-service summary span:first-of-type { flex:1; }
+.wellness-service summary span:last-child { text-align:right; max-width:9.5rem; }
+.wellness-service-body { padding:0 0 1.2rem; font-size:.9rem; }
+.wellness-service-body .secondary { display:inline-flex; }
+.wellness-card { display:flex; flex-direction:column; align-items:flex-start; }
+.wellness-card h3 { font-size:2rem; margin:.5rem 0; }
+.wellness-card > p { margin:.5rem 0; }
+.wellness-card .secondary { margin-top:auto; }
+.wellness-card .price { margin-top:1.2rem; font-size:1.5rem; }
+.wellness-inclusions { padding-left:1.2rem; font-size:.9rem; margin:1rem 0; }
+.wellness-value { font-size:.8rem; }
+.wellness-note { font-size:.8rem; }
+.wellness-card .wellness-note { margin-bottom:1.2rem; }
+.wellness-period { font-family:var(--font-sans, sans-serif); font-size:.8rem; }
+.wellness-table-scroll { overflow-x:auto; margin-top:3rem; }
+.wellness-comparison { border-collapse:collapse; width:100%; min-width:600px; font-size:.9rem; text-align:left; }
+.wellness-comparison caption { text-align:left; font-size:1.7rem; font-family:var(--font-serif,serif); padding-bottom:1rem; }
+.wellness-comparison th, .wellness-comparison td { padding:1rem; border-bottom:1px solid var(--wellness-line); }
+.wellness-comparison thead { background:#b8b5a233; }
+.wellness-comparison th { font-weight:500; }
+.wellness-comparison th span { font-size:.75rem; }
+.wellness-policy { max-width:65rem; margin-top:1.5rem; font-size:.85rem; }
+.wellness-assessment-section { background:#213b45; color:#f5f0e8; }
+.wellness-assessment-section .muted { color:#e3dfd5; }
+.wellness-assessment-section .primary { background:#f5f0e8; color:#213b45; }
+.wellness-assessment-layout { display:grid; grid-template-columns:2fr 1fr; gap:5rem; align-items:center; }
+.wellness-assessment-layout .price { font-size:2.5rem; }
+.wellness-facility { margin:0; }
+.wellness-facility img { width:100%; height:28rem; object-fit:cover; object-position:center; display:block; }
+.wellness-steps { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:3rem; list-style:none; padding:0; margin:0; }
+.wellness-steps li { border-top:1px solid var(--wellness-line); padding-top:1.5rem; }
+.wellness-steps h3 { font-size:1.8rem; margin:.7rem 0; }
+.wellness-faq details { border-top:1px solid var(--wellness-line); padding:1.25rem 0; }
+.wellness-faq details:last-child { border-bottom:1px solid var(--wellness-line); }
+.wellness-faq summary { cursor:pointer; font-weight:500; }
+.wellness-faq details p { max-width:65rem; }
+.wellness-final { text-align:center; max-width:55rem; }
+.wellness-final .button-row { justify-content:center; }
+@media(max-width:1000px) { .wellness-hero img { height:29rem; } .wellness-service-columns { grid-template-columns:1fr; } .wellness-category-grid { grid-template-columns:repeat(2,minmax(0,1fr)); } .wellness-category:nth-child(3) { border-left:0; } }
+@media(max-width:700px) { .wellness-hero { grid-template-columns:1fr; } .wellness-hero img { height:22rem; } .wellness-section-heading { display:block; } .wellness-section-heading > p { margin-top:1rem; } .wellness-category { padding:1.5rem 1rem; } .wellness-category h3 { font-size:1.8rem; } .wellness-assessment-layout, .wellness-steps { grid-template-columns:1fr; gap:2rem; } .wellness-facility img { height:20rem; } .wellness-comparison th, .wellness-comparison td { padding:.8rem; } }
+@media(forced-colors:active) { .wellness-category, .wellness-service, .wellness-faq details { border-color:CanvasText; } }
+.wellness-subnav { display:flex; flex-wrap:wrap; gap:.5rem 1.5rem; padding-top:1.25rem; padding-bottom:1.25rem; border-bottom:1px solid var(--wellness-line); font-size:.85rem; }
+.wellness-subnav a { color:inherit; text-decoration:none; padding:.4rem 0; }
+.wellness-subnav a:hover { text-decoration:underline; text-underline-offset:.35rem; }
+.wellness-hero .wellness-tagline { font-family:var(--font-serif,serif); font-size:clamp(1.4rem,2.3vw,2rem); }
+.wellness-card-details { width:100%; border-top:1px solid var(--wellness-line); border-bottom:1px solid var(--wellness-line); margin:.75rem 0 1.5rem; padding:.85rem 0; font-size:.85rem; }
+.wellness-card-details summary { cursor:pointer; font-weight:500; }
+.wellness-card-details h4 { margin-top:1.2rem; font-family:var(--font-sans,sans-serif); font-size:.85rem; }
+.wellness-service-facts { font-size:.8rem; }
+.wellness-service-facts > div { display:grid; grid-template-columns:6rem 1fr; gap:.5rem; margin:.4rem 0; }
+.wellness-service-facts dt { font-weight:500; }
+.wellness-service-facts dd { margin:0; }
+.wellness-sr-only { position:absolute; width:1px; height:1px; overflow:hidden; clip-path:inset(50%); white-space:nowrap; }

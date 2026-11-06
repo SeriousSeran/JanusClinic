@@ -4,7 +4,7 @@
 
 Before changing a page's appearance or adding a page, read [docs/design-identity.md](docs/design-identity.md) and inspect the local `/portfolio` reference page. It includes exact design tokens, reusable patterns, all 43 original desktop page covers, and representative mobile covers. Start from the closest existing template.
 
-Unless the user requests a design change, preserve the original logo and photography, Cormorant Garamond / DM Sans pairing, ivory and stone surfaces, charcoal text, muted gold details, generous spacing, and restrained square-edged components. Do not introduce an unrelated visual theme. Keep clinical claims, credentials, prices and testimonials factual.
+Unless the user requests a design change, preserve the original logo and photography, Cormorant Garamond / DM Sans pairing, the currently approved ivory/sage surfaces, deep teal text, champagne gold details, generous spacing, and restrained square-edged components. Do not introduce an unrelated visual theme. Keep clinical claims, credentials, prices and testimonials factual.
 
 ## Follow the current brief
 
@@ -28,9 +28,11 @@ Use `npm run capture:portfolio` only to deliberately refresh approved visual ref
 
 Read [docs/github-preview.md](docs/github-preview.md) before changing the export. The Pages artifact is a separate read-only build, not the regular Node application. Preserve the repository URL prefix, original capture integrity, disabled enquiry/booking actions, and preview label. Run `npm run preview:build` and `npm run test:preview` after relevant changes. Add new authored routes to the exporter deliberately; never assume a Node-only route is automatically published.
 
-## Maintained gateway and area pages
+## Maintained React customer journey
 
-The implemented `/`, `/cosmetic/`, `/salon/` and `/wellness/` pages use `site/templates/`, `site/content.json`, `site/assets/` and `scripts/render_site.py`. Edit these sources, never `site/generated/` or `dist/`. `npm start` renders automatically; after edits use `npm run site:build` for local viewing and `npm run preview:build` for Pages. The Salon page consumes the catalog directly; preserve six visible wording-review notes until confirmed. Preserve the AI illustration disclosure and source provenance. Keep original portfolio covers unchanged and retain the mobile shortcuts to all three areas. Read `docs/editing-the-website.md` for common tasks.
+The owner approved React/TypeScript/Vite with Glisse0.5.0 and the sage/teal palette across the website. Editable source lives in `frontend/`; the catalog remains in `content/salon/catalog.draft.json` and `frontend/data/wellness.json`. Read `docs/editing-the-website.md` and `specs/001-glisse-customer-journey/` before changes. The old Python page templates were retired; do not restore a second authored source of truth. Use shared prefix helpers for links and assets. `npm start` builds the complete local preview; Pages uses `npm run preview:build`. Generated `.build/`, `site/generated/` and `dist/` must not be edited.
+
+The account/booking flow is a clearly labelled, memory-only demo. Preserve no writes/storage/OTP/delivery, fictional profiles and DEMO references. Glisse's inline filters need the adaptive Glass wrapper for forced-colors/reduced-transparency; do not rely only on stylesheet overrides. The first consultation and standalone assessment are free; cosmetic treatment prices remain on consultation. Keep all offerings and prices consistent, including the two distinct foot massages and the hidden common cavitation price unit.
 
 ## Installed design and planning skills
 

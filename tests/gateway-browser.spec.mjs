@@ -13,7 +13,7 @@ test('three homepage choices lead to distinct areas and cosmetic treatment guide
   await page.goto(base + '/');
   await expect(page.getByRole('heading', { level: 1 })).toHaveText('Care, in every sense.');
   await expect(page.locator('[data-area]')).toHaveCount(3);
-  for (const area of ['cosmetic', 'salon', 'wellness']) {
+  for (const area of ['wellness', 'salon', 'cosmetic']) {
     const card = page.locator(`[data-area="${area}"]`);
     await expect(card).toHaveAttribute('href', `${base}/${area}/`);
     await expect.poll(() => card.locator('img').evaluate(img => img.complete && img.naturalWidth > 0)).toBe(true);
@@ -21,8 +21,8 @@ test('three homepage choices lead to distinct areas and cosmetic treatment guide
   await page.evaluate(() => document.fonts.ready);
   await page.screenshot({ path: info.outputPath('gateway-desktop.png'), fullPage: true });
   await page.locator('[data-area="cosmetic"]').click();
-  await expect(page.getByRole('heading', { level: 1 })).toHaveText('Cosmetic.');
-  await page.getByRole('link', { name: /BOTOX & Muscle Relaxing Injections/ }).click();
+  await expect(page.getByRole('heading', { level: 1 })).toHaveText('Cosmetic Care.');
+  await page.getByRole('link', { name: 'View treatment details →', exact: true }).first().click();
   await expect(page.getByRole('heading', { level: 1 })).toContainText('BOTOX');
   if (base) {
     await page.getByLabel('Janus areas').getByRole('link', { name: 'Salon', exact: true }).click();
@@ -54,21 +54,20 @@ test('salon exposes the confirmed catalog, body care, conditions and readable re
   await page.screenshot({ path: info.outputPath('salon-mobile.png') });
 });
 
-test('wellness stays undefined and deep links open salon body care', async ({ page }, info) => {
-  const base = prefix(info);
-  await page.goto(base + '/wellness/');
-  await expect(page.getByRole('main')).toContainText('being developed');
-  await expect(page.getByRole('main')).not.toContainText(/LKR|Tier 1|Tier 2|Tier 3/);
-  await page.getByRole('link', { name: 'Browse massage & body care' }).click();
-  await expect(page.locator('#catalog-body-care')).toHaveAttribute('open', '');
-  await expect(page.locator('#catalog-body-care')).toBeInViewport();
+test('wellness publishes the approved collection and standalone assessment', async ({page}, info) => {
+  const base=prefix(info);
+  await page.goto(base+'/wellness/');
+  await expect(page.getByRole('heading',{level:1})).toHaveText('The Wellness Collection');
+  await expect(page.getByRole('main')).toContainText('LKR 19,900');
+  await expect(page.getByRole('main')).toContainText('Essential');
+  await expect(page.getByRole('link',{name:'Free assessment · demo',exact:true}).first()).toHaveAttribute('href',base+'/book/?offering=wellness-assessment');
 });
 
 test('gateway navigation works by keyboard on small screens without overflow', async ({ page }, info) => {
   const base = prefix(info);
   await page.setViewportSize({ width: 390, height: 844 });
   await page.goto(base + '/');
-  for (const area of ['Cosmetic', 'Salon', 'Wellness']) await expect(page.getByLabel('Choose an area', { exact: true }).getByRole('link', { name: area })).toBeInViewport();
+  for (const area of ['Cosmetic Care', 'Salon', 'Wellness']) await expect(page.getByLabel('Choose an area', { exact: true }).getByRole('link', { name: area })).toBeInViewport();
   const open = page.getByRole('button', { name: 'Open navigation menu' });
   await open.focus(); await open.press('Enter');
   await expect(open).toHaveAttribute('aria-expanded', 'true');
@@ -77,7 +76,7 @@ test('gateway navigation works by keyboard on small screens without overflow', a
   await expect(open).toHaveAttribute('aria-expanded', 'false');
   await open.click();
   await page.getByLabel('Mobile navigation').getByRole('link', { name: 'Wellness', exact: true }).click();
-  await expect(page.getByRole('heading', { level: 1 })).toHaveText('Wellness.');
+  await expect(page.getByRole('heading', { level: 1 })).toHaveText('The Wellness Collection');
   for (const route of ['/', '/cosmetic/', '/salon/', '/wellness/']) {
     await page.goto(base + route);
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), route).toBe(true);

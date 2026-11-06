@@ -8,7 +8,7 @@ Janus has Wellness, Salon and Cosmetic Care. Visitors browse freely and register
 
 ## Identity and content
 
-Preserve the Janus logo, established font pairing, factual clinical content and original reference capture. The owner is discussing liquid glass; its final intensity and scope are not yet approved. Use genuine clinic/equipment photographs as evidence and label AI model illustrations accurately.
+Preserve the Janus logo, established font pairing, factual clinical content and original reference capture. The owner approved actual Glisse0.5.0, React migration and sage/teal across the website. Use genuine clinic/equipment photographs as evidence and label AI model illustrations accurately.
 
 ## Preview and privacy
 

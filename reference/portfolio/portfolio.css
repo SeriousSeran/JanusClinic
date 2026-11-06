@@ -94,3 +94,5 @@ body { margin: 0; }
  .handoff { gap: 40px; }
 }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .primary, .secondary { transition: none; } }
+
+#palette .swatches { --color-background:#FAF7F4; --color-surface:#F0EBE3; --color-surface-dark:#E8E0D5; --color-text:#1A1A1A; --color-muted:#6B6560; --color-accent:#C9A97A; }

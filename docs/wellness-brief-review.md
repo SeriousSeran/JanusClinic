@@ -1,6 +1,6 @@
 # Review of the supplied Janus Wellness Collection brief
 
-Status: requirements review only. No account system, registration, appointment delivery, membership activation or payment processing has been implemented by this review. Existing preview remains unchanged.
+Status: the resulting customer-facing React preview is implemented. Registration and verification are explicitly local demonstrations, not real account creation. Real appointment delivery, membership activation and payments remain unimplemented.
 
 ## Understood direction
 
@@ -59,3 +59,5 @@ The existing page capture, its manifest and historical portfolio references rema
 ## Liquid glass design discussion
 
 The owner requested discussion of adding liquid glass after confirming the service/pricing/account decisions above. No liquid-glass product changes are approved or implemented yet. Evaluate translucent blurred surfaces, edge highlights and restrained shadows on navigation, shared account/welcome panel and persistent booking controls. Maintain readable solid surfaces for prices, clinical copy and input fields. Preserve Janus logo/type/photography and provide an opaque fallback where blur/transparency is unavailable or reduced transparency is requested. Decide the visual intensity through a mockup comparison before changing the design identity rules.
+
+Implementation update: the owner selected React migration and sage/teal across the whole website. Glisse0.5.0 is implemented in shared navigation/panels with preference fallbacks. The original capture and historical covers remain unchanged. See specs/001-glisse-customer-journey/ and HANDOFF.md.

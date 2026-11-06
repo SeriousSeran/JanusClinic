@@ -8,7 +8,7 @@ import re
 import shutil
 import tempfile
 from urllib.parse import parse_qs, urlsplit
-from render_site import render_pages
+
 
 ROOT = Path(__file__).resolve().parent.parent
 HOSTS = {'janusestheticlinique.com', 'www.janusestheticlinique.com'}
@@ -86,7 +86,7 @@ class PreviewHTML(HTMLParser):
             self.illustrative_portrait = True
             attrs = [(key, 'AI-generated illustrative Sri Lankan model; not a patient or treatment result' if key == 'alt' else value) for key, value in attrs]
         if tag == 'script':
-            if data.get('src') not in {'/portfolio/portfolio.mjs', '/site/assets/navigation.js'}:
+            if data.get('src') not in {'/portfolio/portfolio.mjs'}:
                 self.skip_script = True
                 return
         if self.skip_script or self.skip_iframe:
@@ -142,7 +142,7 @@ class PreviewHTML(HTMLParser):
         if self.skip_script or self.skip_iframe:
             return
         if tag == 'head':
-            self.output.append('<meta name="robots" content="noindex, nofollow"><meta http-equiv="Content-Security-Policy" content="' + html.escape(CSP, quote=False) + '"><link rel="stylesheet" href="' + self.base + '/preview/site.css">')
+            self.output.append('<meta name="robots" content="noindex, nofollow"><meta http-equiv="Content-Security-Policy" content="' + html.escape(CSP, quote=False) + '"><link rel="stylesheet" href="' + self.base + '/preview/site.css"><link rel="stylesheet" href="' + self.base + '/site/assets/legacy-theme.css">')
         if tag == 'body':
             if self.illustrative_portrait:
                 self.output.append('<p class="preview-illustration-note">Model portraits on this page include AI-generated illustrations, not patient photographs or treatment results.</p>')
@@ -190,7 +190,7 @@ class Audit(HTMLParser):
                     raise ValueError('Missing static target: ' + path)
 
 
-def build(destination, base):
+def build(destination, base, react_root):
     manifest = json.loads((ROOT / 'capture-manifest.json').read_text())
     destination = destination.resolve()
     if destination.exists() and not (destination / 'preview-manifest.json').is_file():
@@ -217,13 +217,16 @@ def build(destination, base):
             target = output / Path(page['file']).relative_to('public')
             target.parent.mkdir(parents=True, exist_ok=True)
             target.write_text(''.join(parser.output))
-        for route, source in render_pages().items():
-            parser = PreviewHTML(base, area_navigation=False)
-            parser.feed(source)
+        shutil.copytree(ROOT / 'site/assets', output / 'site/assets')
+        shutil.copy2(ROOT / 'reference/catalogs/salon-catalog.jpg', output / 'site/assets/salon-catalog.jpg')
+        shutil.copytree(react_root / 'site/app', output / 'site/app')
+        shell = (react_root / 'index.html').read_text()
+        shell = shell.replace('</head>', '<meta http-equiv="Content-Security-Policy" content="' + html.escape(CSP, quote=False) + '"></head>')
+        routes = ['/', '/cosmetic/', '/salon/', '/wellness/', '/book/', '/wellness/book/', '/wellness/body-contouring/']
+        for route in routes:
             target = output / route.lstrip('/') / 'index.html'
             target.parent.mkdir(parents=True, exist_ok=True)
-            target.write_text(''.join(parser.output))
-        shutil.copytree(ROOT / 'site/assets', output / 'site/assets')
+            target.write_text(shell)
         shutil.copytree(ROOT / 'reference/portfolio', output / 'portfolio', ignore=shutil.ignore_patterns('.*'))
         source = (output / 'portfolio/index.html').read_text()
         parser = PreviewHTML(base, area_navigation=False)
@@ -234,7 +237,7 @@ def build(destination, base):
         (output / 'robots.txt').write_text('User-agent: *\nDisallow: /\n')
         (output / '.nojekyll').write_text('')
         (output / '404.html').write_text('<!doctype html><html lang="en"><meta charset="utf-8"><meta name="robots" content="noindex"><title>Preview page not found</title><h1>Preview page not found</h1><a href="' + base + '/">Return to the preview</a></html>')
-        (output / 'preview-manifest.json').write_text(json.dumps({'base_path': base, 'captured_pages': len(manifest['pages']), 'authored_pages': 4, 'mode': 'read-only-design-preview'}, indent=2))
+        (output / 'preview-manifest.json').write_text(json.dumps({'base_path': base, 'captured_pages': len(manifest['pages']), 'authored_pages': len(routes), 'mode': 'read-only-design-preview'}, indent=2))
         audit = Audit(output, base)
         for page in output.rglob('*.html'):
             audit.feed(page.read_text())
@@ -247,15 +250,16 @@ def build(destination, base):
             if previous.exists():
                 previous.rename(destination)
             raise
-    print(f"Built {len(manifest['pages'])} captured pages, 4 authored pages + portfolio; {sum(map(len, faq_data.values()))} FAQ answers; all static references verified.")
+    print(f"Built {len(manifest['pages'])} captured pages, {len(routes)} React routes + portfolio; {sum(map(len, faq_data.values()))} FAQ answers; all static references verified.")
 
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--base-path', default='/JanusClinic')
     parser.add_argument('--output', type=Path, default=ROOT / 'dist/JanusClinic')
+    parser.add_argument('--react-root', type=Path, default=ROOT / '.build/pages')
     args = parser.parse_args()
     base = args.base_path.rstrip('/')
-    if not re.fullmatch(r'/[A-Za-z0-9_-]+', base):
+    if base and not re.fullmatch(r'/[A-Za-z0-9_-]+', base):
         parser.error('Use a single repository-name base path, such as /JanusClinic')
-    build(args.output, base)
+    build(args.output, base, args.react_root)

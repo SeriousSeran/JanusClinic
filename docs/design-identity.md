@@ -97,3 +97,7 @@ The maintained homepage and three area pages live in `site/templates/`, using `s
 ## Liquid glass preview
 
 The owner requested the liquid-glass-inspired treatment. `site/assets/glass.css` styles the authored floating header, gateway portrait captions and mobile shortcuts. Keep its ivory tint, restrained depth and rounded glass surfaces while retaining the existing logo/fonts and solid price/clinical content. Reduced-transparency, unsupported-blur and forced-colors paths use opaque surfaces. No animated blur or new dependency. This styling approval does not implement or activate registration and booking.
+
+## Current React / Glisse identity
+
+The owner approved sage and teal across the entire website: ivory #F5F0E8, sage #B8B5A2, teal #213B45, champagne #B59A70 and stone #D8CFC2. Preserve the original magenta logo and Cormorant Garamond / DM Sans. `frontend/theme.css` and actual Glisse0.5.0 components implement the current system; `site/assets/legacy-theme.css` themes sanitized captured pages. Earlier palette tables and historical screenshots describe the archived original. Do not refresh those covers to conceal redesign differences. Keep long copy, prices and inputs readable on solid surfaces.

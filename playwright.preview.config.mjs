@@ -1,6 +1,6 @@
 import { defineConfig } from '@playwright/test';
 export default defineConfig({
-  testDir: './tests', testMatch: ['preview-browser.spec.mjs', 'gateway-browser.spec.mjs'], workers: 1,
+  testDir: './tests', testMatch: ['preview-browser.spec.mjs', 'gateway-browser.spec.mjs', 'journey.spec.mjs'], workers: 1,
   outputDir: 'test-results/preview',
   metadata: { repositoryPrefix: '/JanusClinic' },
   use: {

@@ -17,3 +17,7 @@ Next design step remains the offered comparison of subtle and more pronounced gl
 ## Preview implementation
 
 The owner requested adding the treatment and a preview link. The shared authored header now uses restrained frosted ivory glass; gateway portrait captions overlap the lower photo edge with a readable ivory tint, while mobile area shortcuts use matching surfaces. Prices, catalog rows, forms and longer clinical copy retain solid backgrounds. The implementation uses CSS only, includes reduced-transparency/forced-colors fallbacks, and adds no dependency. Account registration and expanded wellness booking functionality remain separate pending implementation.
+
+## Current approved implementation
+
+The owner subsequently approved the React migration, Glisse 0.5.0 and an ivory/sage/deep-teal palette across the site. This supersedes the earlier CSS-only preview above. The shared header and selected account/portrait surfaces use Glisse, with readable solid treatment, pricing and form content. Forced-colors and reduced-transparency preferences render a plain element with explicit inline backdrop-filter overrides. See `specs/001-glisse-customer-journey/` and `docs/verification.md` for the implementation and actual browser checks. Customer registration and booking are memory-only demonstrations; real verification and clinic delivery remain future backend work.

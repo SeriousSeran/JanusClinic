@@ -1,0 +1,3 @@
+/* Current Janus palette for the preserved captured pages and reference guide. */
+:root{--color-background:#F5F0E8;--color-surface:#e8e5da;--color-surface-dark:#D8CFC2;--color-text:#213B45;--color-muted:#526168;--color-accent:#B59A70}
+body{background:#F5F0E8;color:#213B45}header.fixed{background:rgba(245,240,232,.97)!important;border-bottom-color:#D8CFC2!important}.preview-areas{background:#e8e5da;color:#213B45}.preview-bar{background:#F5F0E8;color:#213B45}.preview-bar [role=status]{color:#526168}

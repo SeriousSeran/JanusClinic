@@ -1,0 +1,352 @@
+[
+  {
+    "id": "wellness-pain-relief",
+    "name": "Pain Relief Massage",
+    "area": "wellness",
+    "kind": "treatment",
+    "category": "Restore",
+    "price": 6500,
+    "description": "A massage option focused on your comfort. Discuss your needs and suitability with the clinic."
+  },
+  {
+    "id": "wellness-lymphatic",
+    "name": "Lymphatic Drainage with Heat Massage",
+    "area": "wellness",
+    "kind": "treatment",
+    "category": "Restore",
+    "price": 8000,
+    "description": "Discuss your goals and suitability for lymphatic massage at assessment."
+  },
+  {
+    "id": "wellness-relax",
+    "name": "Relax Massage",
+    "area": "wellness",
+    "kind": "treatment",
+    "category": "Relax",
+    "price": 12000,
+    "description": "Make space for a quieter moment with a relaxation massage."
+  },
+  {
+    "id": "wellness-detox",
+    "name": "Detox Massage",
+    "area": "wellness",
+    "kind": "treatment",
+    "category": "Relax",
+    "price": 15500,
+    "description": "A named massage offering. Ask the clinic about the technique and what the session includes.",
+    "reviewNote": "Technique and session inclusions pending clinic confirmation."
+  },
+  {
+    "id": "wellness-elixir",
+    "name": "Elixir Massage",
+    "area": "wellness",
+    "kind": "treatment",
+    "category": "Relax",
+    "price": 18500,
+    "description": "The collection’s Elixir massage offering. Session technique and inclusions await clinic confirmation.",
+    "reviewNote": "Technique and session inclusions pending clinic confirmation."
+  },
+  {
+    "id": "wellness-foot",
+    "name": "Foot Massage",
+    "area": "wellness",
+    "kind": "treatment",
+    "category": "Restore",
+    "price": 4000,
+    "description": "A dedicated Wellness foot massage, performed by a different provider from the Salon foot massage.",
+    "providerLabel": "Wellness therapist"
+  },
+  {
+    "id": "wellness-abdomen",
+    "name": "Abdomen Cavitation",
+    "area": "wellness",
+    "kind": "treatment",
+    "category": "Contour",
+    "price": 5000,
+    "description": "One cavitation area session, subject to suitability assessment."
+  },
+  {
+    "id": "wellness-thigh",
+    "name": "Thigh Cavitation",
+    "area": "wellness",
+    "kind": "treatment",
+    "category": "Contour",
+    "price": 5000,
+    "description": "One cavitation area session, subject to suitability assessment."
+  },
+  {
+    "id": "wellness-arm",
+    "name": "Arm Cavitation",
+    "area": "wellness",
+    "kind": "treatment",
+    "category": "Contour",
+    "price": 5000,
+    "description": "One cavitation area session, subject to suitability assessment."
+  },
+  {
+    "id": "wellness-hip",
+    "name": "Hip Cavitation",
+    "area": "wellness",
+    "kind": "treatment",
+    "category": "Contour",
+    "price": 5000,
+    "description": "One cavitation area session, subject to suitability assessment."
+  },
+  {
+    "id": "wellness-fat-freezing",
+    "name": "Fat Freezing — Cryolipolysis",
+    "area": "wellness",
+    "kind": "treatment",
+    "category": "Contour",
+    "price": 12000,
+    "description": "Assessment required. The selected area and treatment plan determine the price within the listed range.",
+    "maxPrice": 15000
+  },
+  {
+    "id": "wellness-sauna",
+    "name": "Sauna",
+    "area": "wellness",
+    "kind": "treatment",
+    "category": "Relax",
+    "price": 2000,
+    "description": "A standalone sauna session. Suitability and session details are confirmed by the clinic."
+  },
+  {
+    "id": "wellness-vibration",
+    "name": "Vibration Session",
+    "area": "wellness",
+    "kind": "treatment",
+    "category": "Relax",
+    "price": 1500,
+    "description": "A standalone vibration session. Discuss suitability with the clinic before choosing."
+  },
+  {
+    "id": "quick-reset",
+    "name": "Quick Reset",
+    "area": "wellness",
+    "kind": "package",
+    "category": "Restore",
+    "price": 5000,
+    "description": "Foot massage and a vibration session for a simple introduction to the collection.",
+    "inclusions": [
+      {
+        "id": "wellness-foot",
+        "quantity": 1
+      },
+      {
+        "id": "wellness-vibration",
+        "quantity": 1
+      }
+    ]
+  },
+  {
+    "id": "restore-ritual",
+    "name": "Restore Ritual",
+    "area": "wellness",
+    "kind": "package",
+    "category": "Restore",
+    "price": 8900,
+    "description": "Pain Relief Massage, sauna and a vibration session brought together.",
+    "inclusions": [
+      {
+        "id": "wellness-pain-relief",
+        "quantity": 1
+      },
+      {
+        "id": "wellness-sauna",
+        "quantity": 1
+      },
+      {
+        "id": "wellness-vibration",
+        "quantity": 1
+      }
+    ]
+  },
+  {
+    "id": "serenity",
+    "name": "Serenity Experience",
+    "area": "wellness",
+    "kind": "package",
+    "category": "Relax",
+    "price": 12900,
+    "description": "Relax Massage paired with a sauna session.",
+    "inclusions": [
+      {
+        "id": "wellness-relax",
+        "quantity": 1
+      },
+      {
+        "id": "wellness-sauna",
+        "quantity": 1
+      }
+    ]
+  },
+  {
+    "id": "contour-starter",
+    "name": "Contour Discovery / Contour Starter",
+    "area": "wellness",
+    "kind": "package",
+    "category": "Contour",
+    "price": 8500,
+    "description": "Two cavitation area sessions; areas selected after assessment. Discovery and Starter are two names for this same package.",
+    "inclusions": [
+      {
+        "id": "wellness-cavitation-area",
+        "quantity": 2
+      }
+    ],
+    "reviewNote": "Areas selected after assessment. No specific area is required by this programme."
+  },
+  {
+    "id": "elixir-signature",
+    "name": "Elixir Signature",
+    "area": "wellness",
+    "kind": "package",
+    "category": "Relax",
+    "price": 19900,
+    "description": "Elixir Massage, sauna and a vibration session.",
+    "inclusions": [
+      {
+        "id": "wellness-elixir",
+        "quantity": 1
+      },
+      {
+        "id": "wellness-sauna",
+        "quantity": 1
+      },
+      {
+        "id": "wellness-vibration",
+        "quantity": 1
+      }
+    ],
+    "reviewNote": "Elixir technique and session inclusions pending clinic confirmation."
+  },
+  {
+    "id": "membership-essential",
+    "name": "Essential",
+    "area": "wellness",
+    "kind": "membership",
+    "category": "Restore",
+    "price": 9000,
+    "description": "Monthly Pain Relief Massage, sauna and vibration session. Includes priority booking; appointments remain subject to clinic confirmation.",
+    "inclusions": [
+      {
+        "id": "wellness-pain-relief",
+        "quantity": 1
+      },
+      {
+        "id": "wellness-sauna",
+        "quantity": 1
+      },
+      {
+        "id": "wellness-vibration",
+        "quantity": 1
+      }
+    ],
+    "tier": "Silver"
+  },
+  {
+    "id": "membership-balance",
+    "name": "Balance",
+    "area": "wellness",
+    "kind": "membership",
+    "category": "Relax",
+    "price": 19500,
+    "description": "Monthly Relax Massage, Lymphatic Drainage with Heat Massage and sauna. Includes priority booking; appointments remain subject to clinic confirmation.",
+    "inclusions": [
+      {
+        "id": "wellness-relax",
+        "quantity": 1
+      },
+      {
+        "id": "wellness-lymphatic",
+        "quantity": 1
+      },
+      {
+        "id": "wellness-sauna",
+        "quantity": 1
+      }
+    ],
+    "tier": "Gold"
+  },
+  {
+    "id": "membership-signature",
+    "name": "Signature",
+    "area": "wellness",
+    "kind": "membership",
+    "category": "Renew",
+    "price": 29000,
+    "description": "Monthly Elixir Massage, Lymphatic Drainage with Heat Massage, Foot Massage and sauna. Includes priority booking; appointments remain subject to clinic confirmation.",
+    "inclusions": [
+      {
+        "id": "wellness-elixir",
+        "quantity": 1
+      },
+      {
+        "id": "wellness-lymphatic",
+        "quantity": 1
+      },
+      {
+        "id": "wellness-foot",
+        "quantity": 1
+      },
+      {
+        "id": "wellness-sauna",
+        "quantity": 1
+      }
+    ],
+    "tier": "Platinum",
+    "reviewNote": "Elixir technique pending. Membership expiry, carry-forward, cancellation and refund policies pending confirmation."
+  },
+  {
+    "id": "contour-4",
+    "name": "Contour 4",
+    "area": "wellness",
+    "kind": "programme",
+    "category": "Contour",
+    "price": 17000,
+    "description": "4 cavitation area sessions; areas selected after assessment. Suitability and session plan are confirmed by the clinic.",
+    "inclusions": [
+      {
+        "id": "wellness-cavitation-area",
+        "quantity": 4
+      }
+    ],
+    "reviewNote": "Areas selected after assessment. No specific area is required by this programme."
+  },
+  {
+    "id": "contour-6",
+    "name": "Contour 6",
+    "area": "wellness",
+    "kind": "programme",
+    "category": "Contour",
+    "price": 25500,
+    "description": "6 cavitation area sessions; areas selected after assessment. Suitability and session plan are confirmed by the clinic.",
+    "inclusions": [
+      {
+        "id": "wellness-cavitation-area",
+        "quantity": 6
+      }
+    ],
+    "reviewNote": "Areas selected after assessment. No specific area is required by this programme."
+  },
+  {
+    "id": "wellness-assessment",
+    "name": "Complimentary Wellness Assessment",
+    "area": "wellness",
+    "kind": "assessment",
+    "category": "Renew",
+    "price": 0,
+    "description": "A standalone free initial assessment. No paid service or package purchase is required. Duration and availability are confirmed by the clinic."
+  },
+  {
+    "id": "wellness-cavitation-area",
+    "name": "Cavitation area session",
+    "area": "wellness",
+    "kind": "treatment",
+    "category": "Contour",
+    "price": 5000,
+    "description": "Pricing unit for one cavitation area session. Areas selected after assessment.",
+    "bookable": false
+  }
+]
