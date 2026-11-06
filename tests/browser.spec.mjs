@@ -38,10 +38,11 @@ test('desktop content, local images, fonts and client navigation work', async ({
   expect(await page.evaluate(() => document.fonts.check('400 16px "DM Sans"'))).toBe(true);
   expect(await page.evaluate(() => document.fonts.check('400 16px "Cormorant Garamond"'))).toBe(true);
   await page.screenshot({ path: testInfo.outputPath('desktop-home.png'), fullPage: true });
-  await page.locator('header').getByRole('link', { name: 'Services', exact: true }).first().click();
+  await page.locator('header').getByRole('link', { name: 'About us', exact: true }).first().click();
   await expect(page).toHaveURL(/\/services\/$/);
-  await expect(page.getByRole('heading', { level: 1 })).toContainText('What we treat');
-  await page.getByRole('link', { name: 'BOTOX & Muscle Relaxing Injections', exact: true }).first().click();
+  await expect(page.getByRole('heading', { level: 1 })).toContainText('Beauty begins');
+  await page.getByRole('link', { name: 'Explore Cosmetic Clinic' }).click();
+  await page.locator('.treatment-item').filter({has:page.getByRole('heading',{name:/BOTOX/})}).getByRole('link',{name:'View treatment details'}).click();
   await expect(page).toHaveURL(/\/services\/medical-cosmetic\/botox\/?$/);
   await expect(page.getByRole('heading', { level: 1 })).toContainText('BOTOX');
   expect(errors).toEqual([]);
