@@ -5,3 +5,5 @@
 .story-hero-copy{position:relative;background:#F5F0E8}
 
 .story-actions .story-primary{text-decoration:none}
+
+.story-care-image{margin:0;min-width:0}.story-care-image img{display:block;width:100%;height:auto;aspect-ratio:1.15;object-fit:cover;border-radius:36px}.story-care-image figcaption{font-size:12px;line-height:1.5;margin-top:12px;opacity:.8}

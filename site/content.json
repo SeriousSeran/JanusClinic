@@ -6,9 +6,9 @@
     "intro": "A considered approach to looking and feeling yourself. Discover the part of Janus that’s right for you."
   },
   "areas": [
-    {"id": "cosmetic", "name": "Cosmetic", "eyebrow": "Skin & aesthetic care", "description": "Explore medical cosmetic treatments and find out what a consultation involves.", "action": "Explore cosmetic care", "image": "/site/assets/cosmetic.webp", "alt": "Illustrative Sri Lankan woman with naturally textured skin against a soft rose background"},
-    {"id": "salon", "name": "Salon", "eyebrow": "Hair, beauty & body care", "description": "From everyday hair care to a little time for yourself. Browse our services and prices.", "action": "Explore the salon", "image": "/site/assets/salon.webp", "alt": "Illustrative Sri Lankan woman with long wavy black hair against a soft rose background"},
-    {"id": "wellness", "name": "Wellness", "eyebrow": "A new chapter", "description": "A thoughtful new part of Janus is taking shape. Discover what’s coming.", "action": "Discover wellness", "image": "/site/assets/wellness.webp", "alt": "Illustrative Sri Lankan woman with a relaxed expression against a soft rose background"}
+    {"id": "cosmetic", "name": "Cosmetic", "eyebrow": "Skin & aesthetic care", "description": "Explore medical cosmetic treatments and find out what a consultation involves.", "action": "Explore cosmetic care", "image": "/site/assets/treatments/janus-home-cosmetic-treatment.webp", "alt": "AI-generated illustration: Gloved hands apply a facial mask to the cheek of a reclining Sri Lankan woman"},
+    {"id": "salon", "name": "Salon", "eyebrow": "Hair, beauty & body care", "description": "From everyday hair care to a little time for yourself. Browse our services and prices.", "action": "Explore the salon", "image": "/site/assets/treatments/janus-home-salon-treatment.webp", "alt": "AI-generated illustration: A stylist’s gloved hands trim the black hair of a seated Sri Lankan woman wearing a salon cape"},
+    {"id": "wellness", "name": "Wellness", "eyebrow": "A new chapter", "description": "A thoughtful new part of Janus is taking shape. Discover what’s coming.", "action": "Discover wellness", "image": "/site/assets/treatments/janus-home-wellness-treatment.webp", "alt": "AI-generated illustration: A Sri Lankan woman rests during a shoulder massage by gloved hands beside a dark-pink uniform"}
   ],
   "cosmetic_treatments": [
     {"slug": "botox", "name": "BOTOX & Muscle Relaxing Injections", "detail": "Read about the treatment, suitability and frequently asked questions."},

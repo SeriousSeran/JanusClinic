@@ -22,6 +22,7 @@ export default function Salon(){
  <nav className="category-navigation" aria-label="Salon service categories"><a href={asset('/salon/#salon-catalog')} aria-current={filters.category==='all'?'page':undefined} onClick={e=>{e.preventDefault();filters.setCategory('all');}}>All services</a>{categories.map(c=>{const params=new URLSearchParams();params.set('category',c.id);if(filters.q)params.set('q',filters.q);return <a href={asset('/salon/?'+params+'#catalog-'+c.id)} key={c.id} aria-current={filters.category===c.id?'page':undefined} onClick={e=>{e.preventDefault();chooseCategory(c.id);}}>{c.label}</a>;})}</nav>
  <button className="text-link filter-clear" onClick={filters.clear}>Clear filters</button>
  {filtered.length===0&&<p>No matching services. Try another name or clear the filters.</p>}
+ <p className="muted salon-imagery-note">Treatment images are AI-generated illustrations, not actual Janus clients, equipment or treatment results.</p>
  <div className="catalog-grid">{categories.map(category=>{
   const entries=filtered.filter(o=>o.category===category.label);if(!entries.length)return null;
   const groups=groupSalonOfferings(entries);

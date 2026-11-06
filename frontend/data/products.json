@@ -1,0 +1,65 @@
+[
+  {
+    "id": "cinteric-shampoo-5",
+    "name": "Cinteric 5% – Anti-Dandruff Shampoo",
+    "price": 780,
+    "description": "Cinteric 5% Anti-Dandruff Shampoo is the stronger formulation in the Cinteric hair care range, recommended for persistent or severe dandruff. The elevated 5% concentration provides more intensive scalp treatment for stubborn cases.",
+    "image": "/site/assets/products/cinteric-shampoo-5.webp",
+    "category": "Hair Care",
+    "usage": "Wet hair thoroughly. Apply to scalp and massage for 3–5 minutes. Leave on for 5 minutes before rinsing. Use 2 times per week initially, then reduce as condition improves."
+  },
+  {
+    "id": "antiseptic-soap",
+    "name": "Soap – Antiseptic Skin Rejuvenating",
+    "price": 1300,
+    "description": "A medically-formulated antiseptic soap that combines deep cleansing with skin-renewing properties. Effective against bacteria while being gentle enough for regular use on face and body.",
+    "image": "/site/assets/products/antiseptic-soap.webp",
+    "category": "Skincare",
+    "usage": "Lather with water and apply to skin. Massage gently for 30 seconds. Rinse thoroughly. Use twice daily."
+  },
+  {
+    "id": "cinteric-gel",
+    "name": "Cinteric Gel – Anti Acne Gel",
+    "price": 1250,
+    "description": "Cinteric Gel is a clinically-informed anti-acne formulation developed to target active breakouts, reduce inflammation, and prevent future blemishes. Recommended by Dr. Jayaruwan Bandara as part of a comprehensive acne care routine.",
+    "image": "/site/assets/products/cinteric-gel.webp",
+    "category": "Skincare",
+    "usage": "Cleanse face thoroughly. Apply a small amount directly onto affected areas. Use twice daily, morning and evening. Follow with sunscreen during the day."
+  },
+  {
+    "id": "leonor-body-lotion",
+    "name": "Leonor – Body Lotion",
+    "price": 3200,
+    "description": "Leonor Body Lotion is a richly formulated moisturiser designed to hydrate and soften skin with every application. Ideal for daily use, it absorbs quickly without leaving a greasy residue, leaving skin feeling supple and refreshed.",
+    "image": "/site/assets/products/leonor-body-lotion.webp",
+    "category": "Body",
+    "usage": "Apply generously to clean, dry skin after bathing. Massage in circular motions until fully absorbed. Use daily for best results."
+  },
+  {
+    "id": "cinteric-4-step",
+    "name": "Cinteric 4 Step – Acne Face Cleanser",
+    "price": 2750,
+    "description": "A comprehensive acne-fighting cleanser system that guides you through a complete cleansing routine. The Cinteric 4 Step system targets acne at multiple stages, removing impurities, targeting bacteria, and restoring skin balance.",
+    "image": "/site/assets/products/cinteric-4-step.webp",
+    "category": "Skincare",
+    "usage": "Follow the 4-step instructions included with the product. Use morning and evening for best results. Always follow with Cinteric 90+ sunscreen in the daytime."
+  },
+  {
+    "id": "cinteric-shampoo-3",
+    "name": "Cinteric 3% – Anti-Dandruff Shampoo",
+    "price": 640,
+    "description": "Cinteric 3% Anti-Dandruff Shampoo is a medicated hair care formulation that targets dandruff at the scalp level. The 3% active concentration is suited for mild to moderate dandruff and general scalp health maintenance.",
+    "image": "/site/assets/products/cinteric-shampoo-3.webp",
+    "category": "Hair Care",
+    "usage": "Wet hair thoroughly. Apply shampoo and massage into scalp for 2–3 minutes. Leave on for 3–5 minutes before rinsing. Use 2–3 times per week."
+  },
+  {
+    "id": "cinteric-90-sunscreen",
+    "name": "Cinteric 90+ – Sunscreen Gel",
+    "price": 3200,
+    "description": "Cinteric 90+ is a broad-spectrum SPF sunscreen gel formulated specifically for the Sri Lankan climate. It provides high UV protection while maintaining a lightweight, non-sticky feel, essential daily protection in Colombo's equatorial sun.",
+    "image": "/site/assets/products/cinteric-90-sunscreen.webp",
+    "category": "Skincare",
+    "usage": "Apply generously to all exposed areas 20 minutes before sun exposure. Reapply every 2–3 hours when outdoors. Use as the final step in your morning skincare routine."
+  }
+]

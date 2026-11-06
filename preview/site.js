@@ -77,3 +77,9 @@ for(const link of document.querySelectorAll('header a,.nav-link')){const label=l
 for(const menu of document.querySelectorAll('[role="dialog"][aria-label="Navigation menu"] nav')){if(![...menu.querySelectorAll('a')].some(link=>link.textContent.trim()==='Homepage')){const home=document.createElement('a');const script=document.querySelector('script[src$="/preview/site.js"]');home.href=new URL('../',script.src).pathname;home.textContent='Homepage';home.className='text-h2 py-3 nav-link';menu.prepend(home);}}
 
 for(const menu of document.querySelectorAll('[role="dialog"][aria-label="Navigation menu"] nav')){const script=document.querySelector('script[src$="/preview/site.js"]');const profile=document.createElement('a');profile.href=new URL('../profile/',script.src).pathname;profile.textContent='My profile';profile.className='text-h2 py-3 nav-link';const home=[...menu.querySelectorAll('a')].find(link=>link.textContent.trim()==='Homepage');if(home)home.after(profile);else menu.prepend(profile);}
+
+// Keep Journal last on preserved treatment-page dropdowns, matching the React menu.
+for (const menu of document.querySelectorAll('[role="dialog"][aria-label="Navigation menu"] nav')) {
+  const journal = [...menu.querySelectorAll('a')].find(link => link.textContent.trim() === 'Journal');
+  if (journal) menu.append(journal);
+}

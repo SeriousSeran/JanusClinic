@@ -54,9 +54,10 @@ def faq_content(source):
 
 
 class PreviewHTML(HTMLParser):
-    def __init__(self, base, imagery=None, area_navigation=True, booking_id=None, booking_area=None):
+    def __init__(self, base, imagery=None, area_navigation=True, booking_id=None, booking_area=None, descriptions=None):
         super().__init__(convert_charrefs=False)
         self.imagery = imagery or {}
+        self.descriptions = descriptions or {}
         self.area_navigation = area_navigation
         self.booking_id = booking_id
         self.booking_area = booking_area
@@ -88,7 +89,11 @@ class PreviewHTML(HTMLParser):
         mapped_portrait = tag == 'img' and self.imagery and self.local_url(data.get('src', '')).startswith(self.base + '/site/assets/')
         if mapped_portrait:
             self.illustrative_portrait = True
-            attrs = [(key, 'AI-generated illustrative Sri Lankan model; not a patient or treatment result' if key == 'alt' else value) for key, value in attrs]
+            mapped_src = self.local_url(data.get('src', ''))[len(self.base):]
+            description = self.descriptions.get(mapped_src)
+            if description:
+                attrs = [(key, value) for key, value in attrs if key not in {'alt', 'width', 'height'}]
+                attrs += [('alt', description), ('width', '928' if '/janus-home-' in mapped_src else '1264'), ('height', '1152' if '/janus-home-' in mapped_src else '848')]
         if tag == 'script':
             if data.get('src') not in {'/portfolio/portfolio.mjs'}:
                 self.skip_script = True
@@ -151,7 +156,7 @@ class PreviewHTML(HTMLParser):
             self.output.append('<meta name="robots" content="noindex, nofollow"><meta http-equiv="Content-Security-Policy" content="' + html.escape(CSP, quote=False) + '"><link rel="stylesheet" href="' + self.base + '/preview/site.css"><link rel="stylesheet" href="' + self.base + '/site/assets/legacy-theme.css"><link rel="stylesheet" href="' + self.base + '/site/assets/ios-interface.css"><link rel="stylesheet" href="' + self.base + '/site/assets/janus-loader.css">')
         if tag == 'body':
             if self.illustrative_portrait:
-                self.output.append('<p class="preview-illustration-note">Model portraits on this page include AI-generated illustrations, not patient photographs or treatment results.</p>')
+                self.output.append('<p class="preview-illustration-note">Treatment scenes include AI-generated illustrations, not actual Janus staff, patients, premises, equipment or results.</p>')
             self.output.append('<aside class="preview-bar" aria-label="Preview controls"><strong>Design preview</strong><span id="preview-notice" role="status" tabindex="-1">Forms and booking actions are disabled.</span><a href="' + self.base + '/portfolio/">Design portfolio</a></aside><script defer src="' + self.base + '/preview/site.js"></script><script defer src="' + self.base + '/site/assets/ios-motion.js"></script>')
         self.output.append('</' + tag + '>')
 
@@ -202,7 +207,8 @@ def build(destination, base, react_root):
     if destination.exists() and not (destination / 'preview-manifest.json').is_file():
         raise ValueError('Refusing to replace an output directory without the preview build marker.')
     destination.parent.mkdir(parents=True, exist_ok=True)
-    imagery = json.loads((ROOT / 'site/imagery.json').read_text())['replacements']
+    image_config = json.loads((ROOT / 'site/imagery.json').read_text())
+    imagery = image_config['replacements']
     with tempfile.TemporaryDirectory(prefix='.preview-build-', dir=destination.parent) as temporary:
         output = Path(temporary) / 'next'
         output.mkdir()
@@ -224,11 +230,24 @@ def build(destination, base, react_root):
             if '/therapy/' in route:
                 booking_id = {'cryolipolysis': 'wellness-fat-freezing', 'sauna': 'wellness-sauna', 'lipolysis': 'initial-consultation'}.get(slug)
             booking_area = 'salon' if '/beauty' in route else ('wellness' if '/therapy' in route else ('cosmetic' if '/medical-cosmetic' in route else None))
-            parser = PreviewHTML(base, imagery, booking_id=booking_id, booking_area=booking_area)
+            parser = PreviewHTML(base, imagery, booking_id=booking_id, booking_area=booking_area, descriptions=image_config['descriptions'])
             parser.feed(source)
             target = output / Path(page['file']).relative_to('public')
             target.parent.mkdir(parents=True, exist_ok=True)
             rendered = ''.join(parser.output)
+            # Add relevant new service illustrations to preserved salon detail pages.
+            detail_images = {
+                '/services/beauty/hair-services': ['blow-dry', 'straightening-application', 'balayage-painting'],
+                '/services/beauty/facials': ['facial-cleansing', 'serum-application'],
+                '/services/beauty/bridal': ['makeup-application', 'saree-draping'],
+                '/services/beauty/nails': ['nail-soak-off'],
+            }.get(route.rstrip('/'), [])
+            if detail_images:
+                set2 = json.loads((ROOT / 'site/uploaded-images-set2.json').read_text())['images']
+                selected_images = [image for image in set2 if Path(image['filename']).stem.removeprefix('janus-missing-') in detail_images]
+                gallery = '<section class="salon-detail-imagery"><h2>A closer look at your care.</h2><p>AI-generated service illustrations, not actual Janus patients, equipment or treatment results.</p><div>' + ''.join('<figure><img src="' + base + image['src'] + '" alt="' + html.escape(image['alt'], quote=True) + '" width="' + str(image['width']) + '" height="' + str(image['height']) + '" loading="lazy"></figure>' for image in selected_images) + '</div></section>'
+                rendered = rendered.replace('</main>', gallery + '</main>')
+                rendered = rendered.replace('</head>', '<link rel="stylesheet" href="' + base + '/site/assets/salon-detail-imagery.css"></head>')
             if not route.startswith(('/wellness', '/salon', '/services/beauty', '/services/therapy')):
                 rendered = rendered.replace('<html', '<html data-janus-palette="rose"', 1)
                 rendered = rendered.replace('</head>', '<link rel="stylesheet" href="' + base + '/site/assets/brand-rose.css"></head>')
@@ -270,6 +289,12 @@ def build(destination, base, react_root):
             review_routes[path] = labels.get(path, path.strip('/').replace('/', ' · ').replace('-', ' ').title())
         review_routes.update(labels)
         review_routes['/loading-preview/'] = 'Janus loading animation · continuous preview'
+        review_routes['/image-review/'] = 'Uploaded images · complete collection'
+        image_review = output / 'image-review'
+        image_review.mkdir()
+        uploaded = json.loads((ROOT / 'site/uploaded-images.json').read_text())['images'] + json.loads((ROOT / 'site/uploaded-images-set2.json').read_text())['images']
+        image_cards = ''.join('<figure><img src="' + base + image['src'] + '" alt="' + html.escape(image['alt'], quote=True) + '" width="' + str(image['width']) + '" height="' + str(image['height']) + '" loading="lazy"><figcaption><strong>' + html.escape(image['filename']) + '</strong><p>' + ('Reference image only: no separate peel service is currently listed.' if image['reviewOnly'] else 'AI-generated treatment illustration used in the matching service family or editorial page.') + '</p></figcaption></figure>' for image in uploaded)
+        (image_review / 'index.html').write_text('<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><title>Janus uploaded image review</title><link rel="stylesheet" href="' + base + '/site/assets/image-review.css"></head><body><main><a href="' + base + '/">← Janus home</a><h1>Your new image collection.</h1><p>All 69 supplied images, optimized for the website. The doctor portrait is unchanged. These are AI-generated illustrations, not actual Janus patients, facilities, devices or treatment results.</p><a href="' + base + '/design-review/">Explore all website pages →</a><div class="image-review-grid">' + image_cards + '</div></main></body></html>')
         cards = ''.join('<a data-review-page href="' + base + path + '"><strong>' + html.escape(label) + '</strong><small>' + html.escape(path) + ' ↗</small></a>' for path, label in review_routes.items())
         review = output / 'design-review'
         review.mkdir()
